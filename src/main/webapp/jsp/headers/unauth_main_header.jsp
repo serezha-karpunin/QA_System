@@ -2,14 +2,14 @@
 
 <div id="main_page_header">
     <div id="left_part_main_page_header">
-        <form>
+        <form action="/jsp/auth/login.jsp">
             <button class="login_signup_button">Войти</button>
         </form>
-        <form>
+        <form action="/jsp/auth/registration.jsp">
             <button class="login_signup_button">Зарегистрироваться</button>
         </form>
     </div>
-    <form>
+    <form >
         <button class="question_button">Задать вопрос</button>
     </form>
 </div>
