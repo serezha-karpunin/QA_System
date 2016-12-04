@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by n on 04.12.2016.
  */
-@WebServlet("/check_email")
+@WebServlet("/check_login")
 public class CheckLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,6 +23,6 @@ public class CheckLoginServlet extends HttpServlet {
     protected void   doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         UsersDao dao = new UsersDao();
-        resp.getWriter().print(dao.isEmailExist(login));
+        resp.getWriter().print(dao.isLoginExist(login));
     }
 }
