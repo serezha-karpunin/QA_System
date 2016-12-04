@@ -1,0 +1,36 @@
+package servlets;
+
+import db.dao.UsersDao;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Created by n on 04.12.2016.
+ */
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        UsersDao dao = new UsersDao();
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        if (dao.isUserCorrect(login, password)) {
+            req.getSession().setAttribute("userLogin", login);
+            resp.sendRedirect("/");
+        } else {
+            req.setAttribute("errorLogin", "Error");
+            req.getRequestDispatcher("/jsp/auth/login.jsp").forward(req, resp);
+        }
+    }
+}

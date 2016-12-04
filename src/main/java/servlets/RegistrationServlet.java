@@ -30,9 +30,9 @@ public class RegistrationServlet extends HttpServlet {
 
     public void registerUser(RegistrationBean bean) {
         UsersDao dao = new UsersDao();
-        if (!dao.isEmailExist(bean.getEmail()) && !dao.isLoginExist(bean.getLogin())) {
+//        if (!dao.isEmailExist(bean.getEmail()) && !dao.isLoginExist(bean.getLogin())) {
             dao.create(bean.toEntity());
-            System.out.println("YES");
-        } else System.out.println("NO");
+//            System.out.println("YES");
+//        } else System.out.println("NO");
     }
 }
