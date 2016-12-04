@@ -3,12 +3,16 @@ package db.entities;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * Created by n on 04.12.2016.
+ */
 @Entity
-@Table(name = "users", schema = "epamproject", catalog = "")
+@Table(name = "users", schema = "epamproject")
 public class UsersEntity {
     private String login;
     private String password;
     private Timestamp registrationDate;
+    private String email;
 
     @Id
     @Column(name = "login", nullable = false, length = 45)
@@ -40,6 +44,16 @@ public class UsersEntity {
         this.registrationDate = registrationDate;
     }
 
+    @Basic
+    @Column(name = "email", nullable = false, length = 45)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -51,6 +65,7 @@ public class UsersEntity {
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (registrationDate != null ? !registrationDate.equals(that.registrationDate) : that.registrationDate != null)
             return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
 
         return true;
     }
@@ -60,6 +75,7 @@ public class UsersEntity {
         int result = login != null ? login.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (registrationDate != null ? registrationDate.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
 }

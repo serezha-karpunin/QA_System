@@ -20,15 +20,19 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RegistrationBean bean = new RegistrationBean(req.getParameter("login"),req.getParameter("email"),req.getParameter("password"));
-
+        RegistrationBean bean = new RegistrationBean();
+        bean.setEmail(req.getParameter("email"));
+        bean.setLogin(req.getParameter("login"));
+        bean.setPassword(req.getParameter("password"));
         registerUser(bean);
-        resp.sendRedirect("/");
-
+        getServletContext().getRequestDispatcher("/jsp/auth/registration.jsp").forward(req, resp);
     }
 
-    public void registerUser(RegistrationBean bean){
+    public void registerUser(RegistrationBean bean) {
         UsersDao dao = new UsersDao();
-        dao.create(bean.toEntity());
+        if (!dao.isEmailExist(bean.getEmail()) && !dao.isLoginExist(bean.getLogin())) {
+            dao.create(bean.toEntity());
+            System.out.println("YES");
+        } else System.out.println("NO");
     }
 }

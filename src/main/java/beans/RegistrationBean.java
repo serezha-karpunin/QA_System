@@ -10,10 +10,8 @@ public class RegistrationBean implements Serializable {
     private String email;
     private String password;
 
-    public RegistrationBean(String login, String email, String password) {
-        this.login = login;
-        this.email = email;
-        this.password = password;
+    public RegistrationBean() {
+
     }
 
     public String getLogin() {
@@ -44,6 +42,7 @@ public class RegistrationBean implements Serializable {
         UsersEntity entity = new UsersEntity();
         entity.setLogin(login);
         entity.setPassword(password);
+        entity.setEmail(email);
         entity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
         return entity;
     }

@@ -14,5 +14,8 @@
         <property name="registrationDate">
             <column name="registration_date" sql-type="datetime"/>
         </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(45)" length="45"/>
+        </property>
     </class>
 </hibernate-mapping>

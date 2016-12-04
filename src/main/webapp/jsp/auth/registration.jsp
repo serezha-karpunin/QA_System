@@ -18,6 +18,7 @@
                 <input id="password_field" name="password" type="text" placeholder="Create a password" ><br>
                 <input id="confirm_password_field" name="confirm_password" type="text" placeholder="Confirm password"><br>
                 <button>Complete Sign-Up</button>
+                ${param.login}
 
         </form>
     </div>
