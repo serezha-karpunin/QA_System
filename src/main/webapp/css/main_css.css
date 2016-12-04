@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
 }
 
@@ -7,20 +7,21 @@ body {
     font-family: "Trebuchet MS", sans-serif;
 }
 
-#page_wrapper{
+#page_wrapper {
     width: 1000px;
-    margin:auto;
+    margin: auto;
     /*border: 2px solid red;*/
 
 }
-#main_page_header{
+
+#main_page_header {
     /*padding: 15px;*/
     display: -webkit-box;
     -webkit-box-orient: horizontal;
     background-color: #1b1341;
 }
 
-#left_part_main_page_header{
+#left_part_main_page_header {
     -webkit-box-flex: 1;
 
     display: -webkit-box;
@@ -30,40 +31,40 @@ body {
 
 }
 
-.login_signup_button{
+.login_signup_button {
     background: transparent;
     border: 2px solid #1b1341;
-    color:#eaeaee;
+    color: #eaeaee;
     font-size: 16px;
     font-weight: bold;
     margin-right: 10px;
     padding: 15px;
 }
 
-.login_signup_button:hover{
+.login_signup_button:hover {
     cursor: pointer;
     border-bottom: 2px solid whitesmoke;
 
-
 }
 
-.question_button{
+.question_button {
     background: #abb2e1;
     border: 0;
     border-radius: 5px;
-    color:#eaeaee;
+    color: #eaeaee;
     font-size: 16px;
     font-weight: bold;
     padding: 10px;
 }
 
-.text_field_list{
+.text_field_list {
     margin: auto;
-    width:250px;
+    width: 500px;
     /*border: 1px solid black;*/
+
 }
 
-.text_field_list input{
+.text_field_list input {
     margin-top: 10px;
     width: 250px;
     height: 40px;
@@ -72,7 +73,8 @@ body {
     border-radius: 5px;
     padding: 5px;
 }
-.text_field_list button{
+
+.text_field_list button {
     margin-top: 10px;
     width: 250px;
     height: 40px;
@@ -81,5 +83,11 @@ body {
     border-radius: 5px;
     border: 0;
     color: #abb2e1;
-    background: -webkit-linear-gradient(top, rgba(61,87,177,1) 0%,rgba(58,65,122,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(61, 87, 177, 1) 0%, rgba(58, 65, 122, 1) 100%);
+}
+
+#registration_form span {
+    display: none;
+    font-size: small;
+    color: #1b1341;
 }
