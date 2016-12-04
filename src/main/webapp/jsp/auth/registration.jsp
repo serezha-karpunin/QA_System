@@ -23,7 +23,15 @@
     <fmt:message key="login_not_valid_error" var="login_not_valid_error"/>
     <fmt:message key="login_missing_error" var="login_missing_error"/>
     <fmt:message key="login_already_used_error" var="login_already_used_error"/>
+    <fmt:message key="password" var="password"/>
+    <fmt:message key="password_not_valid_error" var="password_not_valid_error"/>
+    <fmt:message key="password_missing_error" var="password_missing_error"/>
+    <fmt:message key="confirm_password" var="confirm_password"/>
+    <fmt:message key="confirm_password_not_valid_error" var="confirm_password_not_valid_error"/>
+    <fmt:message key="confirm_password_missing_error" var="confirm_password_missing_error"/>
+    <fmt:message key="complete_signup" var="complete_signup"/>
 </fmt:bundle>
+
 <div id="page_wrapper">
     <%--<%@include file="/jsp/headers/unauth_main_header.jsp" %>--%>
 
@@ -42,16 +50,16 @@
             <span id="login_already_used_error" class="login_errors">${login_already_used_error}</span>
             <br>
 
-            <input id="password_field" name="password" type="text" placeholder="Create a password">
-            <span id="error_missing_password">введите пароль</span>
+            <input id="password_field" name="password" type="password" placeholder="${password}">
+            <span id="password_missing_error" class="password_errors">${password_missing_error}</span>
+            <span id="password_not_valid_error" class="password_errors">${password_not_valid_error}</span>
             <br>
 
-            <input id="confirm_password_field" name="confirm_password" type="text" placeholder="Confirm password">
-            <span id="error_missing_confirm_password">повторите пароль</span>
-            <span id="error_not_valid_confirm_password">пароли не сходятся</span>
+            <input id="confirm_password_field" name="confirm_password" type="password" placeholder="${confirm_password}">
+            <span id="confirm_password_missing_error" class="confirm_password_errors">${confirm_password_missing_error}</span>
+            <span id="confirm_password_not_valid_error" class="confirm_password_errors">${confirm_password_not_valid_error}</span>
 
-            <button>Complete Sign-Up</button>
-            ${param.login}
+            <button>${complete_signup}</button>
 
         </form>
     </div>
