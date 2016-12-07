@@ -2,7 +2,7 @@ $(function () {
     var isEmailCorrect = function () {
         var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        var email = $('#email_field').val();
+        var email = $('#registration_email_field').val();
         console.log("email checkin");
 
         $('#registration_form').find('.email_errors').hide();
@@ -34,7 +34,7 @@ $(function () {
     };
     var isLoginCorrect =  function () {
         var login_regex = /^[a-zA-Z0-9_-]{3,16}$/;
-        var login = $('#login_field').val();
+        var login = $('#registration_login_field').val();
 
         $('#registration_form').find('.login_errors').hide();
 
@@ -66,7 +66,7 @@ $(function () {
     var isPasswordCorrect =  function () {
         console.log("pass checking");
         var password_regex = /^[a-zA-Z0-9_-]{3,16}$/;
-        var password = $('#password_field').val();
+        var password = $('#registration_password_field').val();
 
         $('#registration_form').find('.password_errors').hide();
 
@@ -80,7 +80,7 @@ $(function () {
             return false;
         }
 
-        var confirm_password = $('#confirm_password_field').val();
+        var confirm_password = $('#registration_confirm_password_field').val();
         if (confirm_password !== '' && confirm_password !== password) {
             $('#confirm_password_not_valid_error').show();
             return false;
@@ -89,8 +89,8 @@ $(function () {
         return true;
     };
     var  isConfirmPasswordCorrect = function() {
-        var password = $('#password_field').val();
-        var confirm_password = $('#confirm_password_field').val();
+        var password = $('#registration_password_field').val();
+        var confirm_password = $('#registration_confirm_password_field').val();
 
         $('#registration_form').find('.confirm_password_errors').hide();
 
@@ -107,10 +107,10 @@ $(function () {
     };
 
 
-    $('#email_field').change(isEmailCorrect);
-    $('#login_field').change(isLoginCorrect);
-    $('#password_field').change(isPasswordCorrect);
-    $('#confirm_password_field').change(isConfirmPasswordCorrect);
+    $('#registration_email_field').change(isEmailCorrect);
+    $('#registration_login_field').change(isLoginCorrect);
+    $('#registration_password_field').change(isPasswordCorrect);
+    $('#registration_confirm_password_field').change(isConfirmPasswordCorrect);
 
     $('#registration_form').submit(function () {
         if(isEmailCorrect()&isLoginCorrect()&isPasswordCorrect()&isConfirmPasswordCorrect()){

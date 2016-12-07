@@ -7,6 +7,7 @@
     <title>Title</title>
     <link rel='stylesheet' href='/css/main_css.css'>
     <script src='/js/jquery-3.1.1.js'></script>
+    <script src='/js/header_functions.js.js'></script>
     <script src='/js/validator.js'></script>
 
 </head>
@@ -32,30 +33,30 @@
     <fmt:message key="complete_signup" var="complete_signup"/>
 </fmt:bundle>
 
-<div id="page_wrapper">
-    <%--<%@include file="/jsp/headers/unauth_main_header.jsp" %>--%>
+<%@include file="/jsp/headers/unauth_main_header.jsp" %>
 
+<div id="page_wrapper">
     <div class="text_field_list">
         <form id="registration_form" action="/registration" method="post">
 
-            <input id="email_field" name="email" type="text" placeholder="${email}">
+            <input id="registration_email_field" name="email" type="text" placeholder="${email}">
             <span id="email_missing_error" class="email_errors">${email_missing_error}</span>
             <span id="email_not_valid_error" class="email_errors">${email_not_valid_error}</span>
             <span id="email_already_used_error" class="email_errors">${email_already_used_error}</span>
             <br>
 
-            <input id="login_field" name="login" type="text" placeholder="${login}">
+            <input id="registration_login_field" name="login" type="text" placeholder="${login}">
             <span id="login_missing_error" class="login_errors">${login_missing_error}</span>
             <span id="login_not_valid_error" class="login_errors">${login_not_valid_error}</span>
             <span id="login_already_used_error" class="login_errors">${login_already_used_error}</span>
             <br>
 
-            <input id="password_field" name="password" type="password" placeholder="${password}">
+            <input id="registration_password_field" name="password" type="password" placeholder="${password}">
             <span id="password_missing_error" class="password_errors">${password_missing_error}</span>
             <span id="password_not_valid_error" class="password_errors">${password_not_valid_error}</span>
             <br>
 
-            <input id="confirm_password_field" name="confirm_password" type="password" placeholder="${confirm_password}">
+            <input id="registration_confirm_password_field" name="confirm_password" type="password" placeholder="${confirm_password}">
             <span id="confirm_password_missing_error" class="confirm_password_errors">${confirm_password_missing_error}</span>
             <span id="confirm_password_not_valid_error" class="confirm_password_errors">${confirm_password_not_valid_error}</span>
 
@@ -63,6 +64,7 @@
 
         </form>
     </div>
+
 </div>
 </body>
 </html>

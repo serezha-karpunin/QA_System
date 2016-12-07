@@ -7,10 +7,16 @@
 <head>
     <title>Title</title>
     <link rel='stylesheet' href='/css/main_css.css'>
+    <script src='/js/jquery-3.1.1.js'></script>
+    <script src='/js/header_functions.js'></script>
+
 </head>
 <body>
+<fmt:setLocale value="en"/>
+<%@include file="/jsp/headers/unauth_main_header.jsp" %>
 <div id="page_wrapper">
-    <%@include file="/jsp/headers/unauth_main_header.jsp" %>
+
+
 </div>
 </body>
 </html>
