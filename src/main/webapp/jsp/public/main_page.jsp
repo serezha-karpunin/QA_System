@@ -13,7 +13,7 @@
 </head>
 <body>
 <fmt:setLocale value="en"/>
-<%@include file="/jsp/headers/unauth_main_header.jsp" %>
+<%@include file="/jsp/headers/auth_main_header.jsp" %>
 <div id="page_wrapper">
 
 

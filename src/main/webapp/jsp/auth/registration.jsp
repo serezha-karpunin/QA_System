@@ -7,7 +7,7 @@
     <title>Title</title>
     <link rel='stylesheet' href='/css/main_css.css'>
     <script src='/js/jquery-3.1.1.js'></script>
-    <script src='/js/header_functions.js.js'></script>
+    <script src='/js/header_functions.js'></script>
     <script src='/js/validator.js'></script>
 
 </head>
@@ -16,6 +16,7 @@
 <fmt:setLocale value="en"/>
 
 <fmt:bundle basename="language" prefix="registration.">
+    <fmt:message key="title" var="title"/>
     <fmt:message key="email" var="email"/>
     <fmt:message key="email_not_valid_error" var="email_not_valid_error"/>
     <fmt:message key="email_missing_error" var="email_missing_error"/>
@@ -37,6 +38,7 @@
 
 <div id="page_wrapper">
     <div class="text_field_list">
+        <h2>${title}</h2>
         <form id="registration_form" action="/registration" method="post">
 
             <input id="registration_email_field" name="email" type="text" placeholder="${email}">
@@ -59,6 +61,7 @@
             <input id="registration_confirm_password_field" name="confirm_password" type="password" placeholder="${confirm_password}">
             <span id="confirm_password_missing_error" class="confirm_password_errors">${confirm_password_missing_error}</span>
             <span id="confirm_password_not_valid_error" class="confirm_password_errors">${confirm_password_not_valid_error}</span>
+            <br>
 
             <button>${complete_signup}</button>
 

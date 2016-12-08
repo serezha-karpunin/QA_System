@@ -25,12 +25,12 @@
         </div>
     </div>
     <div id="login_menu">
-        <div class="arrow-up"></div>
-        <form id="login_form" action="/login" method="post">
-            <input id="auth_email_field" name="login" type="text" placeholder="${auth_email_login}">
+        <div id="auth_menu_arrow" class="arrow-up"></div>
+        <form id="unauth_header_login_form" action="/login" method="post">
+            <input id="unauth_header_email_field" name="login" type="text" placeholder="${auth_email_login}">
             <br>
 
-            <input id="auth_password_field" name="password" type="text" placeholder="${auth_password}">
+            <input id="unauth_header_password_field" name="password" type="text" placeholder="${auth_password}">
             <br>
 
             <button id="complete_login_button">${signin}</button>

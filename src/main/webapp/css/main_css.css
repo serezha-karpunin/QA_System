@@ -13,11 +13,16 @@ button:hover {
     cursor: pointer;
 }
 
+h1, h2, h3 {
+    color: rgb(58, 65, 122);
+}
+
 #page_wrapper {
     width: 60%;
-    height: 100%;
-    background: #a1b5d7;
+    height: 80%;
+    background: #ebf3fe;
     margin: 40px auto 0 auto;
+    padding: 40px 0 0 0;
 }
 
 /*
@@ -28,7 +33,7 @@ button:hover {
     width: 100%;
     height: 40px;
     position: fixed;
-    top:0;
+    top: 0;
     background-color: #4e6895;
     /*border: 2px solid lightsalmon;*/
 }
@@ -38,7 +43,7 @@ button:hover {
     width: 60%;
     height: 40px;
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -55,8 +60,9 @@ button:hover {
     MAIN HEADER LEFT PART
 */
 #main_header_left_part {
-    width: 15%;
+    width: 25%;
     text-align: left;
+    /*border: 2px solid red;*/
 }
 
 #home_button {
@@ -72,13 +78,14 @@ button:hover {
     MAIN HEADER CENTER PART
 */
 #main_header_center_part {
-    width: 70%;
+    width: 50%;
     text-align: center;
+    /*border: 2px solid green;*/
 }
 
 #search_box {
     padding-left: 10px;
-    width: 60%;
+    width: 70%;
     height: 70%;
     border-radius: 6px;
     background: #2d3758;
@@ -90,8 +97,9 @@ button:hover {
     MAIN HEADER RIGHT PART
 */
 #main_header_right_part {
-    width: 15%;
+    width: 25%;
     text-align: right;
+    /*border: 2px solid red;*/
 }
 
 #call_login_menu_button {
@@ -116,7 +124,7 @@ button:hover {
     display: none;
     top: 38px;
     /*left:0;*/
-    right:20%;
+    right: 20%;
     /*margin-left: -5%;*/
     padding: 10px;
     /*width: 210px;*/
@@ -139,7 +147,7 @@ button:hover {
     border-radius: 2px;
     font-size: 13px;
 
-    padding:3px;
+    padding: 3px;
     margin-bottom: 10px;
 }
 
@@ -173,7 +181,7 @@ button:hover {
     display: none;
     position: relative;
     top: -15px;
-    right: -90%;
+
     width: 0;
     height: 0;
     border-left: 5px solid transparent; /* left arrow slant */
@@ -183,53 +191,24 @@ button:hover {
     line-height: 0;
 }
 
-/*#left_part_main_page_header {*/
-/*-webkit-box-flex: 1;*/
+#auth_menu_arrow{
+    right: -90%;
+}
 
-/*display: -webkit-box;*/
-/*-webkit-box-orient: horizontal;*/
-/*!*-webkit-box-align: center;*!*/
-/*!*border: 2px solid green;*!*/
-
-/*}*/
-
-/*.login_signup_button {*/
-/*background: transparent;*/
-/*border: 2px solid #1b1341;*/
-/*color: #eaeaee;*/
-/*font-size: 16px;*/
-/*font-weight: bold;*/
-/*margin-right: 10px;*/
-/*padding: 15px;*/
-/*}*/
-
-/*.login_signup_button:hover {*/
-/*cursor: pointer;*/
-/*border-bottom: 2px solid whitesmoke;*/
-
-/*}*/
-
-/*.question_button {*/
-/*background: #66850c;*/
-/*border: 0;*/
-/*border-radius: 5px;*/
-/*color: #eaeaee;*/
-/*font-size: 16px;*/
-/*font-weight: bold;*/
-/*padding: 10px;*/
-/*}*/
 
 .text_field_list {
-    margin:auto;
-    width: 500px;
+    white-space: nowrap;
+    margin: auto;
+    width: 240px;
     /*border: 1px solid black;*/
 
 }
 
 .text_field_list input {
+    /*white-space: nowrap;*/
     margin-top: 10px;
-    width: 250px;
-    height: 40px;
+    width: 240px;
+    height: 30px;
     border: 1px solid #abb2e1;
     font-size: 14px;
     border-radius: 5px;
@@ -238,8 +217,8 @@ button:hover {
 
 .text_field_list button {
     margin-top: 10px;
-    width: 250px;
-    height: 40px;
+    width: 240px;
+    height: 30px;
     /*border: 3px solid #abb2e1;*/
     font-size: 14px;
     border-radius: 5px;
@@ -252,4 +231,61 @@ button:hover {
     display: none;
     font-size: small;
     color: #1b1341;
+}
+
+#auth_header_ask_question_button{
+    margin-left:5px;
+    width: 50%;
+    height: 25px;
+    font-size: 13px;
+    border-radius: 2px;
+    border: 0;
+    color: #eaeaee;
+    /*vertical-align: middle;*/
+
+    background: -webkit-linear-gradient(top, rgb(78, 104, 149) 0%, rgba(58, 65, 122, 1) 100%);
+}
+
+#auth_header_call_options_menu_button{
+    font-size: 13px;
+    color: #eaeaee;
+    height: inherit;
+    border:0;
+}
+
+#auth_header_call_options_menu_button img{
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+#options_menu_arrow{
+    right: -5%;
+}
+
+#options_menu {
+    display: none;
+    top: 38px;
+    /*left:0;*/
+    right: 22%;
+    /*margin-left: -5%;*/
+    padding: 10px;
+    /*width: 210px;*/
+    /*height: 300px;*/
+    position: fixed;
+    background: white;
+    border-radius: 3px;
+
+    /*border: 1px solid red;*/
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+    text-align: left;
+    /*left: 65%;*/
+
+}
+
+#options_menu button{
+    width: 100px;
+    background: transparent;
+    margin-top: 5px;
+    text-align: left;
+    border:0;
 }
