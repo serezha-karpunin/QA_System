@@ -36,7 +36,7 @@ button:hover {
 #main_header_content {
     /*padding: 15px;*/
     width: 60%;
-    height: inherit;
+    height: 40px;
     position: fixed;
     top:0;
     left: 0;
@@ -115,7 +115,9 @@ button:hover {
 #login_menu {
     display: none;
     top: 38px;
-    margin-left: -5%;
+    /*left:0;*/
+    right:20%;
+    /*margin-left: -5%;*/
     padding: 10px;
     /*width: 210px;*/
     /*height: 300px;*/
@@ -123,7 +125,7 @@ button:hover {
     background: white;
     border-radius: 3px;
     text-align: center;
-    /*border: 1px solid #abb2e1;*/
+    /*border: 1px solid red;*/
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
     /*left: 65%;*/
 
@@ -171,7 +173,7 @@ button:hover {
     display: none;
     position: relative;
     top: -15px;
-    right: -75%;
+    right: -90%;
     width: 0;
     height: 0;
     border-left: 5px solid transparent; /* left arrow slant */

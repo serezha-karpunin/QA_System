@@ -10,6 +10,7 @@
 </fmt:bundle>
 
 <div id="main_header_background">
+
     <div id="main_header_content">
         <div id="main_header_left_part">
             <form action="/">
@@ -21,25 +22,22 @@
         </div>
         <div id="main_header_right_part">
             <button id="call_login_menu_button">${signin}</button>
-            <div id="login_menu">
-                <div class="arrow-up"></div>
-                <form id="login_form" action="/login" method="post">
-                    <input id="auth_email_field" name="login" type="text" placeholder="${auth_email_login}">
-                    <br>
-
-                    <input id="auth_password_field" name="password" type="text" placeholder="${auth_password}">
-                    <br>
-
-                    <button id="complete_login_button">${signin}</button>
-                </form>
-                <form action="/jsp/auth/registration.jsp" method="get">
-                    <button id="call_registration_page_button">${auth_registration}</button>
-                </form>
-            </div>
         </div>
+    </div>
+    <div id="login_menu">
+        <div class="arrow-up"></div>
+        <form id="login_form" action="/login" method="post">
+            <input id="auth_email_field" name="login" type="text" placeholder="${auth_email_login}">
+            <br>
 
+            <input id="auth_password_field" name="password" type="text" placeholder="${auth_password}">
+            <br>
 
+            <button id="complete_login_button">${signin}</button>
+        </form>
+        <form action="/jsp/auth/registration.jsp" method="get">
+            <button id="call_registration_page_button">${auth_registration}</button>
+        </form>
     </div>
 
 </div>
-
