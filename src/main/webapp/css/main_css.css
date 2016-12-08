@@ -234,8 +234,8 @@ h1, h2, h3 {
 }
 
 #auth_header_ask_question_button{
-    margin-left:5px;
-    width: 50%;
+    /*margin-left:5px;*/
+    width: 30%;
     height: 25px;
     font-size: 13px;
     border-radius: 2px;
@@ -259,14 +259,14 @@ h1, h2, h3 {
 }
 
 #options_menu_arrow{
-    right: -5%;
+    right: 0%;
 }
 
 #options_menu {
     display: none;
     top: 38px;
     /*left:0;*/
-    right: 22%;
+    right: 20%;
     /*margin-left: -5%;*/
     padding: 10px;
     /*width: 210px;*/
