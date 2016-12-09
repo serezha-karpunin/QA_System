@@ -38,18 +38,17 @@
         </div>
     </div>
     <section id="last_content">
-        <p>
-            1Здесь размещаете любое содержание....
-        </p>
+        <%@include file="/jsp/parts/question.jsp" %>
+        <%@include file="/jsp/parts/question.jsp" %>
     </section>
     <section id="interesting_content">
         <p>
-            2Здесь размещаете любое содержание....
+            empty
         </p>
     </section>
     <section id="subscription_content">
         <p>
-            3Здесь размещаете любое содержание....
+            empty
         </p>
     </section>
 
