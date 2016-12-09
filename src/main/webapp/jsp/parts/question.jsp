@@ -1,14 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <fmt:bundle basename="language" prefix="question.">
-<fmt:message key="answers" var="answers"/>
-<fmt:message key="views" var="views"/>
+    <fmt:message key="answers" var="answers"/>
+    <fmt:message key="views" var="views"/>
 
 </fmt:bundle>
 
 <div class="question_element">
     <div class="question_element_left_part">
-        <h3>Hello how are you?Hello how are you? Hello how are you? Hello how are you? Hello how are you?</h3>
+        <a href="/jsp/public/question_page.jsp"><h3>Hello how are you?Hello how are you? Hello how are you? Hello how are you? Hello how are you?</h3></a>
         <div class="question_element_down_panel">
             <div class="tags">
                 <h5>java</h5>

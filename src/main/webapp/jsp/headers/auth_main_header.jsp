@@ -20,7 +20,7 @@
             <input id="search_box" type="text" placeholder="${search_placeholder}"/>
         </div>
         <div id="main_header_right_part">
-            <button id="auth_header_call_options_menu_button"><img src="avatar.png" style="width:30px"/></button>
+            <button id="auth_header_call_options_menu_button"><img src="/avatar.png"/></button>
             <button id="auth_header_ask_question_button">Спросить</button>
         </div>
     </div>
