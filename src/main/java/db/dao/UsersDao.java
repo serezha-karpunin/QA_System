@@ -8,15 +8,15 @@ import org.hibernate.Session;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersDao {
+public class UsersDao extends GenericDaoHibernateImpl<UsersEntity,String>{
 
-    public void create(UsersEntity entity) {
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        s.beginTransaction();
-        s.save(entity);
-        s.getTransaction().commit();
-        s.close();
-    }
+//    public void create(UsersEntity entity) {
+//        Session s = HibernateUtil.getSessionFactory().openSession();
+//        s.beginTransaction();
+//        s.save(entity);
+//        s.getTransaction().commit();
+//        s.close();
+//    }
 
     public boolean isLoginExist(String login) {
         Session s = HibernateUtil.getSessionFactory().openSession();

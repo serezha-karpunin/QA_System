@@ -112,12 +112,12 @@ $(function () {
 
     $('#registration_form').submit(function () {
         if(isEmailCorrect()&isLoginCorrect()&isPasswordCorrect()&isConfirmPasswordCorrect()){
-            $.post(
-                $(this).attr('action'),
-                $(this).serialize()
-            );
+            // $.post(
+            //     $(this).attr('action'),
+            //     $(this).serialize()
+            // );
         }
-        return false;
+        else return false;
 
     });
 

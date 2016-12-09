@@ -4,24 +4,37 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by n on 04.12.2016.
+ * Created by n on 10.12.2016.
  */
 @Entity
 @Table(name = "users", schema = "epamproject")
 public class UsersEntity {
     private String login;
+    private String email;
     private String password;
     private Timestamp registrationDate;
-    private String email;
+    private int questionCount;
+    private int answerCount;
+    private String lang;
 
     @Id
-    @Column(name = "login", nullable = false, length = 45)
+    @Column(name = "login", nullable = false, length = 15)
     public String getLogin() {
         return login;
     }
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    @Basic
+    @Column(name = "email", nullable = false, length = 45)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Basic
@@ -45,13 +58,33 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "email", nullable = false, length = 45)
-    public String getEmail() {
-        return email;
+    @Column(name = "question_count", nullable = false)
+    public int getQuestionCount() {
+        return questionCount;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setQuestionCount(int questionCount) {
+        this.questionCount = questionCount;
+    }
+
+    @Basic
+    @Column(name = "answer_count", nullable = false)
+    public int getAnswerCount() {
+        return answerCount;
+    }
+
+    public void setAnswerCount(int answerCount) {
+        this.answerCount = answerCount;
+    }
+
+    @Basic
+    @Column(name = "lang", nullable = false, length = 15)
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 
     @Override
@@ -61,11 +94,14 @@ public class UsersEntity {
 
         UsersEntity that = (UsersEntity) o;
 
+        if (questionCount != that.questionCount) return false;
+        if (answerCount != that.answerCount) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (registrationDate != null ? !registrationDate.equals(that.registrationDate) : that.registrationDate != null)
             return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (lang != null ? !lang.equals(that.lang) : that.lang != null) return false;
 
         return true;
     }
@@ -73,9 +109,12 @@ public class UsersEntity {
     @Override
     public int hashCode() {
         int result = login != null ? login.hashCode() : 0;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (registrationDate != null ? registrationDate.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + questionCount;
+        result = 31 * result + answerCount;
+        result = 31 * result + (lang != null ? lang.hashCode() : 0);
         return result;
     }
 }

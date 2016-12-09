@@ -14,7 +14,7 @@
 <body>
 <fmt:setLocale value="en"/>
 
-<%@include file="/jsp/headers/auth_main_header.jsp" %>
+<%@include file="/jsp/headers/unauth_main_header.jsp" %>
 
 <fmt:bundle basename="language" prefix="main_page.">
     <fmt:message key="title" var="title"/>

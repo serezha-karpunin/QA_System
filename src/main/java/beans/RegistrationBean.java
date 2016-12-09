@@ -4,6 +4,7 @@ import db.entities.UsersEntity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Locale;
 
 public class RegistrationBean implements Serializable {
     private String login;
@@ -44,6 +45,7 @@ public class RegistrationBean implements Serializable {
         entity.setPassword(password);
         entity.setEmail(email);
         entity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
+        entity.setLang(Locale.getDefault().toString());
         return entity;
     }
 }
