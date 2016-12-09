@@ -3,7 +3,6 @@ $(function () {
         var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         var email = $('#registration_email_field').val();
-        console.log("email checkin");
 
         $('#registration_form').find('.email_errors').hide();
 
@@ -64,7 +63,6 @@ $(function () {
         return true;
     };
     var isPasswordCorrect =  function () {
-        console.log("pass checking");
         var password_regex = /^[a-zA-Z0-9_-]{3,16}$/;
         var password = $('#registration_password_field').val();
 
@@ -114,13 +112,11 @@ $(function () {
 
     $('#registration_form').submit(function () {
         if(isEmailCorrect()&isLoginCorrect()&isPasswordCorrect()&isConfirmPasswordCorrect()){
-           console.log("all good");
             $.post(
                 $(this).attr('action'),
                 $(this).serialize()
             );
         }
-        console.log("badd");
         return false;
 
     });

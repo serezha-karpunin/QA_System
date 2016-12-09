@@ -14,13 +14,15 @@ button:hover {
 }
 
 h1, h2, h3 {
-    color: rgb(58, 65, 122);
+    /*color: rgb(58, 65, 122);*/
+    color: #555;
 }
+
 
 #page_wrapper {
     width: 60%;
     height: 80%;
-    background: #ebf3fe;
+    /*background: #ebf3fe;*/
     margin: 40px auto 0 auto;
     padding: 40px 0 0 0;
 }
@@ -290,3 +292,58 @@ h1, h2, h3 {
     text-align: left;
     border:0;
 }
+
+#main_page_title_and_tabs{
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    /*border: 2px solid red;*/
+}
+
+#main_page_title_and_tabs h2{
+
+/*vertical-align: bottom;*/
+}
+
+
+.tabs {
+    text-align: right;
+    -webkit-box-flex: 1;
+}
+
+/* стили секций с содержанием */
+section {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.tabs input {
+    display: none;
+}
+
+/* стили вкладок (табов) */
+.tabs label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #aaa;
+    border: 1px solid #ddd;
+    background: #f1f1f1;
+    border-radius: 3px 3px 0 0;
+}
+
+/* изменения стиля заголовков вкладок при наведении */
+.tabs label:hover {
+    color: #888;
+    cursor: pointer;
+}
+/* стили для активной вкладки */
+.tabs input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 1px solid rgb(58, 65, 122);
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
