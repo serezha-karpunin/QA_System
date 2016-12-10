@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.entities.QaLinksEntity" table="qa_links" schema="epamproject">
+        <property name="idAnswer">
+            <column name="id_answer" sql-type="int(11)"/>
+        </property>
+        <property name="idQuestion">
+            <column name="id_question" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

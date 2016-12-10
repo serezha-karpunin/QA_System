@@ -5,11 +5,16 @@ import db.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class UsersDao extends GenericDaoHibernateImpl<UsersEntity,String>{
+public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
 
+    public UsersDao(){
+        super(UsersEntity.class);
+    }
 //    public void create(UsersEntity entity) {
 //        Session s = HibernateUtil.getSessionFactory().openSession();
 //        s.beginTransaction();
@@ -51,5 +56,19 @@ public class UsersDao extends GenericDaoHibernateImpl<UsersEntity,String>{
         else return false;
     }
 
+    public static void main(String[] args) {
+        UsersDao usersDao = new UsersDao();
+        String a = "bbb";
+//        UsersEntity usersEntity = new UsersEntity();
+//        usersEntity.setLogin(a);
+//        usersEntity.setEmail(a + "@ya.ru");
+//        usersEntity.setPassword(a);
+//        usersEntity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
+//        usersEntity.setLang(Locale.getDefault().toString());
+//        usersDao.save(usersEntity);
+        System.out.println(usersDao.getById(a).getEmail());
+        usersDao.deleteById(a);
+        System.out.println("HERE");
+    }
 
 }

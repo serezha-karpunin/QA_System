@@ -19,7 +19,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         RegistrationBean bean = new RegistrationBean();
         bean.setEmail(req.getParameter("email"));
         bean.setLogin(req.getParameter("login"));
@@ -33,7 +32,7 @@ public class RegistrationServlet extends HttpServlet {
     public void registerUser(RegistrationBean bean) {
         UsersDao dao = new UsersDao();
 //        if (!dao.isEmailExist(bean.getEmail()) && !dao.isLoginExist(bean.getLogin())) {
-            dao.create(bean.toEntity());
+            dao.save(bean.toEntity());
 //            System.out.println("YES");
 //        } else System.out.println("NO");
     }

@@ -1,18 +1,19 @@
 package db.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by n on 09.12.2016.
  */
 public interface GenericDao<T, PK extends Serializable> {
+    T getById(PK id);
 
-    void create(T newInstance);
+    List<T> getAll();
 
-    T get(PK id);
+    void save(T entity);
 
-    void update(T transientObject);
+    void update(T entity);
 
-    void delete(T persistentObject);
-
+    void deleteById(PK id);
 }

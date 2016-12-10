@@ -1,0 +1,34 @@
+package db.dao;
+
+import db.entities.QuestionsEntity;
+import db.util.HibernateUtil;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import java.util.List;
+
+/**
+ * Created by n on 10.12.2016.
+ */
+public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Integer>{
+
+    public QuestionsDao() {
+        super(QuestionsEntity.class);
+    }
+    public List<QuestionsEntity> getInterestingQuestions(){
+        List<QuestionsEntity> list = getAll();
+        list.sort((o1,o2)->o2.getViews() - o1.getViews());
+        return list;
+    }
+    public List<QuestionsEntity> getLastQuestions(){
+        List<QuestionsEntity> list = getAll();
+        list.sort((o1, o2) -> o2.getIdQuestion() - o1.getIdQuestion());
+        return list;
+    }
+    public List<QuestionsEntity> getQuestionsByLogin(String login){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery("FROM QuestionsEntity WHERE login =:login");
+        query.setParameter("login",login);
+        return query.list();
+    }
+}

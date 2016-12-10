@@ -4,37 +4,57 @@ import db.util.HibernateUtil;
 import org.hibernate.Session;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by n on 09.12.2016.
  */
-public class GenericDaoHibernateImpl<T, PK extends Serializable> implements GenericDao<T,PK> {
+public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implements GenericDao<T,PK> {
 
     private Class<T> type;
+
+    public GenericDaoHibernateImpl(Class<T> type){
+       this.type = type;
+    }
+
     @Override
-    public void create(T newInstance) {
+    public T getById(PK id) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        T el = s.get(type,id);
+        return el;
+//        return (T) sessionFactory.getCurrentSession().get(type, id);
+    }
+
+    @Override
+    public List<T> getAll() {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        List<T> list = s.createCriteria(type).list();
+        s.close();
+        return list;
+    }
+
+    @Override
+    public void save(T t) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         s.beginTransaction();
-        s.save(newInstance);
+        s.save(t);
         s.getTransaction().commit();
         s.close();
     }
 
     @Override
-    public T get(PK id) {
+    public void update(T t) {
         Session s = HibernateUtil.getSessionFactory().openSession();
-        return (T) s.get(type,id);
+        s.update(t);
+        s.close();
     }
 
     @Override
-    public void update(T transientObject) {
+    public void deleteById(PK id) {
         Session s = HibernateUtil.getSessionFactory().openSession();
-        s.update(transientObject);
-    }
-
-    @Override
-    public void delete(T persistentObject) {
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        s.delete(persistentObject);
+        s.beginTransaction();
+        s.delete(getById(id));
+        s.getTransaction().commit();
+        s.close();
     }
 }

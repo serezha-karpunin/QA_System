@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             req.getSession().setAttribute("userLogin", login);
             resp.sendRedirect("/");
         } else {
-            req.setAttribute("errorLogin", "Error");
+            req.setAttribute("errorMessage", "Error");
             req.getRequestDispatcher("/jsp/auth/login.jsp").forward(req, resp);
         }
     }

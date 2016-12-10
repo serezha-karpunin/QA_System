@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.entities.QuestionsEntity" table="questions" schema="epamproject">
+        <id name="idQuestion">
+            <column name="id_question" sql-type="int(11)"/>
+        </id>
+        <property name="login">
+            <column name="login" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="title">
+            <column name="title" sql-type="varchar(250)" length="250"/>
+        </property>
+        <property name="text">
+            <column name="text" sql-type="varchar(500)" length="500"/>
+        </property>
+        <property name="date">
+            <column name="date" sql-type="datetime"/>
+        </property>
+        <property name="views">
+            <column name="views" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>
