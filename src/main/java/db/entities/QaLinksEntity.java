@@ -1,37 +1,26 @@
 package db.entities;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  * Created by n on 10.12.2016.
  */
 @Entity
-@Table(name = "qa_links", schema = "epamproject")
+@Table(name = "qa_links", schema = "epamproject", catalog = "")
 public class QaLinksEntity {
-    private int idAnswer;
-    private int idQuestion;
+    private int idQaLinks;
 
-    @Basic
-    @Column(name = "id_answer", nullable = false)
-    public int getIdAnswer() {
-        return idAnswer;
+    @Id
+    @Column(name = "id_qa_links", nullable = false)
+    public int getIdQaLinks() {
+        return idQaLinks;
     }
 
-    public void setIdAnswer(int idAnswer) {
-        this.idAnswer = idAnswer;
-    }
-
-    @Basic
-    @Column(name = "id_question", nullable = false)
-    public int getIdQuestion() {
-        return idQuestion;
-    }
-
-    public void setIdQuestion(int idQuestion) {
-        this.idQuestion = idQuestion;
+    public void setIdQaLinks(int idQaLinks) {
+        this.idQaLinks = idQaLinks;
     }
 
     @Override
@@ -41,16 +30,13 @@ public class QaLinksEntity {
 
         QaLinksEntity that = (QaLinksEntity) o;
 
-        if (idAnswer != that.idAnswer) return false;
-        if (idQuestion != that.idQuestion) return false;
+        if (idQaLinks != that.idQaLinks) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = idAnswer;
-        result = 31 * result + idQuestion;
-        return result;
+        return idQaLinks;
     }
 }

@@ -28,7 +28,8 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
     @Override
     public List<T> getAll() {
         Session s = HibernateUtil.getSessionFactory().openSession();
-        List<T> list = s.createCriteria(type).list();
+        List<T> list = s.createQuery("from " + type.getName() + "").list();
+
         s.close();
         return list;
     }

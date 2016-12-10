@@ -5,11 +5,8 @@
 <hibernate-mapping>
 
     <class name="db.entities.QaLinksEntity" table="qa_links" schema="epamproject">
-        <property name="idAnswer">
-            <column name="id_answer" sql-type="int(11)"/>
-        </property>
-        <property name="idQuestion">
-            <column name="id_question" sql-type="int(11)"/>
-        </property>
+        <id name="idQaLinks">
+            <column name="id_qa_links" sql-type="int(11)"/>
+        </id>
     </class>
 </hibernate-mapping>

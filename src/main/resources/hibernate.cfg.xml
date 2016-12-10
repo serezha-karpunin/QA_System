@@ -7,21 +7,17 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/epamproject</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-        <mapping resource="UsersEntity.hbm.xml"/>
-        <mapping resource="UsersEntity.hbm.xml"/>
-        <mapping resource="UsersEntity.hbm.xml"/>
+        <property name="connection.password">root</property>
+        <property name="connection.username">root</property>
         <mapping resource="UsersEntity.hbm.xml"/>
         <mapping class="db.entities.UsersEntity"/>
-        <mapping resource="UsersEntity.hbm.xml"/>
         <mapping resource="QuestionsEntity.hbm.xml"/>
         <mapping class="db.entities.QuestionsEntity"/>
         <mapping resource="AnswersEntity.hbm.xml"/>
         <mapping class="db.entities.AnswersEntity"/>
-        <mapping resource="QuestionsEntity.hbm.xml"/>
         <mapping resource="QaLinksEntity.hbm.xml"/>
         <mapping class="db.entities.QaLinksEntity"/>
-        <mapping resource="AnswersEntity.hbm.xml"/>
-        <mapping resource="QuestionsEntity.hbm.xml"/>
+
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
