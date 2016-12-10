@@ -9,14 +9,21 @@
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="connection.password">root</property>
         <property name="connection.username">root</property>
+
         <mapping resource="UsersEntity.hbm.xml"/>
         <mapping class="db.entities.UsersEntity"/>
+
         <mapping resource="QuestionsEntity.hbm.xml"/>
         <mapping class="db.entities.QuestionsEntity"/>
+
         <mapping resource="AnswersEntity.hbm.xml"/>
         <mapping class="db.entities.AnswersEntity"/>
+
         <mapping resource="QaLinksEntity.hbm.xml"/>
         <mapping class="db.entities.QaLinksEntity"/>
+
+        <mapping resource="TagsEntity.hbm.xml"/>
+        <mapping class="db.entities.TagsEntity"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

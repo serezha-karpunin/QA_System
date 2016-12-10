@@ -29,7 +29,7 @@
     ${sessionScope.userLogin}
     ${param.errorLogin.toString()}
     <div class="text_field_list">
-        <h2>${title}</h2>
+        <h2 class="title_text">${title}</h2>
         <form id="login_page_login_form" action="/login" method="post">
             <input id="login_page_email_field" name="login" type="text" placeholder="${auth_email_login}">
             <br>

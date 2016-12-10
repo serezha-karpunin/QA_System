@@ -29,6 +29,8 @@ public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Intege
         Session s = HibernateUtil.getSessionFactory().openSession();
         Query query = s.createQuery("FROM QuestionsEntity WHERE login =:login");
         query.setParameter("login",login);
-        return query.list();
+        List<QuestionsEntity> list = query.list();
+        s.close();
+        return list;
     }
 }

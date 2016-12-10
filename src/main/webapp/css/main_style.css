@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     outline: 0;
+    color: #696969;
 }
 
 body {
@@ -17,10 +18,14 @@ button:hover {
     cursor: pointer;
 }
 
-h1, h2, h3 {
-    /*color: rgb(58, 65, 122);*/
-    color: #555;
+
+.title_text{
+    color: rgb(49, 49, 99);
 }
+/*h1, h2, h3 {*/
+    /*color: rgb(58, 65, 122);*/
+    /*!*color: #555;*!*/
+/*}*/
 
 #page_wrapper {
     width: 60%;
@@ -176,10 +181,10 @@ h1, h2, h3 {
 
 #call_registration_page_button:hover {
     text-decoration: underline;
-    margin-top: 5px;
-    background: transparent;
-    border: 0;
-    color: darkgray;
+    /*margin-top: 5px;*/
+    /*background: transparent;*/
+    /*border: 0;*/
+    /*color: darkgray;*/
 }
 
 .arrow-up {
@@ -370,6 +375,7 @@ section {
 
 .question_element_right_part {
     margin-left: 50px;
+
     /*border: 2px solid green;*/
     /*text-align: center;*/
     /*-webkit-box-flex: 2;*/
@@ -382,13 +388,18 @@ section {
 }
 
 .question_element_right_part button {
-
+    color: #919191;
     border: 0;
     /*height:100%;*/
     /*vertical-align: middle;*/
     background: transparent;
     width: 60px;
     /*border: 2px solid blue;*/
+
+}
+
+.question_element_right_part button:hover {
+    color: #696969;
 
 }
 
@@ -412,11 +423,12 @@ section {
     -webkit-box-flex: 1;
 }
 
-.tags h5 {
+.tags button {
     color: #4e6895;
     padding: 2px;
     margin-right: 5px;
     background: #d9eafe;
+    border:0;
 
 }
 
@@ -504,11 +516,41 @@ section {
     /*margin-top:10px;*/
 }
 
-.like_answer_button{
+.unpressed_like_answer_button{
     border:1px solid #5ad65a;
     color: #5ad65a;
     background: transparent;
     border-radius: 4px;
     padding:4px 10px;
     margin:10px 0;
+}
+
+.unpressed_like_answer_button:hover{
+    color: #fff;
+    background: #5ad65a;
+}
+
+.pressed_like_answer_button{
+    border:1px solid #5ad65a;
+    color: #fff;
+    background: #5ad65a;
+    border-radius: 4px;
+    padding:4px 10px;
+    margin:10px 0;
+}
+
+.pressed_like_answer_button:hover{
+    color: #5ad65a;
+    background: transparent;
+}
+
+.question_page_call_auth_button{
+    font-size:medium;
+    color: #a2a2a2;
+    background: transparent;
+    border:0;
+}
+
+.question_page_call_auth_button:hover{
+    text-decoration: underline;
 }

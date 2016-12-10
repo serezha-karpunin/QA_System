@@ -17,9 +17,19 @@
     <fmt:message key="answers" var="answers"/>
     <fmt:message key="your_answer" var="your_answer"/>
     <fmt:message key="post_answer" var="post"/>
+    <fmt:message key="call_auth" var="call_auth"/>
 
 </fmt:bundle>
-<%@include file="/jsp/headers/auth_main_header.jsp" %>
+
+<c:choose>
+    <c:when test="${not empty userLogin}">
+        <%@include file="/jsp/headers/auth_main_header.jsp" %>
+    </c:when>
+    <c:otherwise>
+        <%@include file="/jsp/headers/unauth_main_header.jsp" %>
+    </c:otherwise>
+</c:choose>
+
 <div id="page_wrapper">
     <div id="question_page_content_wrapper">
         <div id="question_page_author_line">
@@ -45,9 +55,22 @@
         <%@include file="/jsp/parts/answer.jsp" %>
 
         <br>
-        <h3>${your_answer}</h3>
-        <textarea id="answer_text_field" rows="7"></textarea>
-        <button id="post_answer_button">${post}</button>
+
+        <c:choose>
+            <c:when test="${not empty userLogin}">
+                <h3>${your_answer}</h3>
+                <textarea id="answer_text_field" rows="7"></textarea>
+                <button id="post_answer_button">${post}</button>
+            </c:when>
+            <c:otherwise>
+                <form action="/jsp/auth/login.jsp" method="get">
+                    <button class="question_page_call_auth_button">${call_auth}</button>
+                </form>
+            </c:otherwise>
+        </c:choose>
+        <%--<h3>${your_answer}</h3>--%>
+        <%--<textarea id="answer_text_field" rows="7"></textarea>--%>
+        <%--<button id="post_answer_button">${post}</button>--%>
     </div>
 </div>
 </body>

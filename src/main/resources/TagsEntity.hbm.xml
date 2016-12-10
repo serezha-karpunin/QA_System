@@ -4,15 +4,15 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="db.entities.QaLinksEntity" table="qa_links" schema="epamproject">
-        <id name="idQaLinks">
-            <column name="id_qa_links" sql-type="int(11)"/>
+    <class name="db.entities.TagsEntity" table="tags" schema="epamproject">
+        <id name="idTags">
+            <column name="id_tags" sql-type="int(11)"/>
         </id>
         <property name="idQuestion">
             <column name="id_question" sql-type="int(11)"/>
         </property>
-        <property name="idAnswer">
-            <column name="id_answer" sql-type="int(11)"/>
+        <property name="tag">
+            <column name="tag" sql-type="varchar(45)" length="45"/>
         </property>
     </class>
 </hibernate-mapping>

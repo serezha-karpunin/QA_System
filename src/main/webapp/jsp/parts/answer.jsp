@@ -13,5 +13,5 @@
         <p>Answer text here here here Answer text here here Answer text here here Answer text here
             here Answer text here here Answer text here here here</p>
     </div>
-    <button class="like_answer_button">${like} 5</button>
+    <button class="unpressed_like_answer_button">${like} 5</button>
 </div>
