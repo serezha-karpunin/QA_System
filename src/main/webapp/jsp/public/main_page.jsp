@@ -7,7 +7,9 @@
 
 <html>
 <head>
-    <link rel='stylesheet' href='/css/main_style.css'>
+    <link rel='stylesheet' href='/css/base_n_headers.css'>
+    <link rel='stylesheet' href='/css/main_page.css'>
+    <link rel='stylesheet' href='/css/question.css'>
     <script src='/js/jquery-3.1.1.js'></script>
     <script src='/js/header_functions.js'></script>
     <script src='/js/page_functions.js'></script>

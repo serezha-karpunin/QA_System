@@ -1,0 +1,138 @@
+.question_element {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.question_element_left_part {
+    -webkit-box-flex: 5;
+}
+
+.question_element_right_part {
+    margin-left: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: center;
+    -webkit-box-pack: end;
+}
+
+.question_element_right_part a {
+    color: #919191;
+    border: 0;
+    display: block;
+    text-align: center;
+    width:60px;
+
+}
+
+.question_element_right_part a:hover {
+    color: #696969;
+
+}
+
+.question_element_down_panel {
+    margin-top: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+
+}
+
+.question_element_down_panel h5 {
+    color: #919191;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.question_element_down_panel button {
+    color: #4e6895;
+    border:0;
+    background: transparent;
+    padding: 2px;
+}
+
+.tags {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-flex: 1;
+}
+
+.tags button {
+    color: #4e6895;
+    padding: 2px;
+    margin-right: 5px;
+    background: #d9eafe;
+    border:0;
+
+}
+
+#question_page_content_wrapper {
+    border-radius: 5px;
+    padding:20px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+#question_page_author_line{
+    /*border-bottom:1px solid #dfdfdf;*/
+    display:-webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: center;
+}
+
+#question_page_author_line p{
+    color: #a2a2a2;
+    font-size:13px;
+    text-align: right;
+    -webkit-box-flex:1;
+}
+
+#question_page_author_button {
+    font-size: medium;
+}
+
+#question_page_author_button img {
+    border: 2px solid #4e6895;
+    width: 40px;
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom:10px;
+}
+
+
+
+#question_text_area{
+    width:100%;
+    margin-top:10px;
+    margin-right:50px;
+}
+
+#question_page_tags_line{
+    padding: 10px;
+}
+
+#answer_text_field{
+    resize:none;
+    width:100%;
+}
+
+#post_answer_button{
+    margin-top:15px;
+    width: 20%;
+    height: 35px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: #eaeaee;
+    background: -webkit-linear-gradient(top, rgb(78, 104, 149) 0%, rgba(58, 65, 122, 1) 100%);
+}
+
+.question_page_call_auth_button{
+    font-size:medium;
+    color: #a2a2a2;
+}
+
+.question_page_call_auth_button:hover{
+    text-decoration: underline;
+}

@@ -36,7 +36,7 @@
             <button id="complete_login_button">${signin}</button>
         </form>
         <form action="/jsp/auth/registration.jsp" method="get">
-            <button id="call_registration_page_button">${auth_registration}</button>
+            <button class="call_registration_page_button">${auth_registration}</button>
         </form>
     </div>
 

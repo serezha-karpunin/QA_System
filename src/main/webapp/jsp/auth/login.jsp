@@ -5,7 +5,9 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel='stylesheet' href='/css/main_style.css'>
+    <link rel='stylesheet' href='/css/registration_n_login.css'>
+    <link rel='stylesheet' href='/css/base_n_headers.css'>
+
     <script src='/js/jquery-3.1.1.js'></script>
     <script src='/js/header_functions.js'></script>
     <script src='/js/validator.js'></script>
@@ -38,9 +40,10 @@
             <button>${signin}</button>
         </form>
         <form action="/jsp/auth/registration.jsp" method="get">
-            <button id="call_registration_page_button">${auth_registration}</button>
+            <button id="login_form_call_registration_page_button">${auth_registration}</button>
         </form>
     </div>
+
 </div>
 
 </body>

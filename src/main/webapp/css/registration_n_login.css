@@ -1,0 +1,46 @@
+.text_field_list {
+    white-space: nowrap;
+    margin: auto;
+    width: 240px;
+    /*border: 1px solid black;*/
+
+}
+
+.text_field_list input {
+    /*white-space: nowrap;*/
+    margin-top: 10px;
+    width: 240px;
+    height: 30px;
+    border: 1px solid #abb2e1;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.text_field_list button {
+    margin-top: 10px;
+    width: 240px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #eaeaee;
+    background: -webkit-linear-gradient(top, rgb(78, 104, 149) 0%, rgba(58, 65, 122, 1) 100%);
+}
+
+.text_field_list span {
+    display: none;
+    font-size: small;
+    color: #1b1341;
+}
+
+#login_form_call_registration_page_button{
+    margin-top: 5px;
+    color: #888;
+    border:0;
+    background: transparent;
+}
+
+
+#login_form_call_registration_page_button:hover {
+    text-decoration: underline;
+}

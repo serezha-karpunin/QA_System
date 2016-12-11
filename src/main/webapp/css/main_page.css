@@ -1,0 +1,48 @@
+#main_page_title_and_tabs {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+}
+
+.tabs {
+    text-align: right;
+    -webkit-box-flex: 1;
+}
+
+.tabs input {
+    display: none;
+}
+
+/* стили вкладок (табов) */
+.tabs label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #aaa;
+    border: 1px solid #ddd;
+    background: #f1f1f1;
+    border-radius: 3px 3px 0 0;
+}
+
+/* изменения стиля заголовков вкладок при наведении */
+.tabs label:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+/* стили для активной вкладки */
+.tabs input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 1px solid rgb(58, 65, 122);
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
+section {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 5px 5px;
+}
