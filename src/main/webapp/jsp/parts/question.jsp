@@ -8,7 +8,7 @@
 
 <div class="question_element">
     <div class="question_element_left_part">
-        <a href="/jsp/public/question_page.jsp?id=${question.idQuestion}"><h3>${question.title}</h3></a>
+        <a href="/question_page?id=${question.idQuestion}"><h3>${question.title}</h3></a>
         <div class="question_element_down_panel">
             <div class="tags">
                 <c:forEach var="tag" items="${question.tags}">
@@ -17,11 +17,11 @@
                 <%--<h5>c++</h5>--%>
             </div>
             <h5>${question.date}</h5>
-            <h5>${question.login}</h5>
+            <button>${question.login}</button>
         </div>
     </div>
     <div class="question_element_right_part">
-        <button><h2>${question.answers}</h2><h4>${answers}</h4></button>
-        <button><h2>${question.views}</h2><h4>${views}</h4></button>
+        <button>${question.answers}<br>${answers}</button>
+        <button>${question.views}<br>${views}</button>
     </div>
 </div>

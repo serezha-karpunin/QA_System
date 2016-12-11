@@ -24,6 +24,8 @@
 
         <mapping resource="TagsEntity.hbm.xml"/>
         <mapping class="db.entities.TagsEntity"/>
+        <mapping resource="LikesEntity.hbm.xml"/>
+        <mapping class="db.entities.LikesEntity"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

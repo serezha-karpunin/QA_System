@@ -408,11 +408,26 @@ section {
     /*border: 2px solid orange;*/
     display: -webkit-box;
     -webkit-box-orient: horizontal;
+    /*border:1px solid red;*/
+
 }
 
 .question_element_down_panel h5 {
+    color: #919191;
+    font-size: 12px;
+    padding: 3px;
+    /*vertical-align: middle;*/
+    /*border:1px solid red;*/
+}
+
+.question_element_down_panel button {
     color: #4e6895;
+    border:0;
+    background: transparent;
     padding: 2px;
+    /*border:1px solid red;*/
+
+
 }
 
 .tags {

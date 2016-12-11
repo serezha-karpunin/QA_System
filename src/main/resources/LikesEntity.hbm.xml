@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.entities.LikesEntity" table="likes" schema="epamproject">
+        <id name="idLikes">
+            <column name="id_likes" sql-type="int(11)"/>
+        </id>
+        <property name="idAnswer">
+            <column name="id_answer" sql-type="int(11)"/>
+        </property>
+        <property name="login">
+            <column name="login" sql-type="varchar(15)" length="15"/>
+        </property>
+    </class>
+</hibernate-mapping>

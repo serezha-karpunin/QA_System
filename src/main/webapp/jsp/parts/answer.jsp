@@ -7,11 +7,10 @@
 
 <div class="answer_element">
     <div class="answer_element_author_line">
-        <button class="answer_element_author_button"><img src="/avatar.png"/>username</button>
+        <button class="answer_element_author_button"><img src="/avatar.png"/>${answer.login}</button>
     </div>
     <div class="answer_text_area">
-        <p>Answer text here here here Answer text here here Answer text here here Answer text here
-            here Answer text here here Answer text here here here</p>
+        <p>${answer.textAnswer}</p>
     </div>
-    <button class="unpressed_like_answer_button">${like} 5</button>
+    <button class="unpressed_like_answer_button">${like} ${answer.likes}</button>
 </div>

@@ -3,17 +3,18 @@ package beans;
 import java.io.Serializable;
 import java.util.List;
 
-public class QuestionBean implements Serializable {
+public class QuestionPageBean implements Serializable {
 
     private int idQuestion;
     private String title;
+    private String text;
     private String date;
     private int views;
     private String login;
-    private int answers;
     private List<String> tags;
+    private List<AnswerBean> answers;
 
-    public QuestionBean() {
+    public QuestionPageBean() {
     }
 
     public int getIdQuestion() {
@@ -32,6 +33,13 @@ public class QuestionBean implements Serializable {
         this.title = title;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public String getDate() {
         return date;
@@ -57,14 +65,6 @@ public class QuestionBean implements Serializable {
         this.login = login;
     }
 
-    public int getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(int answers) {
-        this.answers = answers;
-    }
-
     public List<String> getTags() {
         return tags;
     }
@@ -73,4 +73,23 @@ public class QuestionBean implements Serializable {
         this.tags = tags;
     }
 
+    public List<AnswerBean> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<AnswerBean> answers) {
+        this.answers = answers;
+    }
+
+    @Override
+    public String toString() {
+        return "QuestionPageBean{" +
+                "idQuestion=" + idQuestion +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", date='" + date + '\'' +
+                ", views=" + views +
+                ", login='" + login + '\'' +
+                '}';
+    }
 }

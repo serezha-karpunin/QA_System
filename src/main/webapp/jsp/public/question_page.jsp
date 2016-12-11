@@ -33,26 +33,30 @@
 <div id="page_wrapper">
     <div id="question_page_content_wrapper">
         <div id="question_page_author_line">
-            <button id="question_page_author_button"><img src="/avatar.png"/>username</button>
+            <button id="question_page_author_button"><img src="/avatar.png"/>${questionBean.login}</button>
         </div>
         <div id="question_page_theme_line">
-            <h2>Question theme here</h2>
+            <h2>${questionBean.title}</h2>
         </div>
         <div id="question_text_area">
-            <p>Question text here here here Question text here here hereQuestion text here here hereQuestion text here
-                here hereQuestion text here here hereQuestion text here here here</p>
+            <p>${questionBean.text}</p>
         </div>
         <div id="question_page_tags_line">
             <div class="tags">
-                <h5>java</h5>
-                <h5>c++</h5>
+                <c:forEach var="tag" items="${questionBean.tags}">
+                    <button>${tag}</button>
+                </c:forEach>
             </div>
         </div>
 
         <h3>${answers}</h3>
 
-        <%@include file="/jsp/parts/answer.jsp" %>
-        <%@include file="/jsp/parts/answer.jsp" %>
+        <c:forEach var="answer" items="${questionBean.answers}">
+            <%@include file="/jsp/parts/answer.jsp" %>
+        </c:forEach>
+
+        <%--<%@include file="/jsp/parts/answer.jsp" %>--%>
+        <%--<%@include file="/jsp/parts/answer.jsp" %>--%>
 
         <br>
 

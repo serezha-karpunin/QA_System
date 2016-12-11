@@ -46,16 +46,16 @@
         </div>
     </div>
     <section id="last_content">
-        <c:forEach var="question" items="${requestScope.lastQuestions}">
+        <c:forEach var="question" items="${lastQuestions}">
             <%@include file="/jsp/parts/question.jsp" %>
         </c:forEach>
         <%--<%@include file="/jsp/parts/question.jsp" %>--%>
         <%--<%@include file="/jsp/parts/question.jsp" %>--%>
     </section>
     <section id="interesting_content">
-        <p>
-            empty
-        </p>
+        <c:forEach var="question" items="${interestingQuestions}">
+            <%@include file="/jsp/parts/question.jsp" %>
+        </c:forEach>
     </section>
 <%--    <section id="subscription_content">
         <p>
