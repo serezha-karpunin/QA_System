@@ -34,6 +34,7 @@
     <div id="question_page_content_wrapper">
         <div id="question_page_author_line">
             <button id="question_page_author_button"><img src="/avatar.png"/>${questionBean.login}</button>
+            <p>${questionBean.date}</p>
         </div>
         <div id="question_page_theme_line">
             <h2>${questionBean.title}</h2>

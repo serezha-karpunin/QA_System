@@ -8,6 +8,7 @@
 <div class="answer_element">
     <div class="answer_element_author_line">
         <button class="answer_element_author_button"><img src="/avatar.png"/>${answer.login}</button>
+        <p>${answer.date}</p>
     </div>
     <div class="answer_text_area">
         <p>${answer.textAnswer}</p>

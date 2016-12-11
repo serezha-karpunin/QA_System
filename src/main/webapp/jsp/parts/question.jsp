@@ -21,7 +21,10 @@
         </div>
     </div>
     <div class="question_element_right_part">
-        <button>${question.answers}<br>${answers}</button>
-        <button>${question.views}<br>${views}</button>
+        <a href="/question_page?id=${question.idQuestion}">${question.answers}<br>${answers}</a>
+        <a href="/question_page?id=${question.idQuestion}">${question.views}<br>${views}</a>
+            <%--<button>${question.answers}<br>${answers}</button>--%>
+            <%--<button>${question.views}<br>${views}</button>--%>
+        </form>
     </div>
 </div>
