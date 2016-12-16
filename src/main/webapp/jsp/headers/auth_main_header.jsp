@@ -5,7 +5,30 @@
     <fmt:message key="options_menu.logout" var="logout"/>
     <fmt:message key="header.search_placeholder" var="search_placeholder"/>
     <fmt:message key="header.ask" var="ask"/>
+    <fmt:message key="question_form.title_placeholder" var="title"/>
+    <fmt:message key="question_form.text_placeholder" var="text"/>
+    <fmt:message key="question_form.ask_question" var="ask_question"/>
+    <fmt:message key="question_form.tags_placeholder" var="tags"/>
+    <fmt:message key="question_form.question_error" var="question_error"/>
 </fmt:bundle>
+<div id="mask"></div>
+
+<div id="question_form_wrapper">
+    <form id="question_form" action="/add_question" method="post">
+        <input id="question_form_title_field" name="title" type="text" placeholder="${title}">
+        <br>
+        <textarea id="question_form_text_area" rows="7" name="text" placeholder="${text}"></textarea>
+        <br>
+        <input id="question_form_tags_field" name="tags" type="text" placeholder="${tags}">
+        <br>
+        <div id="question_form_down_panel">
+            <p id="question_form_error_message">${question_error}</p>
+            <button>${ask_question}</button>
+        </div>
+
+    </form>
+    <button id="question_form_close_button">back</button>
+</div>
 
 <div id="main_header_background">
     <div id="main_header_content">

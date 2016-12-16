@@ -1,0 +1,41 @@
+package servlets;
+
+import db.dao.QuestionsDao;
+import db.entities.QuestionsEntity;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Timestamp;
+
+
+@WebServlet("/add_question")
+public class AddQuestionServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String login = (String) req.getSession().getAttribute("userLogin");
+        String title = req.getParameter("title");
+        String text = req.getParameter("text");
+        String tagsString = req.getParameter("tags");
+
+        QuestionsEntity qe = new QuestionsEntity();
+        qe.setLogin(login);
+        qe.setTitle(title);
+        qe.setText(text);
+        qe.setDate(new Timestamp(System.currentTimeMillis()));
+
+        QuestionsDao questionsDao = new QuestionsDao();
+        questionsDao.save(qe);
+
+        resp.sendRedirect("/");
+    }
+}
