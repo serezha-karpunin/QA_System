@@ -1,9 +1,8 @@
 package servlets;
 
-import beans.AnswerBean;
 import beans.QuestionPageBean;
-import db.dao.*;
-import db.entities.AnswersEntity;
+import db.dao.QuestionsDao;
+import db.dao.TagsDao;
 import db.entities.QuestionsEntity;
 
 import javax.servlet.ServletException;
@@ -13,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 
@@ -25,10 +22,11 @@ public class QuestionPageServlet extends HttpServlet {
 
         int id = Integer.parseInt(req.getParameter("id"));
 
+        req.getServletContext().setAttribute("current_id", id);
+
         QuestionsDao questionsDao = new QuestionsDao();
-        AnswersDao answersDao = new AnswersDao();
+
         TagsDao tagsDao = new TagsDao();
-        LikesDao likesDao = new LikesDao();
 
         DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT, Locale.getDefault());
 
@@ -43,25 +41,10 @@ public class QuestionPageServlet extends HttpServlet {
         questionBean.setViews(qe.getViews());
         questionBean.setTags(tagsDao.getTagListByQuestionId(qe.getIdQuestion()));
 
-        List<AnswerBean> answers = new ArrayList<>();
 
-        for (AnswersEntity ae : answersDao.getAnswersByQuestionId(id)) {
-            AnswerBean answerBean = new AnswerBean();
-            answerBean.setIdAnswer(ae.getIdAnswer());
-            answerBean.setLogin(ae.getLogin());
-            answerBean.setTextAnswer(ae.getTextAnswer());
-            answerBean.setDate(df.format(ae.getDateAnswer()));
-            answerBean.setLikes(likesDao.countLikes(ae.getIdAnswer()));
 
-            String login = (String) req.getSession().getAttribute("userLogin");
-            answerBean.setLikedByCurrentUser((login != null) && likesDao.isLiked(ae.getIdAnswer(), login));
+//        questionBean.setAnswers(answers);
 
-            answers.add(answerBean);
-        }
-
-        questionBean.setAnswers(answers);
-
-        System.out.println(questionBean.toString());
 
         req.setAttribute("questionBean", questionBean);
         getServletContext().getRequestDispatcher("/jsp/public/question_page.jsp").forward(req, resp);

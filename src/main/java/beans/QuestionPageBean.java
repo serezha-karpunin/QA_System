@@ -12,7 +12,7 @@ public class QuestionPageBean implements Serializable {
     private int views;
     private String login;
     private List<String> tags;
-    private List<AnswerBean> answers;
+//    private List<AnswerBean> answers;
 
     public QuestionPageBean() {
     }
@@ -73,23 +73,13 @@ public class QuestionPageBean implements Serializable {
         this.tags = tags;
     }
 
-    public List<AnswerBean> getAnswers() {
-        return answers;
-    }
+//    public List<AnswerBean> getAnswers() {
+//        return answers;
+//    }
+//
+//    public void setAnswers(List<AnswerBean> answers) {
+//        this.answers = answers;
+//    }
 
-    public void setAnswers(List<AnswerBean> answers) {
-        this.answers = answers;
-    }
 
-    @Override
-    public String toString() {
-        return "QuestionPageBean{" +
-                "idQuestion=" + idQuestion +
-                ", title='" + title + '\'' +
-                ", text='" + text + '\'' +
-                ", date='" + date + '\'' +
-                ", views=" + views +
-                ", login='" + login + '\'' +
-                '}';
-    }
 }

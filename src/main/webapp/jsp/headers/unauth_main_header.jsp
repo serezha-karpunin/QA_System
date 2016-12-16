@@ -30,7 +30,7 @@
             <input id="unauth_header_email_field" name="login" type="text" placeholder="${auth_email_login}">
             <br>
 
-            <input id="unauth_header_password_field" name="password" type="text" placeholder="${auth_password}">
+            <input id="unauth_header_password_field" name="password" type="password" placeholder="${auth_password}">
             <br>
 
             <button id="complete_login_button">${signin}</button>

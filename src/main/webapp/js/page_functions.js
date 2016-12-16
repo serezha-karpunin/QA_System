@@ -27,4 +27,30 @@ $(function () {
         }
 
     });
+    
+    $('#answers_area').ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "/load_answers",
+            success: function(data){
+                $('#answers_area').html(data);
+            }
+
+        });
+    });
+
+    $('#post_answer_button').click(function () {
+        var text = $('#answer_text_field').val();
+        if(text !==''){
+            $.ajax({
+                type: "POST",
+                url: "/add_answer",
+                data: {"text": text},
+                success: function(data){
+                    $('#answers_area').html(data);
+                    $('#answer_text_field').val('');
+                }
+            });
+        }
+    });
 });

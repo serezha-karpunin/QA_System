@@ -9,12 +9,14 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "answers", schema = "epamproject")
 public class AnswersEntity {
+
     private int idAnswer;
     private String textAnswer;
     private Timestamp dateAnswer;
     private String login;
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_answer", nullable = false)
     public int getIdAnswer() {
         return idAnswer;

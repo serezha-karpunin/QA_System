@@ -35,7 +35,7 @@
         <form id="login_page_login_form" action="/login" method="post">
             <input id="login_page_email_field" name="login" type="text" placeholder="${auth_email_login}">
             <br>
-            <input id="login_page_password_field" name="password" type="text" placeholder="${auth_password}">
+            <input id="login_page_password_field" name="password" type="password" placeholder="${auth_password}">
             <br>
             <button>${signin}</button>
         </form>

@@ -35,12 +35,13 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
     }
 
     @Override
-    public void save(T t) {
+    public PK save(T t) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         s.beginTransaction();
-        s.save(t);
+        PK id= (PK) s.save(t);
         s.getTransaction().commit();
         s.close();
+        return id;
     }
 
     @Override

@@ -54,11 +54,9 @@
 
         <h3>${answers}</h3>
 
-        <c:forEach var="answer" items="${questionBean.answers}">
-            <%@include file="/jsp/parts/answer.jsp" %>
-        </c:forEach>
 
-        <%--<%@include file="/jsp/parts/answer.jsp" %>--%>
+
+       <div id="answers_area"></div>
         <%--<%@include file="/jsp/parts/answer.jsp" %>--%>
 
         <br>
