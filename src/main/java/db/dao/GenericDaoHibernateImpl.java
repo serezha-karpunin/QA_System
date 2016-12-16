@@ -21,6 +21,7 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
     public T getById(PK id) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         T el = s.get(type,id);
+        s.close();
         return el;
 //        return (T) sessionFactory.getCurrentSession().get(type, id);
     }
@@ -47,7 +48,9 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
     @Override
     public void update(T t) {
         Session s = HibernateUtil.getSessionFactory().openSession();
+        s.beginTransaction();
         s.update(t);
+        s.getTransaction().commit();
         s.close();
     }
 

@@ -21,16 +21,17 @@ public class QuestionPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         int id = Integer.parseInt(req.getParameter("id"));
-
         req.getServletContext().setAttribute("current_id", id);
 
         QuestionsDao questionsDao = new QuestionsDao();
-
         TagsDao tagsDao = new TagsDao();
 
         DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT, Locale.getDefault());
 
-        QuestionsEntity qe = questionsDao.getById(id);
+        QuestionsEntity qe = questionsDao.getByIdWithViewsIncrement(id);
+
+
+
         QuestionPageBean questionBean = new QuestionPageBean();
 
         questionBean.setIdQuestion(qe.getIdQuestion());
@@ -40,7 +41,6 @@ public class QuestionPageServlet extends HttpServlet {
         questionBean.setDate(df.format(qe.getDate()));
         questionBean.setViews(qe.getViews());
         questionBean.setTags(tagsDao.getTagListByQuestionId(qe.getIdQuestion()));
-
 
 
 //        questionBean.setAnswers(answers);

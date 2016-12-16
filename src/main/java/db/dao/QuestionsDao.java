@@ -33,4 +33,11 @@ public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Intege
         s.close();
         return list;
     }
+
+    public QuestionsEntity getByIdWithViewsIncrement(int id){
+        QuestionsEntity qe = getById(id);
+        qe.setViews(qe.getViews()+1);
+        update(qe);
+        return qe;
+    }
 }
