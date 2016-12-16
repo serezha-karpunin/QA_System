@@ -54,7 +54,7 @@
 
         <h3>${answers}</h3>
 
-
+        <%--<button class="unpressed_like_answer_button">assas</button>--%>
 
        <div id="answers_area"></div>
         <%--<%@include file="/jsp/parts/answer.jsp" %>--%>

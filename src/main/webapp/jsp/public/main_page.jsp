@@ -34,6 +34,7 @@
     <%--<fmt:message key="subcribtion_tab" var="subscription"/>--%>
 </fmt:bundle>
 <div id="page_wrapper">
+
     <div id="main_page_title_and_tabs">
         <h2 class="title_text">${title}</h2>
         <div class="tabs">

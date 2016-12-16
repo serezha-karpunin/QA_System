@@ -8,6 +8,9 @@ public class AnswerBean implements Serializable {
     private String date;
     private String login;
     private int likes;
+
+
+
     private boolean isLikedByCurrentUser;
 
     public AnswerBean() {
@@ -53,11 +56,11 @@ public class AnswerBean implements Serializable {
         this.likes = likes;
     }
 
-    public boolean isLikedByCurrentUser() {
+    public boolean getIsLikedByCurrentUser() {
         return isLikedByCurrentUser;
     }
 
-    public void setLikedByCurrentUser(boolean likedByCurrentUser) {
+    public void setIsLikedByCurrentUser(boolean likedByCurrentUser) {
         isLikedByCurrentUser = likedByCurrentUser;
     }
 }

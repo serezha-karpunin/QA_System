@@ -1,6 +1,6 @@
 .answer_element{
     padding: 10px;
-    border-bottom: 1px solid #dfdfdf;
+    /*border-bottom: 1px solid #dfdfdf;*/
     border-top: 1px solid #dfdfdf;
 
 }
@@ -26,21 +26,24 @@
 }
 
 .unpressed_like_answer_button:hover{
-    color: #fff;
-    background: #5ad65a;
+    border:1px solid #2ba326;
+    color: #2ba326;
 }
 
 .pressed_like_answer_button{
-    border:1px solid #5ad65a;
+    border:1px solid #2ba326;
     color: #fff;
-    background: #5ad65a;
+    background: #2ba326;
     border-radius: 4px;
     padding:4px 10px;
 }
 
-.pressed_like_answer_button:hover{
-    color: #5ad65a;
+.not_active_like_answer_button{
+    border:1px solid #888;
+    color: #888;
     background: transparent;
+    border-radius: 4px;
+    padding:4px 10px;
 }
 
 
@@ -55,4 +58,14 @@
     font-size:12px;
     text-align: right;
     -webkit-box-flex:1;
+}
+
+#answer_like_line{
+    margin-top:10px;
+    display:-webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: center;
+}
+#answer_like_line p{
+    margin-left:5px;
 }

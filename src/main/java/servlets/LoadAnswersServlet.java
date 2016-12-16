@@ -45,7 +45,8 @@ public class LoadAnswersServlet extends HttpServlet {
             answerBean.setLikes(likesDao.countLikes(ae.getIdAnswer()));
 
             String login = (String) req.getSession().getAttribute("userLogin");
-            answerBean.setLikedByCurrentUser((login != null) && likesDao.isLiked(ae.getIdAnswer(), login));
+            answerBean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(ae.getIdAnswer(), login));
+
 
             answers.add(answerBean);
         }

@@ -30,4 +30,15 @@ public class LikesDao extends GenericDaoHibernateImpl<LikesEntity, Integer> {
         return result != 0;
     }
 
+    public void delete(String login, int id_answer){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery("FROM LikesEntity WHERE idAnswer=:id_answer AND login=:login");
+        query.setParameter("id_answer", id_answer);
+        query.setParameter("login", login);
+        s.beginTransaction();
+        s.delete(query.uniqueResult());
+        s.getTransaction().commit();
+        s.close();
+    }
+
 }
