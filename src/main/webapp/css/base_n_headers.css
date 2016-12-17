@@ -5,6 +5,10 @@
     color: #696969;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
     background: #d9eafe;
     font-family: "Trebuchet MS", sans-serif;
@@ -28,8 +32,9 @@ button:hover {
 }
 
 #page_wrapper {
+    box-sizing: border-box;
     width: 60%;
-    height: 80%;
+    /*height: 110%;*/
     margin: 40px auto 0 auto;
     padding: 40px 0 0 0;
 }

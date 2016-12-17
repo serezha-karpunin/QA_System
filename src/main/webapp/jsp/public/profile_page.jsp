@@ -5,22 +5,21 @@
 
 <html>
 <head>
-    <link rel='stylesheet' href='/css/base_n_headers.css'>
     <script src='/js/jquery-3.1.1.js'></script>
     <script src='/js/header_functions.js'></script>
+    <script src='/js/profile_page_functions.js'></script>
 
     <link rel='stylesheet' href='/css/base_n_headers.css'>
     <link rel='stylesheet' href='/css/question.css'>
     <link rel='stylesheet' href='/css/answer.css'>
     <link rel='stylesheet' href='/css/profile.css'>
-    <%--<script src='/js/profile_page_functions.js'></script>--%>
 </head>
 <body>
 <fmt:setLocale value="en"/>
 <fmt:bundle basename="language" prefix="profile.">
     <fmt:message key="registration_date" var="date"/>
-    <fmt:message key="number_of_questions" var="number_of_questions"/>
-    <fmt:message key="number_of_answers" var="number_of_answers"/>
+    <fmt:message key="questions_label" var="questions_label"/>
+    <fmt:message key="answers_label" var="answers_label"/>
 
 </fmt:bundle>
 <%@include file="/jsp/headers/auth_main_header.jsp" %>
@@ -34,16 +33,31 @@
                 <p>${date}: ${userBean.registrationDate}</p>
             </div>
             <div class="profile_page_user_stat">
-                <b>${userBean.questionCount}</b><br><p>${number_of_questions}</p>
+                <b>${userBean.questionCount}</b><br><p>${questions_label}</p>
             </div>
             <div class="profile_page_user_stat">
-                <b>${userBean.answerCount}</b><br><p>${number_of_answers}</p>
+                <b>${userBean.answerCount}</b><br><p>${answers_label}</p>
             </div>
         </div>
 
-        <c:forEach var="question" items="${userQuestions}">
-            <%@include file="/jsp/parts/question.jsp" %>
-        </c:forEach>
+
+        <div id="profile_page_tabs">
+            <div class="tabs">
+                <input id="tab_questions" type="radio" name="tabs">
+                <label for="tab_questions">${questions_label}</label>
+
+                <input id="tab_answers" type="radio" name="tabs">
+                <label for="tab_answers">${answers_label}</label>
+            </div>
+        </div>
+        <section id="questions_content">
+            <c:forEach var="question" items="${userQuestions}">
+                <%@include file="/jsp/parts/question.jsp" %>
+            </c:forEach>
+        </section>
+        <section id="answers_content">
+        </section>
+
     </div>
 </div>
 </body>

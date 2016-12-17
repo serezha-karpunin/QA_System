@@ -39,7 +39,7 @@ public class ProfilePageServlet extends HttpServlet {
 
         UsersEntity usersEntity = usersDao.getById(visited_user);
 
-        DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT, Locale.getDefault());
+        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
 
         ProfileUserBean userBean = new ProfileUserBean();
         userBean.setLogin(usersEntity.getLogin());
