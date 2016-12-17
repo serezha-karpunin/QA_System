@@ -7,6 +7,7 @@
     <class name="db.entities.QaLinksEntity" table="qa_links" schema="epamproject">
         <id name="idQaLinks">
             <column name="id_qa_links" sql-type="int(11)"/>
+            <generator class="identity"/>
         </id>
         <property name="idQuestion">
             <column name="id_question" sql-type="int(11)"/>

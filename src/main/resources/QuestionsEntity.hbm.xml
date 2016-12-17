@@ -7,6 +7,7 @@
     <class name="db.entities.QuestionsEntity" table="questions" schema="epamproject">
         <id name="idQuestion">
             <column name="id_question" sql-type="int(11)"/>
+            <generator class="identity"/>
         </id>
         <property name="login">
             <column name="login" sql-type="varchar(15)" length="15"/>

@@ -1,7 +1,9 @@
 package servlets;
 
 import db.dao.QuestionsDao;
+import db.dao.TagsDao;
 import db.entities.QuestionsEntity;
+import db.entities.TagsEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.StringTokenizer;
 
 
 @WebServlet("/add_question")
@@ -34,7 +37,19 @@ public class AddQuestionServlet extends HttpServlet {
         qe.setDate(new Timestamp(System.currentTimeMillis()));
 
         QuestionsDao questionsDao = new QuestionsDao();
-        questionsDao.save(qe);
+        int id_question = questionsDao.save(qe);
+
+        if(!"".equals(tagsString)){
+            TagsDao td = new TagsDao();
+
+            StringTokenizer st = new StringTokenizer(tagsString.toLowerCase());
+            while(st.hasMoreTokens()){
+                TagsEntity te = new TagsEntity();
+                te.setIdQuestion(id_question);
+                te.setTag(st.nextToken());
+                td.save(te);
+            }
+        }
 
         resp.sendRedirect("/");
     }

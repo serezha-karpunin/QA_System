@@ -14,6 +14,7 @@
 <div id="mask"></div>
 
 <div id="question_form_wrapper">
+    <button id="question_form_close_button"><img src="/icons/cross.png"/></button>
     <form id="question_form" action="/add_question" method="post">
         <input id="question_form_title_field" name="title" type="text" placeholder="${title}">
         <br>
@@ -27,7 +28,7 @@
         </div>
 
     </form>
-    <button id="question_form_close_button">back</button>
+
 </div>
 
 <div id="main_header_background">

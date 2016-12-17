@@ -278,9 +278,9 @@ button:hover {
     padding: 3px;
 }
 
-#question_form button{
+#question_form_down_panel button{
 
-    margin-top:15px;
+    /*margin-top:15px;*/
     padding:5px 25px;
     font-size: 14px;
     border-radius: 2px;
@@ -301,3 +301,12 @@ button:hover {
     -webkit-box-flex: 1;
     display:none;
 }
+
+#question_form_close_button{
+    float: right;
+    /*margin-right:5px;*/
+}
+#question_form_close_button img{
+    width:12px;
+}
+
