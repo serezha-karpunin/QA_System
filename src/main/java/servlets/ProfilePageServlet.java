@@ -1,10 +1,13 @@
 package servlets;
 
+import beans.ProfileAnswerBean;
 import beans.ProfileUserBean;
 import beans.QuestionBean;
 import db.dao.AnswersDao;
+import db.dao.LikesDao;
 import db.dao.QuestionsDao;
 import db.dao.UsersDao;
+import db.entities.AnswersEntity;
 import db.entities.QuestionsEntity;
 import db.entities.UsersEntity;
 
@@ -36,6 +39,7 @@ public class ProfilePageServlet extends HttpServlet {
         UsersDao usersDao = new UsersDao();
         QuestionsDao questionsDao = new QuestionsDao();
         AnswersDao answersDao = new AnswersDao();
+        LikesDao likesDao = new LikesDao();
 
         UsersEntity usersEntity = usersDao.getById(visited_user);
 
@@ -53,15 +57,33 @@ public class ProfilePageServlet extends HttpServlet {
             userQuestions.add(MainPageServlet.createQuestionBean(entity));
         }
 
+        List<ProfileAnswerBean> userAnswers = new ArrayList<>();
+        System.out.println("before");
+        for (AnswersEntity entity : answersDao.getAnswersByLogin(visited_user)) {
+            ProfileAnswerBean bean = new ProfileAnswerBean();
 
-//        AnswersDao answersDao = new AnswersDao();
-//        List<AnswersEntity> userAnswers = answersDao.getAnswersByLogin(visited_user);
-//        List<AnswersEntity> userAnswers = answersDao.getAnswersByLogin(visited_user);
+            bean.setIdAnswer(entity.getIdAnswer());
+            bean.setLogin(entity.getLogin());
+            bean.setTextAnswer(entity.getTextAnswer());
+            bean.setDate(df.format(entity.getDateAnswer()));
+            bean.setLikes(likesDao.countLikes(entity.getIdAnswer()));
+
+            String login = (String) req.getSession().getAttribute("userLogin");
+            bean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(entity.getIdAnswer(), login));
+            System.out.println("id answer "+ entity.getIdAnswer());
+            QuestionsEntity qe = questionsDao.getQuestionByAnswer(entity.getIdAnswer());
+            if(qe==null) System.out.println("alalalla");
+            bean.setIdQuestion(qe.getIdQuestion());
+            bean.setTitle(qe.getTitle());
+
+            userAnswers.add(bean);
+        }
 
 
         req.setAttribute("userBean", userBean);
         req.setAttribute("userQuestions", userQuestions);
-//        req.setAttribute("userAnswers", );
+        req.setAttribute("userAnswers", userAnswers);
+        System.out.println("all gogogog");
         getServletContext().getRequestDispatcher("/jsp/public/profile_page.jsp").forward(req, resp);
     }
 }

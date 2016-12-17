@@ -8,6 +8,7 @@
     <script src='/js/jquery-3.1.1.js'></script>
     <script src='/js/header_functions.js'></script>
     <script src='/js/profile_page_functions.js'></script>
+    <script src='/js/answer_element_functions.js'></script>
 
     <link rel='stylesheet' href='/css/base_n_headers.css'>
     <link rel='stylesheet' href='/css/question.css'>
@@ -56,6 +57,12 @@
             </c:forEach>
         </section>
         <section id="answers_content">
+            <br>
+            <c:forEach var="answer" items="${userAnswers}">
+                <a href="/question_page?id=${answer.idQuestion}"><h3>${answer.title}</h3></a>
+                <%@include file="/jsp/parts/answer.jsp" %>
+                <br>
+            </c:forEach>
         </section>
 
     </div>

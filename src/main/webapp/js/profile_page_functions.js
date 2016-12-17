@@ -13,4 +13,5 @@ $(function () {
         $('#page_wrapper').find('section').hide();
         $('#answers_content').toggle();
     });
+    addLikeListeners();
 });

@@ -49,4 +49,13 @@ public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Intege
         s.close();
         return result;
     }
+
+    public QuestionsEntity getQuestionByAnswer(int answer_id){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery("FROM QuestionsEntity WHERE idQuestion IN(SELECT idQuestion FROM QaLinksEntity WHERE idAnswer=:answer_id)");
+        query.setParameter("answer_id", answer_id);
+        QuestionsEntity result =(QuestionsEntity)query.uniqueResult();
+        s.close();
+        return result;
+    }
 }
