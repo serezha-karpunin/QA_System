@@ -5,14 +5,7 @@ $(function () {
     });
 
     $('#unauth_header_login_form').submit(function () {
-        // console.log("listener in header")
-        if ($('#unauth_header_email_field').val() != '' && $('#unauth_header_password_field') != '') {
-            // console.log("gogogog");
-            // $.post(
-            //     $(this).attr('action'),
-            //     $(this).serialize()
-            // );
-        } else {
+        if ($('#unauth_header_email_field').val() == '' || $('#unauth_header_password_field').val() == '') {
             return false;
         }
     });

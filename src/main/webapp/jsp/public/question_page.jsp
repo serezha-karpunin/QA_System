@@ -10,9 +10,7 @@
     <link rel='stylesheet' href='/css/answer.css'>
     <script src='/js/jquery-3.1.1.js'></script>
     <script src='/js/header_functions.js'></script>
-    <script src='/js/page_functions.js'></script>
     <script src='/js/question_page_functions.js'></script>
-
 </head>
 <body>
 <fmt:setLocale value="en"/>

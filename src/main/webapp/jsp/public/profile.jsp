@@ -1,14 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 02.12.2016
-  Time: 21:49
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <link rel='stylesheet' href='/css/base_n_headers.css'>
+    <script src='/js/jquery-3.1.1.js'></script>
+    <script src='/js/header_functions.js'></script>
+    <%--<script src='/js/profile_page_functions.js'></script>--%>
 </head>
 <body>
 
