@@ -57,11 +57,10 @@
             </c:forEach>
         </section>
         <section id="answers_content">
-            <br>
             <c:forEach var="answer" items="${userAnswers}">
+                <br>
                 <a href="/question_page?id=${answer.idQuestion}"><h3>${answer.title}</h3></a>
                 <%@include file="/jsp/parts/answer.jsp" %>
-                <br>
             </c:forEach>
         </section>
 

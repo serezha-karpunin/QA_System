@@ -35,7 +35,9 @@
 <div id="page_wrapper">
     <div id="question_page_content_wrapper">
         <div id="question_page_author_line">
-            <button id="question_page_author_button"><img src="/avatar.png"/>${questionBean.login}</button>
+            <form action="/user_profile" method="post">
+                <button id="question_page_author_button" name="visitedUser" value="${questionBean.login}"><img src="/avatar.png"/>${questionBean.login}</button>
+            </form>
             <p>${questionBean.date}</p>
         </div>
         <div id="question_page_theme_line">
@@ -54,10 +56,8 @@
 
         <h3>${answers}</h3>
 
-        <%--<button class="unpressed_like_answer_button">assas</button>--%>
 
-       <div id="answers_area"></div>
-        <%--<%@include file="/jsp/parts/answer.jsp" %>--%>
+        <div id="answers_area"></div>
 
         <br>
 

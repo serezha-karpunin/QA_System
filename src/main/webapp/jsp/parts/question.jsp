@@ -15,7 +15,9 @@
                 </c:forEach>
             </div>
             <h5>${question.date}</h5>
-            <button>${question.login}</button>
+            <form action="/user_profile" method="post">
+                <button name="visitedUser" value="${question.login}">${question.login}</button>
+            </form>
         </div>
     </div>
     <div class="question_element_right_part">
