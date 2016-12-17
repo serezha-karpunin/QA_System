@@ -27,7 +27,7 @@
 <fmt:bundle basename="language" prefix="main_page.">
     <fmt:message key="title" var="title"/>
     <fmt:message key="last_questions_tab" var="last"/>
-    <fmt:message key="intresting_questions_tab" var="interesting"/>
+    <fmt:message key="interesting_questions_tab" var="interesting"/>
 </fmt:bundle>
 <div id="page_wrapper">
 

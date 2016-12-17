@@ -58,7 +58,6 @@ public class ProfilePageServlet extends HttpServlet {
         }
 
         List<ProfileAnswerBean> userAnswers = new ArrayList<>();
-        System.out.println("before");
         for (AnswersEntity entity : answersDao.getAnswersByLogin(visited_user)) {
             ProfileAnswerBean bean = new ProfileAnswerBean();
 
@@ -72,7 +71,6 @@ public class ProfilePageServlet extends HttpServlet {
             bean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(entity.getIdAnswer(), login));
             System.out.println("id answer "+ entity.getIdAnswer());
             QuestionsEntity qe = questionsDao.getQuestionByAnswer(entity.getIdAnswer());
-            if(qe==null) System.out.println("alalalla");
             bean.setIdQuestion(qe.getIdQuestion());
             bean.setTitle(qe.getTitle());
 
@@ -83,7 +81,6 @@ public class ProfilePageServlet extends HttpServlet {
         req.setAttribute("userBean", userBean);
         req.setAttribute("userQuestions", userQuestions);
         req.setAttribute("userAnswers", userAnswers);
-        System.out.println("all gogogog");
         getServletContext().getRequestDispatcher("/jsp/public/profile_page.jsp").forward(req, resp);
     }
 }

@@ -2,6 +2,7 @@
 
 <fmt:bundle basename="language">
     <fmt:message key="options_menu.profile" var="profile"/>
+    <fmt:message key="options_menu.settings" var="settings"/>
     <fmt:message key="options_menu.logout" var="logout"/>
     <fmt:message key="header.search_placeholder" var="search_placeholder"/>
     <fmt:message key="header.ask" var="ask"/>
@@ -52,13 +53,12 @@
         <form action="/user_profile" method="post">
             <button id="auth_header_menu_profile_button" name="visitedUser" value="${userLogin}">${profile}</button>
         </form>
-        <%--<form action="" method="post">--%>
-            <%--<button id="auth_header_menu_questions_button">messages</button>--%>
-        <%--</form>--%>
-        <%--<form action="" method="post">--%>
-            <%--<button id="auth_header_menu_settings_button">settings</button>--%>
-        <%--</form>--%>
-        <form action="" method="post">
+
+        <form action="/user_settings" method="post">
+            <button id="auth_header_menu_settings_button">${settings}</button>
+        </form>
+
+        <form action="/logout" method="post">
             <button id="auth_header_menu_logout_button">${logout}</button>
         </form>
 

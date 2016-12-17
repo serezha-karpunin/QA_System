@@ -17,30 +17,12 @@
 </head>
 <body>
 <fmt:setLocale value="en"/>
-<fmt:bundle basename="language" prefix="profile.">
-    <fmt:message key="registration_date" var="date"/>
-    <fmt:message key="questions_label" var="questions_label"/>
-    <fmt:message key="answers_label" var="answers_label"/>
 
-</fmt:bundle>
 <%@include file="/jsp/headers/auth_main_header.jsp" %>
 
 <div id="page_wrapper">
-    <div id="profile_page_content_wrapper">
-        <div id="profile_page_user_panel">
-            <img id="avatar" src="/avatar.png">
-            <div id="profile_page_user_info">
-                <h2 class="title_text">${userBean.login}</h2>
-                <p>${date}: ${userBean.registrationDate}</p>
-            </div>
-            <div class="profile_page_user_stat">
-                <b>${userBean.questionCount}</b><br><p>${questions_label}</p>
-            </div>
-            <div class="profile_page_user_stat">
-                <b>${userBean.answerCount}</b><br><p>${answers_label}</p>
-            </div>
-        </div>
-
+    <div id="user_page_content_wrapper">
+        <%@include file="/jsp/parts/profile_header.jsp" %>
 
         <div id="profile_page_tabs">
             <div class="tabs">

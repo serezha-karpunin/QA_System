@@ -1,4 +1,4 @@
-#profile_page_content_wrapper {
+#user_page_content_wrapper {
     border-radius: 5px;
     padding:20px;
     background: #fff;
@@ -51,13 +51,9 @@
 
 .tabs label {
     display: inline-block;
-    /*margin: 0 0 -1px;*/
     padding: 10px 20px;
     text-align: center;
     color: #aaa;
-    /*border: 0*/
-    /*background: #f1f1f1;*/
-    /*border-radius: 3px 3px 0 0;*/
 }
 
 .tabs label:hover {
@@ -67,15 +63,10 @@
 
 .tabs input:checked + label {
     color: #555;
-    /*border: 1px solid #ddd;*/
     border-bottom: 2px solid rgb(58, 65, 122);
-    /*border-bottom: 1px solid #fff;*/
     background: #fff;
 }
 
 section {
     display: none;
-    /*background: #fff;*/
-    /*border: 1px solid #ddd;*/
-    /*border-radius: 5px 0 5px 5px;*/
 }

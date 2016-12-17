@@ -1,0 +1,19 @@
+#settings_title_line{
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    font-size: large;
+}
+
+#settings_form{
+    padding:5px;
+}
+
+#settings_form_save_button{
+    margin-top:20px;
+    width: 220px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 2px;
+    color: #eaeaee;
+    background: -webkit-linear-gradient(top, rgb(78, 104, 149) 0%, rgba(58, 65, 122, 1) 100%);
+}
