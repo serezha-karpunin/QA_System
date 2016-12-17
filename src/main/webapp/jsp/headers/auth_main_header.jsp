@@ -49,8 +49,8 @@
     <div id="options_menu">
         <div id="options_menu_arrow" class="arrow-up"></div>
         <span>${userLogin}</span>
-        <form action="" method="post">
-            <button id="auth_header_menu_profile_button">${profile}</button>
+        <form action="/user_profile" method="post">
+            <button id="auth_header_menu_profile_button" name="visitedUser" value="${userLogin}">${profile}</button>
         </form>
         <%--<form action="" method="post">--%>
             <%--<button id="auth_header_menu_questions_button">messages</button>--%>

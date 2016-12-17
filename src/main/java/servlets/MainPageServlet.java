@@ -45,7 +45,7 @@ public class MainPageServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/jsp/public/main_page.jsp").forward(req, resp);
     }
 
-    private QuestionBean createQuestionBean(QuestionsEntity entity){
+    static QuestionBean createQuestionBean(QuestionsEntity entity){
         TagsDao tagsDao = new TagsDao();
         QALinksDao qaDao = new QALinksDao();
 

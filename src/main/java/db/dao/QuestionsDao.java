@@ -40,4 +40,13 @@ public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Intege
         update(qe);
         return qe;
     }
+
+    public int countQuestionsByLogin(String login) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery("SELECT COUNT(*) FROM QuestionsEntity WHERE login=:login");
+        query.setParameter("login", login);
+        int result = ((Long) query.uniqueResult()).intValue();
+        s.close();
+        return result;
+    }
 }

@@ -1,0 +1,38 @@
+#profile_page_content_wrapper {
+    border-radius: 5px;
+    padding:20px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+#avatar{
+    width:150px;
+    border:1px solid #ddd;
+    border-radius: 5px;
+}
+
+#profile_page_user_panel{
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+}
+
+#profile_page_user_info{
+    -webkit-box-flex:1;
+    margin-left:20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.profile_page_user_stat{
+    text-align: center;
+    margin:10px;
+}
+
+.profile_page_user_stat b{
+    font-size: large;
+    color: rgb(86, 118, 255);
+}
+
+#profile_page_user_panel p{
+    color: #b1b1b1;
+}
