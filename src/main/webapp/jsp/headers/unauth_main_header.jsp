@@ -18,7 +18,9 @@
             </form>
         </div>
         <div id="main_header_center_part">
-            <input id="search_box" type="text" placeholder="${search_placeholder}"/>
+            <form id = search_box_form action="/search" method="post">
+                <input id="search_box" type="text" name="searchString" placeholder="${search_placeholder}"/>
+            </form>
         </div>
         <div id="main_header_right_part">
             <button id="call_login_menu_button">${signin}</button>

@@ -58,4 +58,13 @@ public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Intege
         s.close();
         return result;
     }
+
+    public List<QuestionsEntity> getQuestionsByTag(String tag){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery("FROM QuestionsEntity WHERE idQuestion IN(SELECT idQuestion FROM TagsEntity WHERE tag=:tag)");
+        query.setParameter("tag",tag);
+        List<QuestionsEntity> list = query.list();
+        s.close();
+        return list;
+    }
 }

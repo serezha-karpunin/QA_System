@@ -34,5 +34,11 @@ $(function () {
     $('#question_form_close_button').click(function () {
         $('#mask').hide();
         $('#question_form_wrapper').hide();
-    })
+    });
+
+    $("#search_box_form").submit(function(e){
+        if($('#search_box').val()==''){
+            e.preventDefault();
+        }
+    });
 });
