@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<fmt:setLocale value="en"/>
 <fmt:bundle basename="language" prefix="answer.">
     <fmt:message key="like" var="like"/>
 </fmt:bundle>

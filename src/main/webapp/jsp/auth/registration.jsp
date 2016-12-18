@@ -14,8 +14,6 @@
 
 </head>
 <body>
-<%--<fmt:setLocale value="${cookie.get('language').value}"/>--%>
-<fmt:setLocale value="en"/>
 
 <fmt:bundle basename="language" prefix="registration.">
     <fmt:message key="title" var="title"/>

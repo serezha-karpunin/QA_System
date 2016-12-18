@@ -14,7 +14,6 @@
     <script src='/js/answer_element_functions.js'></script>
 </head>
 <body>
-<fmt:setLocale value="en"/>
 <fmt:bundle basename="language" prefix="question_page.">
     <fmt:message key="answers" var="answers"/>
     <fmt:message key="your_answer" var="your_answer"/>

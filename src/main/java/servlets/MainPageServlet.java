@@ -21,6 +21,7 @@ import java.util.List;
 public class MainPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("in main page servlet");
         QuestionsDao questionsDao = new QuestionsDao();
 
         List<QuestionListBean> lastQuestions = new ArrayList<>();

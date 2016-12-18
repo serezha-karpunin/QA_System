@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<fmt:setLocale value="en"/>
+<%--<fmt:setLocale value="en"/>--%>
 <c:choose>
     <c:when test="${not empty userLogin}">
         <%@include file="/jsp/headers/auth_main_header.jsp" %>

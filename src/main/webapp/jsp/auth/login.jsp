@@ -14,12 +14,7 @@
     <script src='/js/login_page_functions.js'></script>
 </head>
 <body>
-<fmt:setLocale value="en"/>
 
-<%--<fmt:bundle basename="language" prefix="registration.">--%>
-<%--<fmt:message key="login" var="login"/>--%>
-
-<%--</fmt:bundle>--%>
 <fmt:bundle basename="language" prefix="authorization.">
     <fmt:message key="title" var="title"/>
 </fmt:bundle>

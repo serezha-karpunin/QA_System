@@ -16,7 +16,6 @@
     <link rel='stylesheet' href='/css/profile.css'>
 </head>
 <body>
-<fmt:setLocale value="en"/>
 
 <%@include file="/jsp/headers/auth_main_header.jsp" %>
 
