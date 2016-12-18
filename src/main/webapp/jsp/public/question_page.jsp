@@ -20,6 +20,7 @@
     <fmt:message key="your_answer" var="your_answer"/>
     <fmt:message key="post_answer" var="post"/>
     <fmt:message key="call_auth" var="call_auth"/>
+    <fmt:message key="views" var="views"/>
 
 </fmt:bundle>
 
@@ -38,7 +39,11 @@
             <form action="/user_profile" method="post">
                 <button id="question_page_author_button" name="visitedUser" value="${questionBean.login}"><img src="/avatar.png"/>${questionBean.login}</button>
             </form>
-            <p>${questionBean.date}</p>
+            <div>
+                <p>${questionBean.date}</p>
+                <p>${questionBean.views} ${views}</p>
+            </div>
+
         </div>
         <div id="question_page_theme_line">
             <h2>${questionBean.title}</h2>

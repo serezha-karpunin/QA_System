@@ -81,11 +81,14 @@
     -webkit-box-align: center;
 }
 
+#question_page_author_line form{
+    -webkit-box-flex: 1;
+}
+
 #question_page_author_line p{
     color: #a2a2a2;
     font-size:13px;
     text-align: right;
-    -webkit-box-flex:1;
 }
 
 #question_page_author_button {

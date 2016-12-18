@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 
@@ -26,10 +26,9 @@ public class QuestionPageServlet extends HttpServlet {
         QuestionsDao questionsDao = new QuestionsDao();
         TagsDao tagsDao = new TagsDao();
 
-        DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT, Locale.getDefault());
-
+        //DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT, Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm dd.MM.yyyy",Locale.getDefault());
         QuestionsEntity qe = questionsDao.getByIdWithViewsIncrement(id);
-
 
 
         QuestionPageBean questionBean = new QuestionPageBean();
@@ -38,7 +37,7 @@ public class QuestionPageServlet extends HttpServlet {
         questionBean.setTitle(qe.getTitle());
         questionBean.setText(qe.getText());
         questionBean.setLogin(qe.getLogin());
-        questionBean.setDate(df.format(qe.getDate()));
+        questionBean.setDate(simpleDateFormat.format(qe.getDate()));
         questionBean.setViews(qe.getViews());
         questionBean.setTags(tagsDao.getTagListByQuestionId(qe.getIdQuestion()));
 
