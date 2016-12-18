@@ -46,6 +46,10 @@
     padding:4px 10px;
 }
 
+.not_active_like_answer_button:hover{
+    cursor:default;
+}
+
 
 .answer_element_author_line{
     display:-webkit-box;

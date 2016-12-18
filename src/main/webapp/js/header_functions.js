@@ -1,7 +1,7 @@
 $(function () {
     $('#call_login_menu_button').click(function () {
-        $('#login_menu').toggle();
-        $('#auth_menu_arrow').toggle();
+        $('#login_menu').fadeToggle(200);
+        $('#auth_menu_arrow').fadeToggle(200);
     });
 
     $('#unauth_header_login_form').submit(function () {
@@ -9,14 +9,12 @@ $(function () {
             $('#unauth_header_missing_fields_error').show();
             return false;
         }
-        // $('#unauth_header_missing_fields_error').hide();
-
     });
 
 
     $('#auth_header_call_options_menu_button').click(function () {
-        $('#options_menu').toggle();
-        $('#options_menu_arrow').toggle();
+        $('#options_menu').fadeToggle(200);
+        $('#options_menu_arrow').fadeToggle(200);
     });
 
     $('#question_form').submit(function () {
@@ -27,13 +25,13 @@ $(function () {
     });
 
     $('#auth_header_ask_question_button').click(function () {
-        $('#mask').show();
-        $('#question_form_wrapper').show();
+        $('#mask').fadeIn(250);
+        $('#question_form_wrapper').fadeIn(250);
     });
 
     $('#question_form_close_button').click(function () {
-        $('#mask').hide();
-        $('#question_form_wrapper').hide();
+        $('#mask').fadeOut(250);
+        $('#question_form_wrapper').fadeOut(250);
     });
 
     $("#search_box_form").submit(function(e){
