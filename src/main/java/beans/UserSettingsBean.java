@@ -2,7 +2,7 @@ package beans;
 
 import java.io.Serializable;
 
-public class SettingsUserBean implements Serializable {
+public class UserSettingsBean implements Serializable {
     private String login;
     private String email;
     private String password;
@@ -11,7 +11,7 @@ public class SettingsUserBean implements Serializable {
     private int answerCount;
     private String lang;
 
-    public SettingsUserBean() {
+    public UserSettingsBean() {
     }
 
     public String getLogin() {

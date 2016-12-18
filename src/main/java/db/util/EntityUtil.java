@@ -1,4 +1,106 @@
 package db.util;
 
+import beans.*;
+import db.dao.*;
+import db.entities.AnswersEntity;
+import db.entities.QuestionsEntity;
+import db.entities.UsersEntity;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class EntityUtil {
+
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm dd.MM.yyyy",Locale.getDefault());
+
+    public static QuestionListBean createQuestionListBean(QuestionsEntity entity){
+        TagsDao tagsDao = new TagsDao();
+        QALinksDao qaDao = new QALinksDao();
+
+        QuestionListBean bean = new QuestionListBean();
+        bean.setIdQuestion(entity.getIdQuestion());
+        bean.setTitle(entity.getTitle());
+        bean.setLogin(entity.getLogin());
+        bean.setDate(simpleDateFormat.format(entity.getDate()));
+        bean.setViews(entity.getViews());
+        bean.setTags(tagsDao.getTagListByQuestionId(entity.getIdQuestion()));
+        bean.setAnswers(qaDao.countAnswers(entity.getIdQuestion()));
+
+        return bean;
+    }
+
+    public static QuestionPageBean createQuestionPageBean(QuestionsEntity qe){
+        TagsDao tagsDao = new TagsDao();
+
+        QuestionPageBean questionBean = new QuestionPageBean();
+        questionBean.setIdQuestion(qe.getIdQuestion());
+        questionBean.setTitle(qe.getTitle());
+        questionBean.setText(qe.getText());
+        questionBean.setLogin(qe.getLogin());
+        questionBean.setDate(simpleDateFormat.format(qe.getDate()));
+        questionBean.setViews(qe.getViews());
+        questionBean.setTags(tagsDao.getTagListByQuestionId(qe.getIdQuestion()));
+        return questionBean;
+    }
+
+    public static AnswerListBean createAnswerListBean(AnswersEntity ae, String login){
+        LikesDao likesDao = new LikesDao();
+
+        AnswerListBean answerBean = new AnswerListBean();
+        answerBean.setIdAnswer(ae.getIdAnswer());
+        answerBean.setLogin(ae.getLogin());
+        answerBean.setTextAnswer(ae.getTextAnswer());
+        answerBean.setDate(simpleDateFormat.format(ae.getDateAnswer()));
+        answerBean.setLikes(likesDao.countLikes(ae.getIdAnswer()));
+        answerBean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(ae.getIdAnswer(), login));
+
+        return answerBean;
+    }
+
+    public static AnswerProfileBean createAnswerProfileBean(AnswersEntity entity, String login){
+        LikesDao likesDao = new LikesDao();
+        QuestionsDao questionsDao = new QuestionsDao();
+
+        AnswerProfileBean bean = new AnswerProfileBean();
+        bean.setIdAnswer(entity.getIdAnswer());
+        bean.setLogin(entity.getLogin());
+        bean.setTextAnswer(entity.getTextAnswer());
+        bean.setDate(simpleDateFormat.format(entity.getDateAnswer()));
+        bean.setLikes(likesDao.countLikes(entity.getIdAnswer()));
+
+        bean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(entity.getIdAnswer(), login));
+        QuestionsEntity qe = questionsDao.getQuestionByAnswer(entity.getIdAnswer());
+        bean.setIdQuestion(qe.getIdQuestion());
+        bean.setTitle(qe.getTitle());
+
+        return bean;
+    }
+
+    public static UserProfileBean createUserProfileBean(UsersEntity usersEntity, String visited_user){
+        QuestionsDao questionsDao = new QuestionsDao();
+        AnswersDao answersDao = new AnswersDao();
+
+        UserProfileBean userBean = new UserProfileBean();
+        userBean.setLogin(usersEntity.getLogin());
+        userBean.setRegistrationDate(simpleDateFormat.format(usersEntity.getRegistrationDate()));
+        userBean.setAnswerCount(answersDao.countAnswersByLogin(visited_user));
+        userBean.setQuestionCount(questionsDao.countQuestionsByLogin(visited_user));
+        return userBean;
+    }
+
+    public static UserSettingsBean createUserSettingsBean(UsersEntity usersEntity){
+        QuestionsDao questionsDao = new QuestionsDao();
+        AnswersDao answersDao = new AnswersDao();
+
+        UserSettingsBean userBean = new UserSettingsBean();
+        userBean.setLogin(usersEntity.getLogin());
+        userBean.setEmail(usersEntity.getEmail());
+        userBean.setPassword(usersEntity.getPassword());
+        userBean.setRegistrationDate(simpleDateFormat.format(usersEntity.getRegistrationDate()));
+        userBean.setAnswerCount(answersDao.countAnswersByLogin(usersEntity.getLogin()));
+        userBean.setQuestionCount(questionsDao.countQuestionsByLogin(usersEntity.getLogin()));
+        userBean.setLang(usersEntity.getLang());
+        return userBean;
+    }
+
 }

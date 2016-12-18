@@ -2,7 +2,7 @@ package beans;
 
 import java.io.Serializable;
 
-public class AnswerBean implements Serializable {
+public class AnswerProfileBean implements Serializable {
     private int idAnswer;
     private String textAnswer;
     private String date;
@@ -10,7 +10,10 @@ public class AnswerBean implements Serializable {
     private int likes;
     private boolean isLikedByCurrentUser;
 
-    public AnswerBean() {
+    private int idQuestion;
+    private String title;
+
+    public AnswerProfileBean() {
     }
 
     public int getIdAnswer() {
@@ -59,5 +62,21 @@ public class AnswerBean implements Serializable {
 
     public void setIsLikedByCurrentUser(boolean likedByCurrentUser) {
         isLikedByCurrentUser = likedByCurrentUser;
+    }
+
+    public int getIdQuestion() {
+        return idQuestion;
+    }
+
+    public void setIdQuestion(int idQuestion) {
+        this.idQuestion = idQuestion;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

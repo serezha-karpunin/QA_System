@@ -23,7 +23,7 @@
     <fmt:message key="ru" var="ru"/>
     <fmt:message key="en" var="en"/>
     <fmt:message key="save" var="save"/>
-    <fmt:message key="saved" var="saved"/>
+    <fmt:message key="saved" var="saved_label"/>
 </fmt:bundle>
 
 <div id="page_wrapper">
@@ -51,7 +51,7 @@
             <br>
             <button id="settings_form_save_button">${save}</button>
             <c:if test="${not empty saved}">
-                <span>${saved}</span>
+                <span>${saved_label}</span>
             </c:if>
         </form>
     </div>

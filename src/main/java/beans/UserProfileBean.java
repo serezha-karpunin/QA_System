@@ -2,13 +2,13 @@ package beans;
 
 import java.io.Serializable;
 
-public class ProfileUserBean implements Serializable {
+public class UserProfileBean implements Serializable {
     private String login;
     private String registrationDate;
     private int questionCount;
     private int answerCount;
 
-    public ProfileUserBean() {
+    public UserProfileBean() {
     }
 
     public String getLogin() {

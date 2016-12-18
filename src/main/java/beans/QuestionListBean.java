@@ -3,17 +3,17 @@ package beans;
 import java.io.Serializable;
 import java.util.List;
 
-public class QuestionBean implements Serializable {
+public class QuestionListBean implements Serializable {
 
     private int idQuestion;
     private String title;
+    private String login;
     private String date;
     private int views;
-    private String login;
     private int answers;
     private List<String> tags;
 
-    public QuestionBean() {
+    public QuestionListBean() {
     }
 
     public int getIdQuestion() {
