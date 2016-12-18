@@ -21,7 +21,7 @@ public class EntityUtil {
         bean.setIdQuestion(entity.getIdQuestion());
         bean.setTitle(entity.getTitle());
         bean.setLogin(entity.getLogin());
-        bean.setDate(simpleDateFormat.format(entity.getDate()));
+        bean.setDate(simpleDateFormat.format(entity.getDateQuestion()));
         bean.setViews(entity.getViews());
         bean.setTags(tagsDao.getTagListByQuestionId(entity.getIdQuestion()));
         bean.setAnswers(qaDao.countAnswers(entity.getIdQuestion()));
@@ -35,9 +35,9 @@ public class EntityUtil {
         QuestionPageBean questionBean = new QuestionPageBean();
         questionBean.setIdQuestion(qe.getIdQuestion());
         questionBean.setTitle(qe.getTitle());
-        questionBean.setText(qe.getText());
+        questionBean.setText(qe.getTextQuestion());
         questionBean.setLogin(qe.getLogin());
-        questionBean.setDate(simpleDateFormat.format(qe.getDate()));
+        questionBean.setDate(simpleDateFormat.format(qe.getDateQuestion()));
         questionBean.setViews(qe.getViews());
         questionBean.setTags(tagsDao.getTagListByQuestionId(qe.getIdQuestion()));
         return questionBean;

@@ -3,18 +3,15 @@ package db.entities;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-/**
- * Created by n on 10.12.2016.
- */
 @Entity
-@Table(name = "questions", schema = "epamproject")
+@Table(name = "questions", schema = "epamproject", catalog = "")
 public class QuestionsEntity {
     private int idQuestion;
-    private String title;
-    private String text;
-    private Timestamp date;
-    private int views;
     private String login;
+    private String title;
+    private String textQuestion;
+    private Timestamp dateQuestion;
+    private int views;
 
     @Id
     @Column(name = "id_question", nullable = false)
@@ -24,6 +21,16 @@ public class QuestionsEntity {
 
     public void setIdQuestion(int idQuestion) {
         this.idQuestion = idQuestion;
+    }
+
+    @Basic
+    @Column(name = "login", nullable = false, length = 15)
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     @Basic
@@ -37,23 +44,23 @@ public class QuestionsEntity {
     }
 
     @Basic
-    @Column(name = "text", nullable = false, length = 500)
-    public String getText() {
-        return text;
+    @Column(name = "text_question", nullable = false, length = 500)
+    public String getTextQuestion() {
+        return textQuestion;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTextQuestion(String textQuestion) {
+        this.textQuestion = textQuestion;
     }
 
     @Basic
-    @Column(name = "date", nullable = false)
-    public Timestamp getDate() {
-        return date;
+    @Column(name = "date_question", nullable = false)
+    public Timestamp getDateQuestion() {
+        return dateQuestion;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setDateQuestion(Timestamp dateQuestion) {
+        this.dateQuestion = dateQuestion;
     }
 
     @Basic
@@ -75,9 +82,10 @@ public class QuestionsEntity {
 
         if (idQuestion != that.idQuestion) return false;
         if (views != that.views) return false;
+        if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (text != null ? !text.equals(that.text) : that.text != null) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (textQuestion != null ? !textQuestion.equals(that.textQuestion) : that.textQuestion != null) return false;
+        if (dateQuestion != null ? !dateQuestion.equals(that.dateQuestion) : that.dateQuestion != null) return false;
 
         return true;
     }
@@ -85,20 +93,11 @@ public class QuestionsEntity {
     @Override
     public int hashCode() {
         int result = idQuestion;
+        result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (text != null ? text.hashCode() : 0);
-        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (textQuestion != null ? textQuestion.hashCode() : 0);
+        result = 31 * result + (dateQuestion != null ? dateQuestion.hashCode() : 0);
         result = 31 * result + views;
         return result;
-    }
-
-    @Basic
-    @Column(name = "login", nullable = false, length = 15)
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 }

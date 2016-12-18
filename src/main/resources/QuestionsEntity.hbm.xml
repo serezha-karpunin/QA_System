@@ -7,7 +7,6 @@
     <class name="db.entities.QuestionsEntity" table="questions" schema="epamproject">
         <id name="idQuestion">
             <column name="id_question" sql-type="int(11)"/>
-            <generator class="identity"/>
         </id>
         <property name="login">
             <column name="login" sql-type="varchar(15)" length="15"/>
@@ -15,11 +14,11 @@
         <property name="title">
             <column name="title" sql-type="varchar(250)" length="250"/>
         </property>
-        <property name="text">
-            <column name="text" sql-type="varchar(500)" length="500"/>
+        <property name="textQuestion">
+            <column name="text_question" sql-type="varchar(500)" length="500"/>
         </property>
-        <property name="date">
-            <column name="date" sql-type="datetime"/>
+        <property name="dateQuestion">
+            <column name="date_question" sql-type="datetime"/>
         </property>
         <property name="views">
             <column name="views" sql-type="int(11)"/>

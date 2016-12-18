@@ -9,6 +9,7 @@
         <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="connection.password">root</property>
         <property name="connection.username">root</property>
+        <property name="connection.characterEncoding">UTF-8</property>
 
         <mapping resource="UsersEntity.hbm.xml"/>
         <mapping class="db.entities.UsersEntity"/>
@@ -24,8 +25,10 @@
 
         <mapping resource="TagsEntity.hbm.xml"/>
         <mapping class="db.entities.TagsEntity"/>
+
         <mapping resource="LikesEntity.hbm.xml"/>
         <mapping class="db.entities.LikesEntity"/>
+
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

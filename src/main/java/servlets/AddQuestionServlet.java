@@ -33,8 +33,8 @@ public class AddQuestionServlet extends HttpServlet {
         QuestionsEntity qe = new QuestionsEntity();
         qe.setLogin(login);
         qe.setTitle(title);
-        qe.setText(text);
-        qe.setDate(new Timestamp(System.currentTimeMillis()));
+        qe.setTextQuestion(text);
+        qe.setDateQuestion(new Timestamp(System.currentTimeMillis()));
 
         QuestionsDao questionsDao = new QuestionsDao();
         int id_question = questionsDao.save(qe);
