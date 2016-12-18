@@ -48,7 +48,7 @@ public class LocaleFilter implements Filter {
                 System.out.println("find in db and added cookei");
             }else{
                 System.out.println("set defoualt");
-                Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, Locale.getDefault());
+                Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, Locale.getDefault().getLanguage());
             }
         }
 

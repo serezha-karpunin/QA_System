@@ -4,6 +4,7 @@ import db.dao.UsersDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,11 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         if (dao.isUserCorrect(login, password)) {
             req.getSession().setAttribute("userLogin", login);
+
+            Cookie c = new Cookie("language", "nothing");
+            c.setMaxAge(0);
+            resp.addCookie(c);
+
             resp.sendRedirect("/");
         } else {
             req.setAttribute("errorMessage", "Error");

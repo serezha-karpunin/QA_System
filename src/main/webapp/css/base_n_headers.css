@@ -139,12 +139,14 @@ button:hover {
     border: 1px solid #abb2e1;
     border-radius: 2px;
     font-size: 13px;
+    display:block;
 
     padding: 3px;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #complete_login_button {
+    margin-top:10px;
     width: 200px;
     height: 26px;
     font-size: 13px;
@@ -313,5 +315,10 @@ button:hover {
 }
 #question_form_close_button img{
     width:12px;
+}
+
+#unauth_header_missing_fields_error{
+    display:none;
+    font-size: small;
 }
 

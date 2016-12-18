@@ -5,6 +5,7 @@ import db.entities.UsersEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,11 @@ public class SaveSettingsServlet extends HttpServlet {
         UsersEntity usersEntity = usersDao.getById(login);
         usersEntity.setLang(lang);
         usersDao.update(usersEntity);
+
+        Cookie c = new Cookie("language", "nothing");
+        c.setMaxAge(0);
+        resp.addCookie(c);
+
         req.setAttribute("saved", true);
         req.getRequestDispatcher("/user_settings").forward(req,resp);
     }

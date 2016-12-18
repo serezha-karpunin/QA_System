@@ -23,7 +23,7 @@
     border: 0;
     display: block;
     text-align: center;
-    width:60px;
+    width:70px;
 
 }
 
@@ -136,4 +136,8 @@
 
 .question_page_call_auth_button:hover{
     text-decoration: underline;
+}
+
+.label_text{
+    font-size:small;
 }

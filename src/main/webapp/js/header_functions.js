@@ -6,8 +6,11 @@ $(function () {
 
     $('#unauth_header_login_form').submit(function () {
         if ($('#unauth_header_email_field').val() == '' || $('#unauth_header_password_field').val() == '') {
+            $('#unauth_header_missing_fields_error').show();
             return false;
         }
+        // $('#unauth_header_missing_fields_error').hide();
+
     });
 
 

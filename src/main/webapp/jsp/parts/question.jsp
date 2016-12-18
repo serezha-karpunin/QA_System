@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="question_element_right_part">
-        <a href="/question_page?id=${question.idQuestion}">${question.answers}<br>${answers}</a>
-        <a href="/question_page?id=${question.idQuestion}">${question.views}<br>${views}</a>
+        <a href="/question_page?id=${question.idQuestion}">${question.answers}<br><p class="label_text">${answers}</p></a>
+        <a href="/question_page?id=${question.idQuestion}">${question.views}<br><p class="label_text">${views}</p></a>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 <fmt:bundle basename="language">
     <fmt:message key="authmenu.email_login" var="auth_email_login"/>
-    <fmt:message key="authmenu.error" var="auth_error"/>
+    <fmt:message key="authmenu.empty_fields" var="empty_fields"/>
     <fmt:message key="authmenu.password" var="auth_password"/>
     <fmt:message key="authmenu.registration" var="auth_registration"/>
     <fmt:message key="authmenu.signin" var="signin"/>
@@ -28,12 +28,10 @@
         <div id="auth_menu_arrow" class="arrow-up"></div>
         <form id="unauth_header_login_form" action="/login" method="post">
             <input id="unauth_header_email_field" name="login" type="text" placeholder="${auth_email_login}">
-            <br>
-
             <input id="unauth_header_password_field" name="password" type="password" placeholder="${auth_password}">
-            <br>
-
+            <div id="unauth_header_missing_fields_error">${empty_fields}</div>
             <button id="complete_login_button">${signin}</button>
+
         </form>
         <form action="/jsp/auth/registration.jsp" method="get">
             <button class="call_registration_page_button">${auth_registration}</button>

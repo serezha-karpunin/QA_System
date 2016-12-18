@@ -45,7 +45,7 @@ public class RegistrationBean implements Serializable {
         entity.setPassword(password);
         entity.setEmail(email);
         entity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
-        entity.setLang(Locale.getDefault().toString());
+        entity.setLang(Locale.getDefault().getLanguage());
         return entity;
     }
 }
