@@ -191,7 +191,11 @@ button:hover {
     border-radius: 2px;
     color: #eaeaee;
 
-    background: -webkit-linear-gradient(top, rgb(78, 104, 149) 0%, rgba(58, 65, 122, 1) 100%);
+    /*background: -webkit-linear-gradient(top, rgb(78, 104, 149) 0%, rgba(58, 65, 122, 1) 100%);*/
+}
+
+#auth_header_ask_question_button:hover {
+    text-decoration: underline;
 }
 
 #auth_header_call_options_menu_button {
