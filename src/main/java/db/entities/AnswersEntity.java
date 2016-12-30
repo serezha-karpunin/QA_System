@@ -27,7 +27,7 @@ public class AnswersEntity {
     }
 
     @Basic
-    @Column(name = "text_answer", nullable = false, length = 15)
+    @Column(name = "text_answer", nullable = false, length = 500)
     public String getTextAnswer() {
         return textAnswer;
     }

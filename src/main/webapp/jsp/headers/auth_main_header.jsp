@@ -41,7 +41,7 @@
         </div>
         <div id="main_header_center_part">
             <form action="/search" method="post">
-                <input id="search_box" type="text" placeholder="${search_placeholder}"/>
+                <input id="search_box" type="text" name="searchString" placeholder="${search_placeholder}"/>
             </form>
         </div>
         <div id="main_header_right_part">

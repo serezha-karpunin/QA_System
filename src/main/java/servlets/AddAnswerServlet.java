@@ -23,7 +23,7 @@ public class AddAnswerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+//        req.setCharacterEncoding("utf-8");
         int question_id = (int) req.getServletContext().getAttribute("current_id");
         String login = (String) req.getSession().getAttribute("userLogin");
         String text = req.getParameter("text");

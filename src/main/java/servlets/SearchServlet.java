@@ -29,6 +29,8 @@ public class SearchServlet extends HttpServlet {
 
         Set<QuestionsEntity> suitableQuestions = new HashSet<>();
 
+        System.out.println(searchString);
+
         if(!"".equals(searchString)){
 
             UsersDao usersDao = new UsersDao();
@@ -64,7 +66,7 @@ public class SearchServlet extends HttpServlet {
         }else{
             System.out.println("emptptyppty");
         }
-
+        req.setAttribute("searchString", searchString);
         getServletContext().getRequestDispatcher("/jsp/public/search_results_page.jsp").forward(req, resp);
     }
 }

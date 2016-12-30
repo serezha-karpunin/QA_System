@@ -24,7 +24,7 @@ public class AddQuestionServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+//        req.setCharacterEncoding("utf-8");
         String login = (String) req.getSession().getAttribute("userLogin");
         String title = req.getParameter("title");
         String text = req.getParameter("text");

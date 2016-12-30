@@ -35,7 +35,6 @@
         <c:forEach var="question" items="${searchResults}">
             <%@include file="/jsp/parts/question.jsp" %>
         </c:forEach>
-
     </div>
 </div>
 </body>

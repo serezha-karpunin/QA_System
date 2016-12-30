@@ -39,4 +39,10 @@ $(function () {
             e.preventDefault();
         }
     });
+
+    $(".tags button").click(function () {
+        console.log("hehheheh");
+        $("#search_box").val($(this).val());
+        $('#search_box_form').submit();
+    });
 });

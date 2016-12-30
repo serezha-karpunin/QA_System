@@ -11,7 +11,7 @@
         <div class="question_element_down_panel">
             <div class="tags">
                 <c:forEach var="tag" items="${question.tags}">
-                    <button>${tag}</button>
+                    <button value="${tag}">${tag}</button>
                 </c:forEach>
             </div>
             <h5>${question.date}</h5>

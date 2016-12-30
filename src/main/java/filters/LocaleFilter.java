@@ -52,6 +52,8 @@ public class LocaleFilter implements Filter {
             }
         }
 
+        httpServletRequest.setCharacterEncoding("utf-8");
+
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 
