@@ -12,6 +12,8 @@ $(function () {
                     $('#answers_area').html(data);
                     $('#answer_text_field').val('');
                     addLikeListeners();
+                    addDeleteAnswerListeners();
+                    console.log("chec che");
                 }
             });
         }
@@ -26,6 +28,7 @@ function checkAnswersTextArea() {
                     success: function (data) {
                         $('#answers_area').html(data);
                         addLikeListeners();
+                        addDeleteAnswerListeners();
                     }
 
                 })

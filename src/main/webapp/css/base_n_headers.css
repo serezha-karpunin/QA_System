@@ -331,3 +331,52 @@ button:hover {
     font-size: small;
 }
 
+
+#confirm_question_deletion_form_wrapper, #confirm_answer_deletion_form_wrapper{
+    text-align: center;
+    display:none;
+    background: white;
+    position:fixed;
+    width:20%;
+    left:40%;
+    box-sizing:border-box;
+    /*right:70%;*/
+    top:20%;
+    height:12%;
+    z-index:101;
+    border-radius: 5px;
+    padding:20px;
+    /*border: 2px solid green;*/
+}
+.confirm_deletion_form_buttons_line {
+    /*width:80%;*/
+    /*border: 2px solid red;*/
+    /*!*text-align: justify;*!*/
+    /*margin:auto;*/
+}
+
+.confirm_deletion_form_buttons_line *{
+    display: inline;
+    /*border: 2px solid blue;*/
+    /*margin:auto;*/
+}
+
+.confirm_deletion_form_buttons_line button{
+    border:1px solid #555;
+    color: #555;
+    background: transparent;
+    border-radius: 4px;
+    padding:4px 30px;
+    margin:10px;
+
+}
+
+.delete_question_button, .delete_answer_button{
+    color:#a2a2a2;
+    font-size:13px;
+}
+
+.delete_question_button:hover, .delete_answer_button:hover {
+    text-decoration: underline;
+}
+

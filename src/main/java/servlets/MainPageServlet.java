@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by n on 10.12.2016.
  */
-@WebServlet("/main_page")
+@WebServlet("/")
 public class MainPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

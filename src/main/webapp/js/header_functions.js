@@ -41,8 +41,20 @@ $(function () {
     });
 
     $(".tags button").click(function () {
-        console.log("hehheheh");
         $("#search_box").val($(this).val());
         $('#search_box_form').submit();
     });
+
+    $('.delete_question_button').click(function () {
+        $('#mask').fadeIn(250);
+        $('#confirm_question_deletion_form_wrapper').fadeIn(250);
+        document.cookie = "id_question_to_delete=" + $(this).val() + "; path=/;";
+    });
+
+
+    $('.confirm_deletion_close_button').click(function () {
+        $('#mask').fadeOut(250);
+        $('#confirm_question_deletion_form_wrapper').fadeOut(250);
+        $('#confirm_answer_deletion_form_wrapper').fadeOut(250);
+    })
 });

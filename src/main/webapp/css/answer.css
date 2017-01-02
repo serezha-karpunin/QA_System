@@ -65,11 +65,18 @@
 }
 
 #answer_like_line{
-    margin-top:10px;
     display:-webkit-box;
     -webkit-box-orient: horizontal;
     -webkit-box-align: center;
+    -webkit-box-flex: 1;
 }
 #answer_like_line p{
     margin-left:5px;
+}
+
+#answer_element_down_line{
+    margin-top:10px;
+    display:-webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align:center;
 }

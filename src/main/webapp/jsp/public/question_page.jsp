@@ -23,6 +23,7 @@
 
 </fmt:bundle>
 
+
 <c:choose>
     <c:when test="${not empty userLogin}">
         <%@include file="/jsp/headers/auth_main_header.jsp" %>
@@ -43,6 +44,7 @@
                 <p>${questionBean.views} ${views}</p>
             </div>
 
+
         </div>
         <div id="question_page_theme_line">
             <h2>${questionBean.title}</h2>
@@ -55,7 +57,11 @@
                 <c:forEach var="tag" items="${questionBean.tags}">
                     <button>${tag}</button>
                 </c:forEach>
+
             </div>
+            <c:if test="${questionBean.login eq userLogin}">
+                <button class="delete_question_button" value="${questionBean.idQuestion}">${delete_question}</button>
+            </c:if>
         </div>
 
         <h3>${answers}</h3>

@@ -24,14 +24,26 @@ import java.util.List;
 public class ProfilePageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/");
+        doPost(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String visited_user = req.getParameter("visitedUser");
-        if (visited_user == null) resp.sendRedirect("/");
+        String visited_user_by_req = req.getParameter("visitedUser");
+        String visited_user_by_context = (String) req.getServletContext().getAttribute("visitedUser");
 
+        System.out.println("by req " + visited_user_by_req);
+        System.out.println("by context " + visited_user_by_context);
+
+        if (visited_user_by_req == null && visited_user_by_context == null) {
+            System.out.println("all bad");
+            resp.sendRedirect("/");
+            return;
+        }
+
+        String visited_user = (visited_user_by_req != null) ? visited_user_by_req  : visited_user_by_context;
+
+        req.getServletContext().setAttribute("visitedUser", visited_user);
         UsersDao usersDao = new UsersDao();
         QuestionsDao questionsDao = new QuestionsDao();
         AnswersDao answersDao = new AnswersDao();

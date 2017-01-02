@@ -78,7 +78,7 @@
     /*border-bottom:1px solid #dfdfdf;*/
     display:-webkit-box;
     -webkit-box-orient: horizontal;
-    -webkit-box-align: center;
+    /*-webkit-box-align: center;*/
 }
 
 #question_page_author_line form{
@@ -111,7 +111,9 @@
 }
 
 #question_page_tags_line{
-    padding: 10px;
+    padding: 10px 0;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
 }
 
 #answer_text_field{
@@ -140,4 +142,8 @@
 
 .label_text{
     font-size:small;
+}
+
+#question_element_delete_button_line{
+    text-align: right;
 }

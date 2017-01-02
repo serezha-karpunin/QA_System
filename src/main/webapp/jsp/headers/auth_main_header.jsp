@@ -11,6 +11,8 @@
     <fmt:message key="question_form.ask_question" var="ask_question"/>
     <fmt:message key="question_form.tags_placeholder" var="tags"/>
     <fmt:message key="question_form.question_error" var="question_error"/>
+    <fmt:message key="question.delete_question" var="delete_question"/>
+
 </fmt:bundle>
 <div id="mask"></div>
 
@@ -27,9 +29,27 @@
             <p id="question_form_error_message">${question_error}</p>
             <button>${ask_question}</button>
         </div>
-
     </form>
+</div>
 
+<div id="confirm_question_deletion_form_wrapper">
+    <p>wanna delete this question?</p>
+    <div class="confirm_deletion_form_buttons_line">
+        <form action="/delete_question" method="post">
+            <button>da</button>
+        </form>
+        <button class="confirm_deletion_close_button">net</button>
+    </div>
+</div>
+
+<div id="confirm_answer_deletion_form_wrapper">
+    <p>wanna delete this answer?</p>
+    <div class="confirm_deletion_form_buttons_line">
+        <form action="/delete_answer" method="post">
+            <button>da</button>
+        </form>
+        <button class="confirm_deletion_close_button">net</button>
+    </div>
 </div>
 
 <div id="main_header_background">

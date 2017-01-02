@@ -1,3 +1,12 @@
+function addDeleteAnswerListeners(){
+    console.log("adal ");
+    $('.delete_answer_button').click(function () {
+        $('#mask').fadeIn(250);
+        $('#confirm_answer_deletion_form_wrapper').fadeIn(250);
+        document.cookie = "id_answer_to_delete=" + $(this).val() + "; path=/;";
+    });
+}
+
 function addLikeListeners() {
     var unpressed = $('.unpressed_like_answer_button');
     unpressed.off('click');

@@ -19,6 +19,11 @@
                 <button name="visitedUser" value="${question.login}">${question.login}</button>
             </form>
         </div>
+        <div id="question_element_delete_button_line">
+            <c:if test="${question.login eq userLogin}">
+                <button class="delete_question_button" value="${question.idQuestion}">${delete_question}</button>
+            </c:if>
+        </div>
     </div>
     <div class="question_element_right_part">
         <a href="/question_page?id=${question.idQuestion}">${question.answers}<br><p class="label_text">${answers}</p></a>
