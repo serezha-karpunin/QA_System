@@ -24,12 +24,9 @@ public class SearchServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("hehehehherrr");
         String searchString = req.getParameter("searchString");
 
         Set<QuestionsEntity> suitableQuestions = new HashSet<>();
-
-        System.out.println(searchString);
 
         if(!"".equals(searchString)){
 
@@ -63,9 +60,8 @@ public class SearchServlet extends HttpServlet {
                 searchResults.add(EntityUtil.createQuestionListBean(entity));
             }
             req.setAttribute("searchResults", searchResults);
-        }else{
-            System.out.println("emptptyppty");
         }
+
         req.setAttribute("searchString", searchString);
         getServletContext().getRequestDispatcher("/jsp/public/search_results_page.jsp").forward(req, resp);
     }

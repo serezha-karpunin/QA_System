@@ -29,12 +29,11 @@ public class DeleteAnswerServlet extends HttpServlet {
                 }
             }
         }
+
         if(answer_id!=0){
             AnswersDao answersDao = new AnswersDao();
             answersDao.deleteById(answer_id);
             resp.sendRedirect(req.getHeader("referer").replaceAll("http://localhost:8080", ""));
         }
-
-
     }
 }

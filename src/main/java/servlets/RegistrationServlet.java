@@ -24,9 +24,7 @@ public class RegistrationServlet extends HttpServlet {
         bean.setLogin(req.getParameter("login"));
         bean.setPassword(req.getParameter("password"));
         registerUser(bean);
-//        getServletContext().getRequestDispatcher("/jsp/auth/registration.jsp").forward(req, resp);
         resp.sendRedirect("/");
-        System.out.println("hello");
     }
 
     public void registerUser(RegistrationBean bean) {

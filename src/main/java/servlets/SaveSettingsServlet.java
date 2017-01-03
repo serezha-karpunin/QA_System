@@ -37,8 +37,6 @@ public class SaveSettingsServlet extends HttpServlet {
         Config.set(req.getSession(), Config.FMT_LOCALE, new Locale(lang));
 
         req.setAttribute("saved", true);
-//        resp.sendRedirect("/user_settings");
-        System.out.println("before forwarding to uset settings");
         req.getRequestDispatcher("/user_settings").forward(req,resp);
     }
 }

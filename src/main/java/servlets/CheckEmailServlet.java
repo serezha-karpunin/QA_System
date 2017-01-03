@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by n on 04.12.2016.
- */
+
 @WebServlet("/check_email")
 public class CheckEmailServlet extends HttpServlet {
     @Override

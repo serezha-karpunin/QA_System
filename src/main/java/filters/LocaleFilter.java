@@ -31,7 +31,6 @@ public class LocaleFilter implements Filter {
                 if("language".equals(c.getName())){
                     Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, new Locale(c.getValue()));
                     isCookieExist = true;
-                    System.out.println("find cookei");
                     break;
                 }
             }
@@ -45,9 +44,7 @@ public class LocaleFilter implements Filter {
                 Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, new Locale(lang));
                 Cookie c = new Cookie("language", lang);
                 httpServletResponse.addCookie(c);
-                System.out.println("find in db and added cookei");
             }else{
-                System.out.println("set defoualt");
                 Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, Locale.getDefault().getLanguage());
             }
         }

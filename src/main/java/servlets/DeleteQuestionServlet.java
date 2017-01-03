@@ -30,6 +30,7 @@ public class DeleteQuestionServlet extends HttpServlet {
                 }
             }
         }
+
         if(question_id!=0){
             QuestionsDao questionDao = new QuestionsDao();
             AnswersDao answersDao = new AnswersDao();
