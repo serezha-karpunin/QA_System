@@ -18,7 +18,7 @@ $(function () {
     });
 
     $('#question_form').submit(function () {
-        if ($('#question_form_title_field').val() == '' && $('#question_form_text_area').val() == '') {
+        if ($('#question_form_title_field').val() == '' || $('#question_form_text_area').val() == '') {
             $('#question_form_error_message').show();
             return false;
         }
@@ -56,5 +56,14 @@ $(function () {
         $('#mask').fadeOut(250);
         $('#confirm_question_deletion_form_wrapper').fadeOut(250);
         $('#confirm_answer_deletion_form_wrapper').fadeOut(250);
+        delete_cookie("id_answer_to_delete");
+        delete_cookie("id_question_to_delete");
     })
 });
+
+function delete_cookie ( cookie_name )
+{
+    var cookie_date = new Date ( );  // Текущая дата и время
+    cookie_date.setTime ( cookie_date.getTime() - 1 );
+    document.cookie = cookie_name + "=; expires=" + cookie_date.toGMTString() + "; path=/;";
+}
