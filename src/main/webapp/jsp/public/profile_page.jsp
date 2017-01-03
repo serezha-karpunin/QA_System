@@ -17,7 +17,14 @@
 </head>
 <body>
 
-<%@include file="/jsp/headers/auth_main_header.jsp" %>
+<c:choose>
+    <c:when test="${not empty userLogin}">
+        <%@include file="/jsp/headers/auth_main_header.jsp" %>
+    </c:when>
+    <c:otherwise>
+        <%@include file="/jsp/headers/unauth_main_header.jsp" %>
+    </c:otherwise>
+</c:choose>
 
 <div id="page_wrapper">
     <div id="user_page_content_wrapper">

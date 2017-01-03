@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 
@@ -36,6 +38,7 @@ public class AddQuestionServlet extends HttpServlet {
         qe.setTextQuestion(text);
         qe.setDateQuestion(new Timestamp(System.currentTimeMillis()));
 
+
         QuestionsDao questionsDao = new QuestionsDao();
         int id_question = questionsDao.save(qe);
 
@@ -43,10 +46,16 @@ public class AddQuestionServlet extends HttpServlet {
             TagsDao td = new TagsDao();
 
             StringTokenizer st = new StringTokenizer(tagsString.toLowerCase());
+            Set<String> tokens = new HashSet<>();
+
             while(st.hasMoreTokens()){
+                tokens.add(st.nextToken());
+            }
+
+            for (String tag : tokens) {
                 TagsEntity te = new TagsEntity();
                 te.setIdQuestion(id_question);
-                te.setTag(st.nextToken());
+                te.setTag(tag);
                 td.save(te);
             }
         }
