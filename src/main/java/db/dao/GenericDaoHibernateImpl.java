@@ -58,7 +58,9 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
     public void deleteById(PK id) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         s.beginTransaction();
-        s.delete(getById(id));
+        T entity = s.load(type,id);
+        s.delete(entity);
+//        s.delete(getById(id));
         s.getTransaction().commit();
         s.close();
     }

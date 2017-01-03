@@ -1,6 +1,8 @@
 package servlets;
 
+import db.dao.AnswersDao;
 import db.dao.QuestionsDao;
+import db.entities.AnswersEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +32,14 @@ public class DeleteQuestionServlet extends HttpServlet {
         }
         if(question_id!=0){
             QuestionsDao questionDao = new QuestionsDao();
+            AnswersDao answersDao = new AnswersDao();
+
+            for (AnswersEntity ae:answersDao.getAnswersByQuestionId(question_id)) {
+                answersDao.deleteById(ae.getIdAnswer());
+            }
+
             questionDao.deleteById(question_id);
+
             String referer = req.getHeader("referer");
             if(referer.contains("question_page")){
                 resp.sendRedirect("/");
