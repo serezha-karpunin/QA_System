@@ -21,8 +21,13 @@ public class SettingsPageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("in settings servlet");
         String login = (String) req.getSession().getAttribute("userLogin");
-        if(login == null) resp.sendRedirect("/");
+
+        if(login == null) {
+            resp.sendRedirect("/");
+            return;
+        }
 
         UsersDao usersDao = new UsersDao();
         UsersEntity usersEntity = usersDao.getById(login);
