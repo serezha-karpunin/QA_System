@@ -14,4 +14,5 @@ $(function () {
         $('#answers_content').toggle();
     });
     addLikeListeners();
+    addDeleteAnswerListeners();
 });

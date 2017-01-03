@@ -42,6 +42,7 @@ public class ProfilePageServlet extends HttpServlet {
         }
 
         String visited_user = (visited_user_by_req != null) ? visited_user_by_req  : visited_user_by_context;
+        System.out.println("visited_user: " + visited_user);
 
         req.getServletContext().setAttribute("visitedUser", visited_user);
         UsersDao usersDao = new UsersDao();
@@ -57,8 +58,11 @@ public class ProfilePageServlet extends HttpServlet {
         }
 
         String login = (String) req.getSession().getAttribute("userLogin");
+        System.out.println("login: " + login);
+
         List<AnswerProfileBean> userAnswers = new ArrayList<>();
         for (AnswersEntity entity : answersDao.getAnswersByLogin(visited_user)) {
+            System.out.println("entuy" + entity);
             userAnswers.add(EntityUtil.createAnswerProfileBean(entity,login));
         }
 

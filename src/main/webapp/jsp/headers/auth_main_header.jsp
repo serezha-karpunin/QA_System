@@ -6,12 +6,16 @@
     <fmt:message key="options_menu.logout" var="logout"/>
     <fmt:message key="header.search_placeholder" var="search_placeholder"/>
     <fmt:message key="header.ask" var="ask"/>
+    <fmt:message key="header.yes" var="yes"/>
+    <fmt:message key="header.no" var="no"/>
     <fmt:message key="question_form.title_placeholder" var="title"/>
     <fmt:message key="question_form.text_placeholder" var="text"/>
     <fmt:message key="question_form.ask_question" var="ask_question"/>
     <fmt:message key="question_form.tags_placeholder" var="tags"/>
     <fmt:message key="question_form.question_error" var="question_error"/>
     <fmt:message key="question.delete_question" var="delete_question"/>
+    <fmt:message key="question.confirm_question_deletion" var="confirm_question_deletion"/>
+    <fmt:message key="answer.confirm_answer_deletion" var="confirm_answer_deletion"/>
 
 </fmt:bundle>
 <div id="mask"></div>
@@ -33,22 +37,22 @@
 </div>
 
 <div id="confirm_question_deletion_form_wrapper">
-    <p>wanna delete this question?</p>
+    <p>${confirm_question_deletion}</p>
     <div class="confirm_deletion_form_buttons_line">
         <form action="/delete_question" method="post">
-            <button>da</button>
+            <button>${yes}</button>
         </form>
-        <button class="confirm_deletion_close_button">net</button>
+        <button class="confirm_deletion_close_button">${no}</button>
     </div>
 </div>
 
 <div id="confirm_answer_deletion_form_wrapper">
-    <p>wanna delete this answer?</p>
+    <p>${confirm_answer_deletion}</p>
     <div class="confirm_deletion_form_buttons_line">
         <form action="/delete_answer" method="post">
-            <button>da</button>
+            <button>${yes}</button>
         </form>
-        <button class="confirm_deletion_close_button">net</button>
+        <button class="confirm_deletion_close_button">${no}</button>
     </div>
 </div>
 

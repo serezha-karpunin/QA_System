@@ -342,7 +342,7 @@ button:hover {
     box-sizing:border-box;
     /*right:70%;*/
     top:20%;
-    height:12%;
+    height:15%;
     z-index:101;
     border-radius: 5px;
     padding:20px;
@@ -362,13 +362,17 @@ button:hover {
 }
 
 .confirm_deletion_form_buttons_line button{
-    border:1px solid #555;
-    color: #555;
+    border:1px solid #a2a2a2;
+    color: #a2a2a2;
     background: transparent;
     border-radius: 4px;
     padding:4px 30px;
     margin:10px;
+}
 
+.confirm_deletion_form_buttons_line button:hover{
+    border:1px solid #555;
+    color: #555;
 }
 
 .delete_question_button, .delete_answer_button{

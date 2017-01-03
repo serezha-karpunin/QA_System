@@ -69,7 +69,10 @@ public class EntityUtil {
         bean.setLikes(likesDao.countLikes(entity.getIdAnswer()));
 
         bean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(entity.getIdAnswer(), login));
+        System.out.println(entity.getIdAnswer());
         QuestionsEntity qe = questionsDao.getQuestionByAnswer(entity.getIdAnswer());
+        System.out.println("hrgege");
+        System.out.println(qe);
         bean.setIdQuestion(qe.getIdQuestion());
         bean.setTitle(qe.getTitle());
 
