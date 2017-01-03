@@ -2,8 +2,6 @@
     white-space: nowrap;
     margin: auto;
     width: 240px;
-    /*border: 1px solid black;*/
-
 }
 
 .text_field_list input {
@@ -43,4 +41,11 @@
 
 #login_form_call_registration_page_button:hover {
     text-decoration: underline;
+}
+
+#login_not_valid_error, #password_not_valid_error{
+    position: fixed;
+    white-space:normal;
+    margin-top:10px;
+    padding-left: 5px;
 }

@@ -32,7 +32,7 @@ $(function () {
         return true;
     };
     var isLoginCorrect =  function () {
-        var login_regex = /^[a-zA-Z0-9_-]{3,16}$/;
+        var login_regex = /^[a-zA-Z0-9_-]{3,15}$/;
         var login = $('#registration_login_field').val();
 
         $('#registration_form').find('.login_errors').hide();
