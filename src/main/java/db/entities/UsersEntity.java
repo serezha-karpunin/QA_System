@@ -3,6 +3,9 @@ package db.entities;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * Created by n on 04.01.2017.
+ */
 @Entity
 @Table(name = "users", schema = "epamproject", catalog = "")
 public class UsersEntity {
@@ -11,6 +14,8 @@ public class UsersEntity {
     private String password;
     private Timestamp registrationDate;
     private String lang;
+    private String salt;
+    private String imageLink;
 
     @Id
     @Column(name = "login", nullable = false, length = 15)
@@ -62,6 +67,26 @@ public class UsersEntity {
         this.lang = lang;
     }
 
+    @Basic
+    @Column(name = "salt", nullable = false, length = 10)
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    @Basic
+    @Column(name = "imageLink", nullable = false, length = 100)
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,6 +100,8 @@ public class UsersEntity {
         if (registrationDate != null ? !registrationDate.equals(that.registrationDate) : that.registrationDate != null)
             return false;
         if (lang != null ? !lang.equals(that.lang) : that.lang != null) return false;
+        if (salt != null ? !salt.equals(that.salt) : that.salt != null) return false;
+        if (imageLink != null ? !imageLink.equals(that.imageLink) : that.imageLink != null) return false;
 
         return true;
     }
@@ -86,6 +113,8 @@ public class UsersEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (registrationDate != null ? registrationDate.hashCode() : 0);
         result = 31 * result + (lang != null ? lang.hashCode() : 0);
+        result = 31 * result + (salt != null ? salt.hashCode() : 0);
+        result = 31 * result + (imageLink != null ? imageLink.hashCode() : 0);
         return result;
     }
 }
