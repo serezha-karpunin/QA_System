@@ -5,6 +5,8 @@ import db.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.Locale;
 
 public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
 
-    public UsersDao(){
+    public UsersDao() {
         super(UsersEntity.class);
     }
 //    public void create(UsersEntity entity) {
@@ -52,8 +54,27 @@ public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
             query.setParameter("userLogin", login);
         }
         List<UsersEntity> list = query.list();
-        if (list.size() != 0 && list.get(0).getPassword().equals(password)) return true;
+        password += list.get(0).getSalt();
+        byte[] passHash;
+
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes("UTF-8"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        passHash = md.digest();
+
+        if (list.size() != 0 && slowEquals(list.get(0).getPassword().getBytes(), passHash)) return true;
         else return false;
+    }
+
+    private static boolean slowEquals(byte[] a, byte[] b) {
+        int diff = a.length ^ b.length;
+        for (int i = 0; i < a.length && i < b.length; i++)
+            diff |= a[i] ^ b[i];
+        return diff == 0;
     }
 
     public static void main(String[] args) {

@@ -31,7 +31,7 @@
         <div id="settings_title_line">
             ${title}
         </div>
-        <form id="settings_form" action="/save_settings" method="post">
+        <form id="settings_form" action="/save_settings" method="post" enctype="multipart/form-data">
             <span>${language}</span>
             <c:choose>
                 <c:when test="${userBean.lang eq 'ru'}">
@@ -48,6 +48,7 @@
                 </c:otherwise>
             </c:choose>
             <br>
+            <input name="data" type="file" accept="image/*"><br>
             <button id="settings_form_save_button">${save}</button>
             <c:if test="${not empty saved}">
                 <span>${saved_label}</span>

@@ -12,6 +12,7 @@ public class QuestionPageBean implements Serializable {
     private int views;
     private String login;
     private List<String> tags;
+    private String userImage;
 //    private List<AnswerBean> answers;
 
     public QuestionPageBean() {
@@ -71,6 +72,14 @@ public class QuestionPageBean implements Serializable {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 
 //    public List<AnswerBean> getAnswers() {

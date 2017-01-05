@@ -26,9 +26,9 @@ public class LocaleFilter implements Filter {
         boolean isCookieExist = false;
 
         Cookie[] cookies = httpServletRequest.getCookies();
-        if(cookies!=null) {
+        if (cookies != null) {
             for (Cookie c : cookies) {
-                if("language".equals(c.getName())){
+                if ("language".equals(c.getName())) {
                     Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, new Locale(c.getValue()));
                     isCookieExist = true;
                     break;
@@ -36,15 +36,18 @@ public class LocaleFilter implements Filter {
             }
         }
 
-        if(!isCookieExist){
+        if (!isCookieExist) {
             String login = (String) httpServletRequest.getSession().getAttribute("userLogin");
-            if(login!=null){
+            if (login != null) {
                 UsersDao usersDao = new UsersDao();
+                if (httpServletRequest.getSession().getAttribute("userImage") == null) {
+                    httpServletRequest.getSession().setAttribute("userImage", usersDao.getById(login).getImageLink());
+                }
                 String lang = usersDao.getById(login).getLang();
                 Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, new Locale(lang));
                 Cookie c = new Cookie("language", lang);
                 httpServletResponse.addCookie(c);
-            }else{
+            } else {
                 Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, Locale.getDefault().getLanguage());
             }
         }

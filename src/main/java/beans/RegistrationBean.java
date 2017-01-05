@@ -3,8 +3,10 @@ package beans;
 import db.entities.UsersEntity;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
 import java.sql.Timestamp;
 import java.util.Locale;
+import java.security.SecureRandom;
 
 public class RegistrationBean implements Serializable {
     private String login;
@@ -39,13 +41,26 @@ public class RegistrationBean implements Serializable {
         this.password = password;
     }
 
-    public UsersEntity toEntity(){
+    public UsersEntity toEntity() {
         UsersEntity entity = new UsersEntity();
+        SecureRandom secureRandom = new SecureRandom();
+        String salt = new String(secureRandom.generateSeed(10));
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+            password+=salt;
+            md.update(password.getBytes("UTF-8"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        byte[] passHash = md.digest();
         entity.setLogin(login);
-        entity.setPassword(password);
+        entity.setPassword(new String(passHash));
         entity.setEmail(email);
         entity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
         entity.setLang(Locale.getDefault().getLanguage());
+        entity.setSalt(salt);
+        entity.setImageLink("/avatar.png");
         return entity;
     }
 }

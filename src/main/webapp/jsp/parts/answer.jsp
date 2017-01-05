@@ -9,7 +9,7 @@
     <div class="answer_element_author_line">
         <form action="/user_profile" method="post">
             <button name="visitedUser" value="${answer.login}" class="answer_element_author_button"><img
-                    src="/avatar.png"/>${answer.login}</button>
+                    src="${answer.userImage}"/>${answer.login}</button>
         </form>
         <p>${answer.date}</p>
     </div>

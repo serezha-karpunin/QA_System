@@ -10,6 +10,7 @@ public class UserSettingsBean implements Serializable {
     private int questionCount;
     private int answerCount;
     private String lang;
+    private String userImage;
 
     public UserSettingsBean() {
     }
@@ -68,5 +69,13 @@ public class UserSettingsBean implements Serializable {
 
     public void setLang(String lang) {
         this.lang = lang;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }

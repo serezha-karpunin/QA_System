@@ -7,6 +7,7 @@ public class UserProfileBean implements Serializable {
     private String registrationDate;
     private int questionCount;
     private int answerCount;
+    private String userImage;
 
     public UserProfileBean() {
     }
@@ -41,5 +42,13 @@ public class UserProfileBean implements Serializable {
 
     public void setAnswerCount(int answerCount) {
         this.answerCount = answerCount;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }

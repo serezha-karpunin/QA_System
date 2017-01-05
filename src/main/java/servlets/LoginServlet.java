@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by n on 04.12.2016.
@@ -22,10 +24,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         UsersDao dao = new UsersDao();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+
         if (dao.isUserCorrect(login, password)) {
             req.getSession().setAttribute("userLogin", login);
 

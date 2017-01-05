@@ -11,6 +11,7 @@
     <script src='/js/jquery-3.1.1.js'></script>
     <script src='/js/header_functions.js'></script>
     <script src='/js/main_page_functions.js'></script>
+    <meta charset="utf-8" />
 
 </head>
 <body>

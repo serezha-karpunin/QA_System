@@ -7,6 +7,7 @@ public class AnswerProfileBean implements Serializable {
     private String textAnswer;
     private String date;
     private String login;
+    private String userImage;
     private int likes;
     private boolean isLikedByCurrentUser;
 
@@ -78,5 +79,13 @@ public class AnswerProfileBean implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }

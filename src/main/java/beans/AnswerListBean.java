@@ -9,6 +9,7 @@ public class AnswerListBean implements Serializable {
     private String login;
     private int likes;
     private boolean isLikedByCurrentUser;
+    private String userImage;
 
     public AnswerListBean() {
     }
@@ -59,5 +60,13 @@ public class AnswerListBean implements Serializable {
 
     public void setIsLikedByCurrentUser(boolean likedByCurrentUser) {
         isLikedByCurrentUser = likedByCurrentUser;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }

@@ -37,7 +37,7 @@
     <div id="question_page_content_wrapper">
         <div id="question_page_author_line">
             <form action="/user_profile" method="post">
-                <button id="question_page_author_button" name="visitedUser" value="${questionBean.login}"><img src="/avatar.png"/>${questionBean.login}</button>
+                <button id="question_page_author_button" name="visitedUser" value="${questionBean.login}"><img src="${questionBean.userImage}"/>${questionBean.login}</button>
             </form>
             <div>
                 <p>${questionBean.date}</p>

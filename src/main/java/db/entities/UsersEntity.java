@@ -7,7 +7,7 @@ import java.sql.Timestamp;
  * Created by n on 04.01.2017.
  */
 @Entity
-@Table(name = "users", schema = "epamproject", catalog = "")
+@Table(name = "users", schema = "epamproject")
 public class UsersEntity {
     private String login;
     private String email;

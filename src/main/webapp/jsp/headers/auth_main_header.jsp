@@ -69,7 +69,8 @@
             </form>
         </div>
         <div id="main_header_right_part">
-            <button id="auth_header_call_options_menu_button"><img src="/avatar.png"/></button>
+            <%--<button id="auth_header_call_options_menu_button"><img src="/avatar.png"/></button>--%>
+            <button id="auth_header_call_options_menu_button"><img src="${userImage}"/></button>
             <button id="auth_header_ask_question_button">${ask}</button>
         </div>
     </div>

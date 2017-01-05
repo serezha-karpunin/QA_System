@@ -4,17 +4,18 @@ import db.dao.UsersDao;
 import db.entities.UsersEntity;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import javax.servlet.jsp.jstl.core.Config;
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
 @WebServlet("/save_settings")
+@MultipartConfig
 public class SaveSettingsServlet extends HttpServlet {
+    private static final String SAVE_DIR = "uploadFiles";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = (String) req.getSession().getAttribute("userLogin");
@@ -23,12 +24,12 @@ public class SaveSettingsServlet extends HttpServlet {
             return;
         }
 
+        System.out.println(req.getParts().size());
         String lang = req.getParameter("language");
 
         UsersDao usersDao = new UsersDao();
         UsersEntity usersEntity = usersDao.getById(login);
         usersEntity.setLang(lang);
-        usersDao.update(usersEntity);
 
         Cookie c = new Cookie("language", "nothing");
         c.setMaxAge(0);
@@ -36,7 +37,39 @@ public class SaveSettingsServlet extends HttpServlet {
 
         Config.set(req.getSession(), Config.FMT_LOCALE, new Locale(lang));
 
+
+        String appPath = req.getServletContext().getRealPath("");
+        String savePath = appPath + File.separator + SAVE_DIR;
+
+        File fileSaveDir = new File(savePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdir();
+        }
+
+        for (Part part : req.getParts()) {
+            String fileName = extractFileName(part);
+            if (fileName.equals("")) continue; // костыль
+            fileName = new File(fileName).getName();
+            part.write(savePath + File.separator + fileName);
+            System.out.println(savePath + File.separator + fileName);
+            usersEntity.setImageLink(SAVE_DIR + File.separator + fileName);
+            req.getSession().setAttribute("userImage", SAVE_DIR + File.separator + fileName);
+        }
+        usersDao.update(usersEntity);
+
+
         req.setAttribute("saved", true);
         req.getRequestDispatcher("/user_settings").forward(req,resp);
+    }
+
+    private String extractFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] items = contentDisp.split(";");
+        for (String s : items) {
+            if (s.trim().startsWith("filename")) {
+                return s.substring(s.indexOf("=") + 2, s.length() - 1);
+            }
+        }
+        return "";
     }
 }
