@@ -54,19 +54,20 @@ public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
             query.setParameter("userLogin", login);
         }
         List<UsersEntity> list = query.list();
-        password += list.get(0).getSalt();
-        byte[] passHash;
+        if (list.size() != 0) {
+            password += list.get(0).getSalt();
+            byte[] passHash;
 
-        MessageDigest md = null;
-        try {
-            md = MessageDigest.getInstance("SHA-256");
-            md.update(password.getBytes("UTF-8"));
-        } catch (Exception e) {
-            e.printStackTrace();
+            MessageDigest md = null;
+            try {
+                md = MessageDigest.getInstance("SHA-256");
+                md.update(password.getBytes("UTF-8"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            passHash = md.digest();
+            return (slowEquals(list.get(0).getPassword().getBytes(), passHash));
         }
-        passHash = md.digest();
-
-        if (list.size() != 0 && slowEquals(list.get(0).getPassword().getBytes(), passHash)) return true;
         else return false;
     }
 
