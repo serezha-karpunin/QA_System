@@ -4,6 +4,7 @@ import db.dao.QuestionsDao;
 import db.dao.TagsDao;
 import db.entities.QuestionsEntity;
 import db.entities.TagsEntity;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,7 @@ import java.util.StringTokenizer;
 
 @WebServlet("/add_question")
 public class AddQuestionServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(AddQuestionServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect("/");
@@ -30,6 +32,9 @@ public class AddQuestionServlet extends HttpServlet {
         String title = req.getParameter("title");
         String text = req.getParameter("text");
         String tagsString = req.getParameter("tags");
+
+
+        logger.info("User " + login + " added question. Title - " + title);
 
         QuestionsEntity qe = new QuestionsEntity();
         qe.setLogin(login);

@@ -3,6 +3,7 @@ package servlets;
 import db.dao.AnswersDao;
 import db.dao.QuestionsDao;
 import db.entities.AnswersEntity;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,8 @@ import java.io.IOException;
 
 @WebServlet("/delete_question")
 public class DeleteQuestionServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(DeleteQuestionServlet.class);
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int question_id = 0;
@@ -41,6 +44,7 @@ public class DeleteQuestionServlet extends HttpServlet {
 
             questionDao.deleteById(question_id);
 
+            logger.info("Question(id = " + question_id + ") was removed");
             String referer = req.getHeader("referer");
             if(referer.contains("question_page")){
                 resp.sendRedirect("/");

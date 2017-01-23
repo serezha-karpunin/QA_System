@@ -2,6 +2,7 @@ package servlets;
 
 import db.dao.UsersDao;
 import db.entities.UsersEntity;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -16,17 +17,19 @@ import java.util.Locale;
 @MultipartConfig
 public class SaveSettingsServlet extends HttpServlet {
     private static final String SAVE_DIR = "uploadFiles";
+    final static Logger logger = Logger.getLogger(SaveSettingsServlet.class);
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String login = (String) req.getSession().getAttribute("userLogin");
         if(login == null) {
             resp.sendRedirect("/");
             return;
         }
-
-        System.out.println(req.getParts().size());
         String lang = req.getParameter("language");
 
+        logger.info("User " + login + "set language to " + lang);
         UsersDao usersDao = new UsersDao();
         UsersEntity usersEntity = usersDao.getById(login);
         usersEntity.setLang(lang);
@@ -47,18 +50,19 @@ public class SaveSettingsServlet extends HttpServlet {
         }
 
         for (Part part : req.getParts()) {
+            if (part.getContentType() == null || extractFileName(part).isEmpty()) continue; // можно еще над этим подумать
             String fileName = extractFileName(part);
-            if (fileName.equals("")) continue; // костыль
             fileName = new File(fileName).getName();
             part.write(savePath + File.separator + fileName);
             System.out.println(savePath + File.separator + fileName);
             usersEntity.setImageLink(SAVE_DIR + File.separator + fileName);
             req.getSession().setAttribute("userImage", SAVE_DIR + File.separator + fileName);
+            logger.info("User " + login + "change avatar to " + SAVE_DIR+File.separator+fileName);
         }
         usersDao.update(usersEntity);
 
 
-        req.setAttribute("saved", true);
+        req.setAttribute("saved", true); // ???
         req.getRequestDispatcher("/user_settings").forward(req,resp);
     }
 

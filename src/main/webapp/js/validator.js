@@ -105,21 +105,21 @@ $(function () {
     };
 
 
-    $('#registration_email_field').change(isEmailCorrect);
-    $('#registration_login_field').change(isLoginCorrect);
-    $('#registration_password_field').change(isPasswordCorrect);
-    $('#registration_confirm_password_field').change(isConfirmPasswordCorrect);
-
-    $('#registration_form').submit(function () {
-        if(isEmailCorrect()&isLoginCorrect()&isPasswordCorrect()&isConfirmPasswordCorrect()){
-            // $.post(
-            //     $(this).attr('action'),
-            //     $(this).serialize()
-            // );
-        }
-        else return false;
-
-    });
+    // $('#registration_email_field').change(isEmailCorrect);
+    // $('#registration_login_field').change(isLoginCorrect);
+    // $('#registration_password_field').change(isPasswordCorrect);
+    // $('#registration_confirm_password_field').change(isConfirmPasswordCorrect);
+    //
+    // $('#registration_form').submit(function () {
+    //     if(isEmailCorrect()&isLoginCorrect()&isPasswordCorrect()&isConfirmPasswordCorrect()){
+    //         // $.post(
+    //         //     $(this).attr('action'),
+    //         //     $(this).serialize()
+    //         // );
+    //     }
+    //     else return false;
+    //
+    // });
 
 
 });

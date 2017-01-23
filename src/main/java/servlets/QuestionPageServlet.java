@@ -4,6 +4,7 @@ import beans.QuestionPageBean;
 import db.dao.QuestionsDao;
 import db.entities.QuestionsEntity;
 import db.util.EntityUtil;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,10 +16,15 @@ import java.io.IOException;
 
 @WebServlet("/question_page")
 public class QuestionPageServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(QuestionPageServlet.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         int id = Integer.parseInt(req.getParameter("id"));
         req.getServletContext().setAttribute("current_id", id);
+
+        logger.info("QuestionPage: id = " + id);
 
         QuestionsDao questionsDao = new QuestionsDao();
 

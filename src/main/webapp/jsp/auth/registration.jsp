@@ -38,7 +38,10 @@
 
 <div id="page_wrapper">
     <div class="text_field_list">
-        <h2 class="title_text">${title}</h2>
+        <h2 class="title_text">${title}</h2><br>
+        ${errors.loginError}<br>
+        ${errors.emailError}<br>
+        ${errors.passwordError}<br>
         <form id="registration_form" action="/registration" method="post">
 
             <input id="registration_email_field" name="email" type="text" placeholder="${email}">

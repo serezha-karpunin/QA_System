@@ -6,6 +6,7 @@ import db.dao.UsersDao;
 import db.entities.QuestionsEntity;
 import db.entities.UsersEntity;
 import db.util.EntityUtil;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,8 @@ import java.util.*;
 
 @WebServlet("/search")
 public class SearchServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(SearchServlet.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
@@ -29,7 +32,7 @@ public class SearchServlet extends HttpServlet {
         Set<QuestionsEntity> suitableQuestions = new HashSet<>();
 
         if(!"".equals(searchString)){
-
+            logger.info("Search string: " + searchString);
             UsersDao usersDao = new UsersDao();
             QuestionsDao questionsDao = new QuestionsDao();
 

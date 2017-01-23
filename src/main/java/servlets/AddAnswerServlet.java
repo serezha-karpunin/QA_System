@@ -4,6 +4,7 @@ import db.dao.AnswersDao;
 import db.dao.QALinksDao;
 import db.entities.AnswersEntity;
 import db.entities.QaLinksEntity;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import java.sql.Timestamp;
 
 @WebServlet("/add_answer")
 public class AddAnswerServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(AddAnswerServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect("/");
@@ -27,6 +29,8 @@ public class AddAnswerServlet extends HttpServlet {
         int question_id = (int) req.getServletContext().getAttribute("current_id");
         String login = (String) req.getSession().getAttribute("userLogin");
         String text = req.getParameter("text");
+        
+        logger.info("User " + login + " added answer to question(id = " + question_id + ")");
 
         AnswersEntity ae = new AnswersEntity();
         ae.setLogin(login);

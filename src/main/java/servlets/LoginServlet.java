@@ -1,6 +1,7 @@
 package servlets;
 
 import db.dao.UsersDao;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,8 @@ import java.security.NoSuchAlgorithmException;
  */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(LoginServlet.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect("/");
@@ -28,9 +31,9 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        if (dao.isUserCorrect(login, password)) {
+        if (dao.isUserCorrect(login, password)) {;
             req.getSession().setAttribute("userLogin", login);
-
+            logger.info("User " + login + " log in ");
             Cookie c = new Cookie("language", "nothing");
             c.setMaxAge(0);
             resp.addCookie(c);
