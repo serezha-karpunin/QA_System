@@ -1,4 +1,4 @@
-package servlets;
+package servlets.actions.auth;
 
 import org.apache.log4j.Logger;
 

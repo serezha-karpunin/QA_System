@@ -1,4 +1,4 @@
-package servlets;
+package servlets.pages;
 
 import beans.UserSettingsBean;
 import db.dao.UsersDao;

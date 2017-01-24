@@ -1,4 +1,4 @@
-package servlets;
+package servlets.actions.feature;
 
 import db.dao.LikesDao;
 import db.entities.LikesEntity;

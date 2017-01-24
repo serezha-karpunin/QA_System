@@ -1,4 +1,4 @@
-package servlets;
+package servlets.pages;
 
 import db.dao.UsersDao;
 import db.entities.UsersEntity;

@@ -1,4 +1,4 @@
-package servlets;
+package servlets.pages;
 
 import beans.AnswerProfileBean;
 import beans.UserProfileBean;

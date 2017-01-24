@@ -1,7 +1,6 @@
-package servlets;
+package servlets.actions.registration;
 
 import beans.RegistrationBean;
-import com.sun.org.apache.regexp.internal.RE;
 import db.dao.UsersDao;
 import org.apache.log4j.Logger;
 

@@ -1,4 +1,4 @@
-package servlets;
+package servlets.actions.registration;
 
 import db.dao.UsersDao;
 

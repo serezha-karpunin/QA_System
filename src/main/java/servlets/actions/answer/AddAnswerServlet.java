@@ -1,4 +1,4 @@
-package servlets;
+package servlets.actions.answer;
 
 import db.dao.AnswersDao;
 import db.dao.QALinksDao;

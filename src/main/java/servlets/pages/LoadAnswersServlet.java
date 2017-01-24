@@ -1,4 +1,4 @@
-package servlets;
+package servlets.pages;
 
 import beans.AnswerListBean;
 import db.dao.AnswersDao;

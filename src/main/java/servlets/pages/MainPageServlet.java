@@ -1,4 +1,4 @@
-package servlets;
+package servlets.pages;
 
 import beans.QuestionListBean;
 import db.dao.QuestionsDao;

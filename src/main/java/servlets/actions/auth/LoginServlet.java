@@ -1,4 +1,4 @@
-package servlets;
+package servlets.actions.auth;
 
 import db.dao.UsersDao;
 import org.apache.log4j.Logger;
@@ -10,12 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by n on 04.12.2016.
- */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);
