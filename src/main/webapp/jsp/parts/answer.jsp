@@ -16,7 +16,6 @@
     <div class="answer_text_area">
         <p>${answer.textAnswer}</p>
     </div>
-    <%--<div>--%>
     <div id="answer_element_down_line">
         <c:choose>
             <c:when test="${(empty userLogin)}">
@@ -34,10 +33,6 @@
                     <button class="unpressed_like_answer_button" value="${answer.idAnswer}">${like}</button>
                     <p class="number_of_likes">${answer.likes}</p></div>
             </c:when>
-            <%--</div>--%>
-            <%--<c:otherwise>--%>
-            <%--<button class="unpressed_like_answer_button">${like} ${answer.likes}</button><b>${answer.likes}</b>--%>
-            <%--</c:otherwise>--%>
         </c:choose>
 
         <c:if test="${answer.login eq userLogin}">

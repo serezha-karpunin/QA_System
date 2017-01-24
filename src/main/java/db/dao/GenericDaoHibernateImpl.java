@@ -6,9 +6,7 @@ import org.hibernate.Session;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by n on 09.12.2016.
- */
+
 public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implements GenericDao<T,PK> {
 
     private Class<T> type;

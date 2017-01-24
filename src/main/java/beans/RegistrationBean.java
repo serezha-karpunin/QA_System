@@ -60,7 +60,7 @@ public class RegistrationBean implements Serializable {
         entity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
         entity.setLang(Locale.getDefault().getLanguage());
         entity.setSalt(salt);
-        entity.setImageLink("/avatar.png");
+        entity.setImageLink("/default/avatar.jpg");
         return entity;
     }
 }

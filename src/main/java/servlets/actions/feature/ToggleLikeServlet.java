@@ -16,6 +16,11 @@ public class ToggleLikeServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(ToggleLikeServlet.class);
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/jsp/public/error_page.jsp");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = (String) req.getSession().getAttribute("userLogin");
         int idAnswer =Integer.parseInt(req.getParameter("idAnswer"));

@@ -5,7 +5,6 @@
 </fmt:bundle>
 
 <div id="profile_page_user_panel">
-    <%--<img id="avatar" src="/avatar.png">--%>
     <img id="avatar" src="${userBean.userImage}">
     <div id="profile_page_user_info">
         <h2 class="title_text">${userBean.login}</h2>

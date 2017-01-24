@@ -13,7 +13,6 @@ $(function () {
                     $('#answer_text_field').val('');
                     addLikeListeners();
                     addDeleteAnswerListeners();
-                    console.log("chec che");
                 }
             });
         }
@@ -21,7 +20,7 @@ $(function () {
 });
 
 function checkAnswersTextArea() {
-    if($('#answers_area').is(':visible')){ //if the container is visible on the page
+    if($('#answers_area').is(':visible')){
         $.ajax({
                     type: "POST",
                     url: "/load_answers",
@@ -33,6 +32,6 @@ function checkAnswersTextArea() {
 
                 })
     } else {
-        setTimeout(checkAnswersTextArea, 100); //wait 50 ms, then try again
+        setTimeout(checkAnswersTextArea, 100);
     }
 }

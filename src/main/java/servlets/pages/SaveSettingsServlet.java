@@ -20,6 +20,11 @@ public class SaveSettingsServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(SaveSettingsServlet.class);
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/jsp/public/error_page.jsp");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String login = (String) req.getSession().getAttribute("userLogin");

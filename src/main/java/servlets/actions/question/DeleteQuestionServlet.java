@@ -18,6 +18,11 @@ public class DeleteQuestionServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(DeleteQuestionServlet.class);
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/jsp/public/error_page.jsp");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int question_id = 0;
 

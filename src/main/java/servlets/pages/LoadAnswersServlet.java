@@ -18,7 +18,7 @@ import java.util.List;
 public class LoadAnswersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/");
+        resp.sendRedirect("/jsp/public/error_page.jsp");
     }
 
     @Override

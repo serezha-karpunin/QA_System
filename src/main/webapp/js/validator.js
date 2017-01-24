@@ -63,7 +63,7 @@ $(function () {
         return true;
     };
     var isPasswordCorrect = function () {
-        var password_regex = /^[a-zA-Z0-9_-]{3,16}$/;
+        var password_regex = /^[a-zA-Z0-9_-]{5,45}$/;
         var password = $('#registration_password_field').val();
 
         $('#registration_form').find('.password_errors').hide();
@@ -153,13 +153,11 @@ function clearErrorCookies() {
     var cookieArray = document.cookie.split(';');
     for (var j = 0; j < cookieArray.length; j++) {
         cookieArray[j] = cookieArray[j].replace(/(\s*)\B(\s*)/g, '');
-        console.log(cookieArray[j]);
     }
 
     for (var i = 0; i < cookieArray.length; i++) {
         var keyValue = cookieArray[i].split('=');
         if(keyValue[0].indexOf("_error") !== -1){
-            console.log("delete: "+ keyValue[0]);
             delete_cookie(keyValue[0]);
         }
     }

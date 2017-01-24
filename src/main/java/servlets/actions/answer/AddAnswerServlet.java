@@ -20,7 +20,7 @@ public class AddAnswerServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(AddAnswerServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/");
+        resp.sendRedirect("/jsp/public/error_page.jsp");
     }
 
     @Override

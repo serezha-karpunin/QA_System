@@ -71,10 +71,7 @@ public class EntityUtil {
         bean.setUserImage(usersDao.getById(entity.getLogin()).getImageLink());
 
         bean.setIsLikedByCurrentUser((login != null) && likesDao.isLiked(entity.getIdAnswer(), login));
-        System.out.println(entity.getIdAnswer());
         QuestionsEntity qe = questionsDao.getQuestionByAnswer(entity.getIdAnswer());
-        System.out.println("hrgege");
-        System.out.println(qe);
         bean.setIdQuestion(qe.getIdQuestion());
         bean.setTitle(qe.getTitle());
 

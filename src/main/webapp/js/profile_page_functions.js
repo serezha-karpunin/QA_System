@@ -3,13 +3,11 @@ $(function () {
     $('#questions_content').show();
 
     $('#tab_questions').change(function () {
-        console.log("tab queston");
         $('#page_wrapper').find('section').hide();
         $('#questions_content').toggle();
     });
-    $('#tab_answers').change(function () {
-        console.log("tab answeor");
 
+    $('#tab_answers').change(function () {
         $('#page_wrapper').find('section').hide();
         $('#answers_content').toggle();
     });

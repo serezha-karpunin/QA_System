@@ -43,8 +43,6 @@
                 <p>${questionBean.date}</p>
                 <p>${questionBean.views} ${views}</p>
             </div>
-
-
         </div>
         <div id="question_page_theme_line">
             <h2>${questionBean.title}</h2>
@@ -55,9 +53,8 @@
         <div id="question_page_tags_line">
             <div class="tags">
                 <c:forEach var="tag" items="${questionBean.tags}">
-                    <button>${tag}</button>
+                    <button value="${tag}">${tag}</button>
                 </c:forEach>
-
             </div>
             <c:if test="${questionBean.login eq userLogin}">
                 <button class="delete_question_button" value="${questionBean.idQuestion}">${delete_question}</button>
@@ -65,10 +62,7 @@
         </div>
 
         <h3>${answers}</h3>
-
-
         <div id="answers_area"></div>
-
         <br>
 
         <c:choose>
@@ -83,9 +77,6 @@
                 </form>
             </c:otherwise>
         </c:choose>
-        <%--<h3>${your_answer}</h3>--%>
-        <%--<textarea id="answer_text_field" rows="7"></textarea>--%>
-        <%--<button id="post_answer_button">${post}</button>--%>
     </div>
 </div>
 </body>

@@ -7,9 +7,7 @@ import org.hibernate.Session;
 
 import java.util.List;
 
-/**
- * Created by n on 10.12.2016.
- */
+
 public class QuestionsDao extends GenericDaoHibernateImpl<QuestionsEntity,Integer>{
 
     public QuestionsDao() {

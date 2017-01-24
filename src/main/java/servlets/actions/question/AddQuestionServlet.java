@@ -23,7 +23,7 @@ public class AddQuestionServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(AddQuestionServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/");
+        resp.sendRedirect("/jsp/public/error_page.jsp");
     }
 
     @Override

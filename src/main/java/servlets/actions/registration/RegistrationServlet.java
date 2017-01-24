@@ -21,7 +21,7 @@ public class RegistrationServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(RegistrationServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/");
+        resp.sendRedirect("/jsp/public/error_page.jsp");
     }
 
     @Override
@@ -33,10 +33,10 @@ public class RegistrationServlet extends HttpServlet {
 
         logger.info("Reg");
 
-        String regexPassword = "^[a-zA-Z0-9_-]{3,16}$";
-        String regexLogin = "^[a-zA-Z0-9_-]{3,15}$";
         String regexEmail = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@" +
                 "((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        String regexLogin = "^[a-zA-Z0-9_-]{3,15}$";
+        String regexPassword = "^[a-zA-Z0-9_-]{5,45}$";
 
         List<String> errors = new ArrayList<>();
 
@@ -87,7 +87,6 @@ public class RegistrationServlet extends HttpServlet {
             req.setAttribute("current_email",email);
             req.setAttribute("current_login",login);
             for (String s : errors) {
-                System.out.println(s);
                 resp.addCookie(new Cookie(s,""));
             }
             req.getRequestDispatcher("/jsp/auth/registration.jsp").forward(req, resp);

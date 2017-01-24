@@ -1,5 +1,4 @@
 function addDeleteAnswerListeners(){
-    console.log("adal ");
     $('.delete_answer_button').click(function () {
         $('#mask').fadeIn(250);
         $('#confirm_answer_deletion_form_wrapper').fadeIn(250);
@@ -26,10 +25,8 @@ var unpressedListener = function(){
             "addLike": true
         },
         success: function () {
-            console.log("like pressed (db)");
         }
     });
-    console.log("like pressed");
     var p = $(this).closest('div').children('p');
     p.html(parseInt(p.html())+1);
     $(this).toggleClass('pressed_like_answer_button unpressed_like_answer_button');
@@ -46,10 +43,8 @@ var pressedListener = function() {
             "addLike": false
         },
         success: function () {
-            console.log("like unpressed (db)");
         }
     });
-    console.log("like unpressed");
     var p = $(this).closest('div').children('p');
     p.html(parseInt(p.html()) - 1);
     $(this).toggleClass('pressed_like_answer_button unpressed_like_answer_button');
