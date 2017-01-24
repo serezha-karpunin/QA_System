@@ -82,7 +82,7 @@ public class RegistrationServlet extends HttpServlet {
             bean.setPassword(password);
             registerUser(bean);
             logger.info("User " + login + " reg");
-            resp.sendRedirect("/");
+            resp.sendRedirect("/jsp/auth/registration_success.jsp");
         } else {
             req.setAttribute("current_email",email);
             req.setAttribute("current_login",login);

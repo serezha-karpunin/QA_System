@@ -1,0 +1,38 @@
+#registration_success_page_content_wrapper {
+    border-radius: 5px;
+    padding:20px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.registration_success_page_title{
+    color: #4c5780;
+}
+
+.registration_success_page_message{
+    font-size:18px;
+}
+
+.registration_success_page_back_link_wrapper{
+    width:100%;
+    text-align: center;
+}
+
+.registration_success_page_auth_link{
+    display:inline-block;
+    /*color:#a2a2a2;*/
+}
+
+.registration_success_page_auth_link:hover{
+    text-decoration: underline;
+}
+
+.registration_success_page_back_link{
+    display:block;
+    font-size: medium;
+    color:#a2a2a2;
+}
+
+.registration_success_page_back_link:hover{
+    text-decoration: underline;
+}
