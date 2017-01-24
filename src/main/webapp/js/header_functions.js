@@ -67,3 +67,10 @@ function delete_cookie ( cookie_name )
     cookie_date.setTime ( cookie_date.getTime() - 1 );
     document.cookie = cookie_name + "=; expires=" + cookie_date.toGMTString() + "; path=/;";
 }
+
+function get_cookie(name) {
+    var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}

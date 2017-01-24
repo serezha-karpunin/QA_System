@@ -6,12 +6,15 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.regex.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
@@ -23,43 +26,56 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String password = req.getParameter("password");
         String email = req.getParameter("email");
         String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        String confirm_password = req.getParameter("confirm_password");
 
         logger.info("Reg");
-        HashMap<String, String> errors = new HashMap<>();
 
         String regexPassword = "^[a-zA-Z0-9_-]{3,16}$";
         String regexLogin = "^[a-zA-Z0-9_-]{3,15}$";
         String regexEmail = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@" +
                 "((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
 
+        List<String> errors = new ArrayList<>();
+
         UsersDao usersDao = new UsersDao();
-        // Проверка пароля
-        if (password == null || !checkWithRegExp(password, regexPassword)) {
-            errors.put("passwordError", "Error password");
+
+        // Проверка почты
+        if (email == null || email.isEmpty()) {
+            errors.add("email_missing_error");
+        } else if (!checkWithRegExp(email, regexEmail)) {
+            errors.add("email_not_valid_error");
+        } else if (usersDao.isEmailExist(email)) {
+            errors.add("email_already_used_error");
         }
 
         // Проверка логина
         if (login == null || login.isEmpty()) {
-            errors.put("loginError", "Empty login");
+            errors.add("login_missing_error");
         } else if (!checkWithRegExp(login, regexLogin)) {
-            errors.put("loginError", "Wrong login");
+            errors.add("login_not_valid_error");
         } else if (usersDao.isLoginExist(login)) {
-            errors.put("loginError", "Login already exist");
+            errors.add("login_already_used_error");
         }
 
-        // Проверка почты
-        if (email == null || email.isEmpty()) {
-            errors.put("emailError", "Empty email");
-        } else if (!checkWithRegExp(email, regexEmail)) {
-            errors.put("emailError", "Wrong email");
-        } else if (usersDao.isEmailExist(email)) {
-            errors.put("emailError", "Email already exist");
+        // Проверка пароля
+        if (password == null || password.isEmpty()) {
+            errors.add("password_missing_error");
+        }else if(!checkWithRegExp(password, regexPassword)){
+            errors.add("password_not_valid_error");
         }
 
-        if (errors.size() == 0) {
+        // Проверка подтверждения пароля
+        if (confirm_password == null || confirm_password.isEmpty()) {
+            errors.add("confirm_password_missing_error");
+        }else if(!confirm_password.equals(password)){
+            errors.add("confirm_password_not_valid_error");
+        }
+
+
+        if (errors.size()==0) {
             RegistrationBean bean = new RegistrationBean();
             bean.setEmail(email);
             bean.setLogin(login);
@@ -68,17 +84,19 @@ public class RegistrationServlet extends HttpServlet {
             logger.info("User " + login + " reg");
             resp.sendRedirect("/");
         } else {
-            req.setAttribute("errors",errors);
+            req.setAttribute("current_email",email);
+            req.setAttribute("current_login",login);
+            for (String s : errors) {
+                System.out.println(s);
+                resp.addCookie(new Cookie(s,""));
+            }
             req.getRequestDispatcher("/jsp/auth/registration.jsp").forward(req, resp);
         }
     }
 
     public void registerUser(RegistrationBean bean) {
         UsersDao dao = new UsersDao();
-//        if (!dao.isEmailExist(bean.getEmail()) && !dao.isLoginExist(bean.getLogin())) {
         dao.save(bean.toEntity());
-//            System.out.println("YES");
-//        } else System.out.println("NO");
     }
 
     public boolean checkWithRegExp(String str, String regex) {

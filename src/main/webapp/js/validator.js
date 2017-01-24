@@ -31,7 +31,7 @@ $(function () {
         });
         return true;
     };
-    var isLoginCorrect =  function () {
+    var isLoginCorrect = function () {
         var login_regex = /^[a-zA-Z0-9_-]{3,15}$/;
         var login = $('#registration_login_field').val();
 
@@ -62,7 +62,7 @@ $(function () {
 
         return true;
     };
-    var isPasswordCorrect =  function () {
+    var isPasswordCorrect = function () {
         var password_regex = /^[a-zA-Z0-9_-]{3,16}$/;
         var password = $('#registration_password_field').val();
 
@@ -86,7 +86,7 @@ $(function () {
 
         return true;
     };
-    var  isConfirmPasswordCorrect = function() {
+    var isConfirmPasswordCorrect = function () {
         var password = $('#registration_password_field').val();
         var confirm_password = $('#registration_confirm_password_field').val();
 
@@ -103,6 +103,8 @@ $(function () {
         }
         return true;
     };
+
+    checkErrors();
 
 
     // $('#registration_email_field').change(isEmailCorrect);
@@ -123,3 +125,43 @@ $(function () {
 
 
 });
+
+function checkErrors() {
+    if ($('#registration_form').is(':visible')) { //if the container is visible on the page
+
+        if (typeof get_cookie("email_missing_error") != 'undefined') $('#email_missing_error').show();
+        if (typeof get_cookie("email_not_valid_error") != 'undefined') $('#email_not_valid_error').show();
+        if (typeof get_cookie("email_already_used_error") != 'undefined') $('#email_already_used_error').show();
+
+        if (typeof get_cookie("login_missing_error") != 'undefined') $('#login_missing_error').show();
+        if (typeof get_cookie("login_not_valid_error") != 'undefined') $('#login_not_valid_error').show();
+        if (typeof get_cookie("login_already_used_error") != 'undefined') $('#login_already_used_error').show();
+
+        if (typeof get_cookie("password_missing_error") != 'undefined') $('#password_missing_error').show();
+        if (typeof get_cookie("password_not_valid_error") != 'undefined') $('#password_not_valid_error').show();
+
+        if (typeof get_cookie("confirm_password_missing_error") != 'undefined') $('#confirm_password_missing_error').show();
+        if (typeof get_cookie("confirm_password_not_valid_error") != 'undefined') $('#confirm_password_not_valid_error').show();
+
+        clearErrorCookies();
+    } else {
+        setTimeout(checkErrors, 100); //wait 50 ms, then try again
+    }
+}
+
+function clearErrorCookies() {
+    var cookieArray = document.cookie.split(';');
+    for (var j = 0; j < cookieArray.length; j++) {
+        cookieArray[j] = cookieArray[j].replace(/(\s*)\B(\s*)/g, '');
+        console.log(cookieArray[j]);
+    }
+
+    for (var i = 0; i < cookieArray.length; i++) {
+        var keyValue = cookieArray[i].split('=');
+        if(keyValue[0].indexOf("_error") !== -1){
+            console.log("delete: "+ keyValue[0]);
+            delete_cookie(keyValue[0]);
+        }
+    }
+}
+

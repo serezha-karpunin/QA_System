@@ -39,18 +39,15 @@
 <div id="page_wrapper">
     <div class="text_field_list">
         <h2 class="title_text">${title}</h2><br>
-        ${errors.loginError}<br>
-        ${errors.emailError}<br>
-        ${errors.passwordError}<br>
         <form id="registration_form" action="/registration" method="post">
 
-            <input id="registration_email_field" name="email" type="text" placeholder="${email}">
+            <input id="registration_email_field" name="email" type="text" placeholder="${email}" value="${current_email}">
             <span id="email_missing_error" class="email_errors">${email_missing_error}</span>
             <span id="email_not_valid_error" class="email_errors">${email_not_valid_error}</span>
             <span id="email_already_used_error" class="email_errors">${email_already_used_error}</span>
             <br>
 
-            <input id="registration_login_field" name="login" type="text" placeholder="${login}">
+            <input id="registration_login_field" name="login" type="text" placeholder="${login}" value="${current_login}">
             <span id="login_missing_error" class="login_errors">${login_missing_error}</span>
             <span id="login_not_valid_error" class="login_errors">${login_not_valid_error}</span>
             <span id="login_already_used_error" class="login_errors">${login_already_used_error}</span>
