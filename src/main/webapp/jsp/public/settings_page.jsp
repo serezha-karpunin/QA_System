@@ -19,6 +19,7 @@
 <fmt:bundle basename="language" prefix="settings.">
     <fmt:message key="title" var="title"/>
     <fmt:message key="language" var="language"/>
+    <fmt:message key="avatar" var="avatar"/>
     <fmt:message key="ru" var="ru"/>
     <fmt:message key="en" var="en"/>
     <fmt:message key="save" var="save"/>
@@ -32,23 +33,31 @@
             ${title}
         </div>
         <form id="settings_form" action="/save_settings" method="post" enctype="multipart/form-data">
-            <span>${language}</span>
-            <c:choose>
-                <c:when test="${userBean.lang eq 'ru'}">
-                    <select name="language">
-                        <option value="ru" selected>${ru}</option>
-                        <option value="en">${en}</option>
-                    </select>
-                </c:when>
-                <c:otherwise>
-                    <select name="language">
-                        <option value="ru">${ru}</option>
-                        <option value="en" selected> ${en}</option>
-                    </select>
-                </c:otherwise>
-            </c:choose>
-            <br>
-            <input name="data" type="file" accept="image/*"><br>
+            <div id="settings_page_parameters_wrapper">
+                <div class="settings_column">
+                    <span>${language}</span>
+                    <br>
+                    <span>${avatar}</span>
+                </div>
+                <div class="settings_column">
+                    <c:choose>
+                        <c:when test="${userBean.lang eq 'ru'}">
+                            <select name="language">
+                                <option value="ru" selected>${ru}</option>
+                                <option value="en">${en}</option>
+                            </select>
+                        </c:when>
+                        <c:otherwise>
+                            <select name="language">
+                                <option value="ru">${ru}</option>
+                                <option value="en" selected> ${en}</option>
+                            </select>
+                        </c:otherwise>
+                    </c:choose>
+                    <br>
+                    <input name="data" type="file" accept="image/*"><br>
+                </div>
+            </div>
             <button id="settings_form_save_button">${save}</button>
             <c:if test="${not empty saved}">
                 <span>${saved_label}</span>

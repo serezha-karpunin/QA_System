@@ -1,15 +1,25 @@
 #settings_title_line{
-    padding: 5px;
+    padding: 5px 0;
     border-bottom: 1px solid #ddd;
     font-size: large;
 }
 
 #settings_form{
-    padding:5px;
+    /*padding:5px;*/
+}
+
+#settings_page_parameters_wrapper{
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+}
+
+.settings_column *{
+    display:inline-block;
+    margin: 5px 10px 0 0;
 }
 
 #settings_form_save_button{
-    margin-top:20px;
+    margin-top:10px;
     width: 220px;
     height: 30px;
     font-size: 14px;

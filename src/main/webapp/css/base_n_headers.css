@@ -206,6 +206,7 @@ button:hover {
 
 #auth_header_call_options_menu_button img {
     width: 30px;
+    height: 30px;
     border-radius: 3px;
     vertical-align: middle;
 }
