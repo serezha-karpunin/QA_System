@@ -26,6 +26,11 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
+        if (login == null || password == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
         String displayedLogin = (login.length() < 8) ? login : login.substring(0, 7) + "..";
 
         if (dao.isUserCorrect(login, password)) {

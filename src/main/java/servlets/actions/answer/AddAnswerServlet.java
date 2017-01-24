@@ -25,11 +25,19 @@ public class AddAnswerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        req.setCharacterEncoding("utf-8");
-        int question_id = (int) req.getServletContext().getAttribute("current_id");
-        String login = (String) req.getSession().getAttribute("userLogin");
+
+        Object question_id_obj = req.getServletContext().getAttribute("current_id");
+        Object login_obj = req.getSession().getAttribute("userLogin");
         String text = req.getParameter("text");
-        
+
+        if (question_id_obj == null || login_obj == null || text == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
+        int question_id = (int) question_id_obj;
+        String login = (String) login_obj;
+
         logger.info("User " + login + " added answer to question(id = " + question_id + ")");
 
         AnswersEntity ae = new AnswersEntity();

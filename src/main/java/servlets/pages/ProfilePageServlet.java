@@ -33,7 +33,7 @@ public class ProfilePageServlet extends HttpServlet {
         String visited_user_by_context = (String) req.getServletContext().getAttribute("visitedUser");
 
         if (visited_user_by_req == null && visited_user_by_context == null) {
-            resp.sendRedirect("/");
+            resp.sendRedirect("/jsp/public/error_page.jsp");
             return;
         }
 

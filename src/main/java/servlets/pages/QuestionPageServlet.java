@@ -21,7 +21,14 @@ public class QuestionPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int id = Integer.parseInt(req.getParameter("id"));
+        String question_id = req.getParameter("id");
+
+        if(question_id == null){
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
+        int id = Integer.parseInt(question_id);
         req.getServletContext().setAttribute("current_id", id);
 
         logger.info("QuestionPage: id = " + id);

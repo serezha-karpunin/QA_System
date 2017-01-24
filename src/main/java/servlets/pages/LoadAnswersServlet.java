@@ -24,7 +24,14 @@ public class LoadAnswersServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int id = (int) req.getServletContext().getAttribute("current_id");
+        Object current_id = req.getServletContext().getAttribute("current_id");
+
+        if (current_id == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
+        int id = (int) current_id;
 
         AnswersDao answersDao = new AnswersDao();
         List<AnswerListBean> answers = new ArrayList<>();

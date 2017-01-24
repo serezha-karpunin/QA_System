@@ -24,7 +24,7 @@ public class SettingsPageServlet extends HttpServlet {
         String login = (String) req.getSession().getAttribute("userLogin");
 
         if(login == null) {
-            resp.sendRedirect("/");
+            resp.sendRedirect("/jsp/public/error_page.jsp");
             return;
         }
 

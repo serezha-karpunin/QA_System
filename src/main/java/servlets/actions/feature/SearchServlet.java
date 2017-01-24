@@ -29,6 +29,11 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String searchString = req.getParameter("searchString");
 
+        if (searchString == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
         Set<QuestionsEntity> suitableQuestions = new HashSet<>();
 
         if(!"".equals(searchString)){

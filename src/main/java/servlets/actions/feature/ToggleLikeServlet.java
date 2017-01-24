@@ -22,9 +22,19 @@ public class ToggleLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = (String) req.getSession().getAttribute("userLogin");
-        int idAnswer =Integer.parseInt(req.getParameter("idAnswer"));
-        boolean addLike = Boolean.parseBoolean(req.getParameter("addLike"));
+
+        Object login_obj = req.getSession().getAttribute("userLogin");
+        String idAnswer_str = req.getParameter("idAnswer");
+        String addLike_str = req.getParameter("addLike");
+
+        if (login_obj == null || idAnswer_str == null || addLike_str == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
+        String login = (String) login_obj;
+        int idAnswer =Integer.parseInt(idAnswer_str);
+        boolean addLike = Boolean.parseBoolean(addLike_str);
 
         LikesDao ld = new LikesDao();
         LikesEntity entity = new LikesEntity();

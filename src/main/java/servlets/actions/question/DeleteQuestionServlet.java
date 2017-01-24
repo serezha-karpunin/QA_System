@@ -27,11 +27,11 @@ public class DeleteQuestionServlet extends HttpServlet {
         int question_id = 0;
 
         Cookie[] cookies = req.getCookies();
-        if(cookies!=null) {
+        if (cookies != null) {
             for (Cookie c : cookies) {
-                if("id_question_to_delete".equals(c.getName())){
+                if ("id_question_to_delete".equals(c.getName())) {
                     question_id = Integer.parseInt(c.getValue());
-                    Cookie cookie = new Cookie(c.getName(),c.getValue());
+                    Cookie cookie = new Cookie(c.getName(), c.getValue());
                     cookie.setMaxAge(0);
                     resp.addCookie(cookie);
                     break;
@@ -39,11 +39,11 @@ public class DeleteQuestionServlet extends HttpServlet {
             }
         }
 
-        if(question_id!=0){
+        if (question_id != 0) {
             QuestionsDao questionDao = new QuestionsDao();
             AnswersDao answersDao = new AnswersDao();
 
-            for (AnswersEntity ae:answersDao.getAnswersByQuestionId(question_id)) {
+            for (AnswersEntity ae : answersDao.getAnswersByQuestionId(question_id)) {
                 answersDao.deleteById(ae.getIdAnswer());
             }
 
@@ -51,11 +51,13 @@ public class DeleteQuestionServlet extends HttpServlet {
 
             logger.info("Question(id = " + question_id + ") was removed");
             String referer = req.getHeader("referer");
-            if(referer.contains("question_page")){
+            if (referer.contains("question_page")) {
                 resp.sendRedirect("/");
-            }else{
+            } else {
                 resp.sendRedirect(referer.replaceAll("http://localhost:8080", ""));
             }
+        } else {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
         }
     }
 }

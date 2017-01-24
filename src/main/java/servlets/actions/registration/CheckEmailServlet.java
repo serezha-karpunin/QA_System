@@ -20,6 +20,12 @@ public class CheckEmailServlet extends HttpServlet {
     @Override
     protected void   doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
+
+        if (email == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
         UsersDao dao = new UsersDao();
         resp.getWriter().print(dao.isEmailExist(email));
     }

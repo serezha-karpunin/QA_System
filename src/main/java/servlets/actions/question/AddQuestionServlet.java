@@ -33,6 +33,11 @@ public class AddQuestionServlet extends HttpServlet {
         String text = req.getParameter("text");
         String tagsString = req.getParameter("tags");
 
+        if (login == null || title == null || text == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
 
         logger.info("User " + login + " added question. Title - " + title);
 

@@ -20,6 +20,12 @@ public class CheckLoginServlet extends HttpServlet {
     @Override
     protected void   doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
+
+        if (login == null) {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
+            return;
+        }
+
         UsersDao dao = new UsersDao();
         resp.getWriter().print(dao.isLoginExist(login));
     }

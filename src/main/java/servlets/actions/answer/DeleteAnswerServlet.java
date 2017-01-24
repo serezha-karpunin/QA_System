@@ -43,6 +43,8 @@ public class DeleteAnswerServlet extends HttpServlet {
             answersDao.deleteById(answer_id);
             logger.info("Answer(id = " + answer_id + ") was removed");
             resp.sendRedirect(req.getHeader("referer").replaceAll("http://localhost:8080", ""));
+        } else {
+            resp.sendRedirect("/jsp/public/error_page.jsp");
         }
     }
 }
