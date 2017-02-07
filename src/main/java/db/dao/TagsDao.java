@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TagsDao extends GenericDaoHibernateImpl<TagsEntity,Integer>{
@@ -24,7 +25,11 @@ public class TagsDao extends GenericDaoHibernateImpl<TagsEntity,Integer>{
         for (TagsEntity entity : list) {
             tags.add(entity.getTag());
         }
+        ArrayList<Integer> k = new ArrayList<>();
+        k.sort(Comparator.comparingInt(o -> o));
         return tags;
+
+
     }
 
 }

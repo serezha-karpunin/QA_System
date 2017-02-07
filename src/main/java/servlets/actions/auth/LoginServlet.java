@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
         if (dao.isUserCorrect(login, password)) {
             req.getSession().setAttribute("userLogin", login);
             req.getSession().setAttribute("displayedLogin", displayedLogin);
+            req.getSession().setAttribute("userImage", dao.getById(login).getImageLink());
 
             logger.info("User " + login + " log in ");
             Cookie c = new Cookie("language", "nothing");

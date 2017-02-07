@@ -68,7 +68,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "salt", nullable = false, length = 10)
+    @Column(name = "salt", nullable = false, length = 50)
     public String getSalt() {
         return salt;
     }

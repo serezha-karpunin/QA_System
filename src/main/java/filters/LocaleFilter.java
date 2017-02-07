@@ -40,9 +40,6 @@ public class LocaleFilter implements Filter {
             String login = (String) httpServletRequest.getSession().getAttribute("userLogin");
             if (login != null) {
                 UsersDao usersDao = new UsersDao();
-                if (httpServletRequest.getSession().getAttribute("userImage") == null) {
-                    httpServletRequest.getSession().setAttribute("userImage", usersDao.getById(login).getImageLink());
-                }
                 String lang = usersDao.getById(login).getLang();
                 Config.set(httpServletRequest.getSession(), Config.FMT_LOCALE, new Locale(lang));
                 Cookie c = new Cookie("language", lang);

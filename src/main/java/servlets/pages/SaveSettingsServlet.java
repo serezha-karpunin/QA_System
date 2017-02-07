@@ -59,7 +59,6 @@ public class SaveSettingsServlet extends HttpServlet {
             String fileName = extractFileName(part);
             fileName = new File(fileName).getName();
             part.write(savePath + File.separator + fileName);
-            System.out.println(savePath + File.separator + fileName);
             usersEntity.setImageLink(SAVE_DIR + File.separator + fileName);
             req.getSession().setAttribute("userImage", SAVE_DIR + File.separator + fileName);
             logger.info("User " + login + "change avatar to " + SAVE_DIR+File.separator+fileName);

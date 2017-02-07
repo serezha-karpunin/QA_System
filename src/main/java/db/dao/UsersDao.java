@@ -17,13 +17,6 @@ public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
     public UsersDao() {
         super(UsersEntity.class);
     }
-//    public void create(UsersEntity entity) {
-//        Session s = HibernateUtil.getSessionFactory().openSession();
-//        s.beginTransaction();
-//        s.save(entity);
-//        s.getTransaction().commit();
-//        s.close();
-//    }
 
     public boolean isLoginExist(String login) {
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -77,20 +70,4 @@ public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
             diff |= a[i] ^ b[i];
         return diff == 0;
     }
-
-    public static void main(String[] args) {
-        UsersDao usersDao = new UsersDao();
-        String a = "bbb";
-//        UsersEntity usersEntity = new UsersEntity();
-//        usersEntity.setLogin(a);
-//        usersEntity.setEmail(a + "@ya.ru");
-//        usersEntity.setPassword(a);
-//        usersEntity.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
-//        usersEntity.setLang(Locale.getDefault().toString());
-//        usersDao.save(usersEntity);
-        System.out.println(usersDao.getById(a).getEmail());
-        usersDao.deleteById(a);
-        System.out.println("HERE");
-    }
-
 }

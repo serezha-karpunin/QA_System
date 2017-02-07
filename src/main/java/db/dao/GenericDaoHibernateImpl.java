@@ -21,14 +21,12 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
         T el = s.get(type,id);
         s.close();
         return el;
-//        return (T) sessionFactory.getCurrentSession().get(type, id);
     }
 
     @Override
     public List<T> getAll() {
         Session s = HibernateUtil.getSessionFactory().openSession();
         List<T> list = s.createQuery("from " + type.getName() + "").list();
-
         s.close();
         return list;
     }
@@ -58,7 +56,6 @@ public abstract class GenericDaoHibernateImpl<T, PK extends Serializable> implem
         s.beginTransaction();
         T entity = s.load(type,id);
         s.delete(entity);
-//        s.delete(getById(id));
         s.getTransaction().commit();
         s.close();
     }
