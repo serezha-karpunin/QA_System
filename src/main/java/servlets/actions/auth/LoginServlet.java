@@ -31,10 +31,11 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        String displayedLogin = (login.length() < 8) ? login : login.substring(0, 7) + "..";
 
         if (dao.isUserCorrect(login, password)) {
+            if(login.contains("@")) login = dao.getLoginByEmail(login);
             req.getSession().setAttribute("userLogin", login);
+            String displayedLogin = (login.length() < 8) ? login : login.substring(0, 7) + "..";
             req.getSession().setAttribute("displayedLogin", displayedLogin);
             req.getSession().setAttribute("userImage", dao.getById(login).getImageLink());
 

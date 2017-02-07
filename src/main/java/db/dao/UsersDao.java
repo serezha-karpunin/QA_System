@@ -6,11 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
 
@@ -25,6 +21,15 @@ public class UsersDao extends GenericDaoHibernateImpl<UsersEntity, String> {
         boolean flag = query.list().size() != 0;
         s.close();
         return flag;
+    }
+
+    public String getLoginByEmail(String email){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery("FROM UsersEntity where email =:userEmail");
+        query.setParameter("userEmail", email);
+        UsersEntity entity = (UsersEntity) query.list().get(0);
+        s.close();
+        return entity.getLogin();
     }
 
     public boolean isEmailExist(String email) {
